@@ -70,8 +70,8 @@ public class Login {
             isHost = (cliente instanceof Host);
 
             if (cliente.getCorreo().equals(correo.toLowerCase()) && cliente.getClave().equals(clave)) {
-                App.sesion.nuevaSesion(cliente);
-                System.out.println("Sesión iniciada por " + App.sesion.user);
+                Aplicacion.sesion.nuevaSesion(cliente);
+                System.out.println("Sesión iniciada por " + Aplicacion.sesion.user);
                 return isHost ? 3 : 2;
             }
         }
