@@ -1,12 +1,12 @@
-package Logica;
+package Programa;
 
-import UI_UX.App;
+import Visual.Aplicacion;
 
 /**
  * La clase Sesion maneja la gestión de la sesión del usuario en la aplicación JavaBNB.
  * Permite iniciar y cerrar sesión, actualizar información del usuario y registrar nuevos clientes.
  */
-public class Sesion {
+public class Login {
 
     public static Cliente user;
     public static boolean esAnfitrion;
@@ -19,7 +19,7 @@ public class Sesion {
     public static void nuevaSesion(Cliente cliente) {
         if (cliente != null) {
             user = cliente;
-            esAnfitrion = user instanceof Anfitrion;
+            esAnfitrion = user instanceof Host;
         } else {
             user = null;
             esAnfitrion = false;
@@ -41,10 +41,10 @@ public class Sesion {
      * @param data el nuevo nombre
      */
     public static void updatenombre(String data) {
-        if (!Validacion.validarNombre(data)) {
+        if (!Validate.validarNombre(data)) {
             return;
         }
-        for (Cliente cliente : JavaBNB.getClientes()) {
+        for (Cliente cliente : MainBNB.getClientes()) {
             if (cliente.getDni().equals(user.getDni())) {
                 cliente.setNombre(data);
                 return;
@@ -65,9 +65,9 @@ public class Sesion {
             System.out.println("Sesión iniciada como administrador");
             return 1;
         }
-        for (Cliente cliente : JavaBNB.getClientes()) {
+        for (Cliente cliente : MainBNB.getClientes()) {
             System.out.println("Revisando cliente: " + cliente);
-            isHost = (cliente instanceof Anfitrion);
+            isHost = (cliente instanceof Host);
 
             if (cliente.getCorreo().equals(correo.toLowerCase()) && cliente.getClave().equals(clave)) {
                 App.sesion.nuevaSesion(cliente);
@@ -92,10 +92,10 @@ public class Sesion {
      * @param cliente el nuevo cliente a registrar
      */
     public static void registrarCliente(Cliente cliente) {
-        if (Validacion.comprobarExistenciaCliente(cliente.getCorreo(), cliente.getDni(), cliente.getTelefono())) {
+        if (Validate.comprobarExistenciaCliente(cliente.getCorreo(), cliente.getDni(), cliente.getTelefono())) {
             return;
         }
-        JavaBNB.getClientes().add(cliente);
+        MainBNB.getClientes().add(cliente);
         App.sesion.nuevaSesion(cliente);
         System.out.println(cliente.toString());
     }

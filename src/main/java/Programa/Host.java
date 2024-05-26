@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.time.LocalDate;
 
@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * plataforma JavaBNB. Un anfitrión puede registrar inmuebles y recibir una calificación
  * que le permite convertirse en super anfitrión.
  */
-public class Anfitrion extends Cliente {
+public class Host extends Cliente {
 
     private LocalDate fechaRegistro;
     private boolean superAnfitrion;
@@ -21,7 +21,7 @@ public class Anfitrion extends Cliente {
      * @param clave    la clave de acceso del anfitrión
      * @param telefono el número de teléfono del anfitrión
      */
-    public Anfitrion(String dni, String nombre, String correo, String clave, String telefono) {
+    public Host(String dni, String nombre, String correo, String clave, String telefono) {
         super(dni, nombre, correo, clave, telefono);
         this.fechaRegistro = LocalDate.now();
         this.superAnfitrion = false;
@@ -43,7 +43,7 @@ public class Anfitrion extends Cliente {
     public void setSuperAnfitrion() {
         int calificacion = 0;
         int cantidad = 0;
-        for (Inmueble i : JavaBNB.getInmuebles()) {
+        for (Inmueble i : MainBNB.getInmuebles()) {
             if (i.getAnfitrion().getDni().equals(this.getDni())) {
                 calificacion += i.getCalificacion();
                 cantidad++;
@@ -59,8 +59,8 @@ public class Anfitrion extends Cliente {
      * @param inmueble el inmueble a añadir
      */
     public void añadirInmueble(Inmueble inmueble) {
-        JavaBNB.añadirInmueble(inmueble);
-        JavaBNB.guardarDatos();
+        MainBNB.añadirInmueble(inmueble);
+        MainBNB.guardarDatos();
     }
 
     /**

@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.io.BufferedWriter;
 import java.io.File;

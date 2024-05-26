@@ -1,11 +1,11 @@
-package Logica;
+package Programa;
 
 import java.time.LocalDate;
 
 /**
  * La clase Validacion contiene métodos estáticos para validar diferentes tipos de datos.
  */
-public class Validacion {
+public class Validate {
 
     /**
      * Valida que el nombre solo contenga letras y espacios en blanco.
@@ -179,8 +179,8 @@ public class Validacion {
      * @return true si el cliente ya existe, false en caso contrario
      */
     public static boolean comprobarExistenciaCliente(String correo, String dni, String telefono) {
-        if (!JavaBNB.getClientes().isEmpty()) {
-            for (Cliente cliente : JavaBNB.getClientes()) {
+        if (!MainBNB.getClientes().isEmpty()) {
+            for (Cliente cliente : MainBNB.getClientes()) {
                 if (cliente.getCorreo().equals(correo)) {
                     System.out.println("Este correo ya existe");
                     return true;

@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -7,7 +7,7 @@ import java.time.LocalDate;
  *
  * @author alber
  */
-public class Tarjeta implements Serializable {
+public class Credito implements Serializable {
 
     //Atributos
     private String titular;
@@ -20,7 +20,7 @@ public class Tarjeta implements Serializable {
     private double saldo;
 
     //Constructor
-    public Tarjeta(String titular, String numeroTarjeta, int dia, int mes, int anio, LocalDate fechaCaducidad, String cvv, double saldo) {
+    public Credito(String titular, String numeroTarjeta, int dia, int mes, int anio, LocalDate fechaCaducidad, String cvv, double saldo) {
         this.titular = titular;
         this.numeroTarjeta = numeroTarjeta;
         this.fechaCaducidad = fechaCaducidad;

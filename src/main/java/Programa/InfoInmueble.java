@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
  * La clase DatosInmueble representa los datos básicos de un inmueble, incluyendo
  * la cantidad de huéspedes que puede alojar, el número de habitaciones, camas y baños.
  */
-public class DatosInmueble implements Serializable {
+public class InfoInmueble implements Serializable {
     
     private int maxHuespedes;
     private int habitaciones;
@@ -21,7 +21,7 @@ public class DatosInmueble implements Serializable {
      * @param camas el número de camas en el inmueble
      * @param baños el número de baños en el inmueble
      */
-    public DatosInmueble(int maxHuespedes, int habitaciones, int camas, int baños) {
+    public InfoInmueble(int maxHuespedes, int habitaciones, int camas, int baños) {
         this.maxHuespedes = maxHuespedes;
         this.habitaciones = habitaciones;
         this.camas = camas;

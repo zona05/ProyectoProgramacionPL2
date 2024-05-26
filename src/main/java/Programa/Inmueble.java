@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ public class Inmueble implements Serializable {
 
     private String titulo;
     private Direccion direccion;
-    private DatosInmueble datosInmueble;
+    private InfoInmueble datosInmueble;
     private String tipo; // Casa o apartamento
     private double precioNoche;
     private String servicios;
@@ -23,7 +23,7 @@ public class Inmueble implements Serializable {
     private String descripcion;
     private int valoraciones;
     private ArrayList<Reserva> reservas; // ArrayList para almacenar las reservas asociadas al inmueble
-    private Anfitrion anfitrion;
+    private Host anfitrion;
     private static final long serialVersionUID = 6795168503584728871L;
 
     /**
@@ -63,7 +63,7 @@ public class Inmueble implements Serializable {
     public void agregarReserva(Reserva reserva) {
         if (!reservas.contains(reserva)) {
             reservas.add(reserva);
-            JavaBNB.guardarDatos();
+            MainBNB.guardarDatos();
         }
     }
 
@@ -74,7 +74,7 @@ public class Inmueble implements Serializable {
      */
     public void eliminarReserva(Reserva reserva) {
         reservas.remove(reserva);
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -200,7 +200,7 @@ public class Inmueble implements Serializable {
      */
     public void setFotografia(String fotografia) {
         this.fotografia = fotografia;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -224,7 +224,7 @@ public class Inmueble implements Serializable {
         } else {
             this.calificacion = (this.calificacion * this.valoraciones + nota) / (this.valoraciones + 1);
             this.valoraciones++;
-            JavaBNB.guardarDatos();
+            MainBNB.guardarDatos();
         }
     }
 
@@ -244,7 +244,7 @@ public class Inmueble implements Serializable {
      */
     public void setServicios(String servicios) {
         this.servicios = servicios;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -263,7 +263,7 @@ public class Inmueble implements Serializable {
      */
     public void setPrecioNoche(double precioNoche) {
         this.precioNoche = precioNoche;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -282,7 +282,7 @@ public class Inmueble implements Serializable {
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -290,7 +290,7 @@ public class Inmueble implements Serializable {
      *
      * @return los datos del inmueble
      */
-    public DatosInmueble getDatosInmueble() {
+    public InfoInmueble getDatosInmueble() {
         return datosInmueble;
     }
 
@@ -299,9 +299,9 @@ public class Inmueble implements Serializable {
      *
      * @param datosInmueble los nuevos datos del inmueble
      */
-    public void setDatosInmueble(DatosInmueble datosInmueble) {
+    public void setDatosInmueble(InfoInmueble datosInmueble) {
         this.datosInmueble = datosInmueble;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -320,7 +320,7 @@ public class Inmueble implements Serializable {
      */
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -339,7 +339,7 @@ public class Inmueble implements Serializable {
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -358,7 +358,7 @@ public class Inmueble implements Serializable {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**
@@ -366,7 +366,7 @@ public class Inmueble implements Serializable {
      *
      * @return el anfitrión del inmueble
      */
-    public Anfitrion getAnfitrion() {
+    public Host getAnfitrion() {
         return anfitrion;
     }
 
@@ -375,9 +375,9 @@ public class Inmueble implements Serializable {
      *
      * @param anfitrion el nuevo anfitrión del inmueble
      */
-    public void setAnfitrion(Anfitrion anfitrion) {
+    public void setAnfitrion(Host anfitrion) {
         this.anfitrion = anfitrion;
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 
     /**

@@ -1,10 +1,10 @@
-package Logica;
+package Programa;
 
 import java.util.ArrayList;
 
 
 
-public class Administrador {   //antes:   public record Administrador(String correo, String clave) {
+public class Admin {   //antes:   public record Administrador(String correo, String clave) {
 
     /**
      * Métodos para consultar los usuarios.

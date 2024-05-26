@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 public class Particular extends Cliente implements Serializable {
 
-    private Tarjeta tarjetaCredito;
+    private Credito tarjetaCredito;
     private boolean vip;
 
     /**
@@ -22,7 +22,7 @@ public class Particular extends Cliente implements Serializable {
      * @param clave          la clave del cliente
      * @param telefono       el teléfono del cliente
      */
-    public Particular(Tarjeta tarjetaCredito, boolean vip, String dni, String nombre, String correo, String clave, String telefono) {
+    public Particular(Credito tarjetaCredito, boolean vip, String dni, String nombre, String correo, String clave, String telefono) {
         super(dni, nombre, correo, clave, telefono);
         this.tarjetaCredito = tarjetaCredito;
         this.vip = vip;
@@ -100,7 +100,7 @@ public class Particular extends Cliente implements Serializable {
      *
      * @return la tarjeta de crédito del cliente
      */
-    public Tarjeta getTarjetaCredito() {
+    public Credito getTarjetaCredito() {
         return tarjetaCredito;
     }
 
@@ -109,7 +109,7 @@ public class Particular extends Cliente implements Serializable {
      *
      * @param tarjetaCredito la nueva tarjeta de crédito del cliente
      */
-    public void setTarjetaCredito(Tarjeta tarjetaCredito) {
+    public void setTarjetaCredito(Credito tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
 

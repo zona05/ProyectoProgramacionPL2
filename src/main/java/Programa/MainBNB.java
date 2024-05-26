@@ -1,4 +1,4 @@
-package Logica;
+package Programa;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class JavaBNB implements Serializable {
+public class MainBNB implements Serializable {
 
     private static ArrayList<Inmueble> inmuebles;
     private static ArrayList<Cliente> clientes;
@@ -223,7 +223,7 @@ public class JavaBNB implements Serializable {
      * }
      */
     public static void eliminarAnfitrion(Cliente cliente) {
-        Anfitrion anfitrion = (Anfitrion) cliente;
+        Host anfitrion = (Host) cliente;
         for (Inmueble inmueble : inmuebles) {
             if (inmueble.getAnfitrion().equals(anfitrion)) {
                 inmueble.getReservas().clear();
