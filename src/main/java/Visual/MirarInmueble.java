@@ -59,9 +59,9 @@ public class MirarInmueble extends javax.swing.JPanel {
         bedsLabel.setText(Integer.toString(i.getDatosInmueble().getCamas()));
 
         directionTextArea.setText(i.getDireccion().toString());
-        servicesTextArea.setText("los servicios de este inmueble son " + i.getServicios());
-        markLabel.setText("Calificación: " + Double.toString(i.getCalificacion()));
-        numbermarksLabel.setText("Calificado por " + Integer.toString(i.getValoraciones()) + " personas");
+        servicesTextArea.setText("Este inmueble ofrece los siguientes servicios: " + i.getServicios());
+        markLabel.setText("Valoración: " + Double.toString(i.getCalificacion()));
+        numbermarksLabel.setText("Ha sido valorado por" + Integer.toString(i.getValoraciones()) + " clientes");
 
         fotoboton.setIcon(resizeIMG(i.getFotografia()));
         estrella1.setIcon(i.getCalificacion() >= 1 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
@@ -131,16 +131,12 @@ public class MirarInmueble extends javax.swing.JPanel {
         estrella5 = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
         barraarriba = new javax.swing.JPanel();
         returnButton = new javax.swing.JButton();
-        logoButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
         typeLabel = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
         servicesTextArea = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
         directionTextArea = new javax.swing.JTextArea();
         guestLabel = new javax.swing.JLabel();
         bathLabel = new javax.swing.JLabel();
@@ -157,20 +153,21 @@ public class MirarInmueble extends javax.swing.JPanel {
         endDateLabel = new javax.swing.JLabel();
         endDateFormattedField = new javax.swing.JFormattedTextField();
         startDateFormattedField = new javax.swing.JFormattedTextField();
-        daymonthyearLabel2 = new javax.swing.JLabel();
         daymonthyearLabel1 = new javax.swing.JLabel();
-        errorLabel1 = new javax.swing.JLabel();
         markLabel = new javax.swing.JLabel();
         gradeButton = new javax.swing.JButton();
         numbermarksLabel = new javax.swing.JLabel();
         hostLabel = new javax.swing.JLabel();
         superhostLabel = new javax.swing.JLabel();
+        errorLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 236, 217));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fotoboton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/casa1.jpg"))); // NOI18N
+        jPanel1.add(fotoboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 560, 330));
 
         starsPanel.setBackground(new java.awt.Color(255, 255, 255));
         starsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -227,136 +224,113 @@ public class MirarInmueble extends javax.swing.JPanel {
                     .addComponent(estrella3)
                     .addComponent(estrella4)
                     .addComponent(estrella5))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        titleLabel.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
-        titleLabel.setText("Titulo");
+        jPanel1.add(starsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, 40));
 
-        priceLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        priceLabel.setText("precio $/noche");
+        titleLabel.setFont(new java.awt.Font("Noto Sans SemiCondensed", 1, 36)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 153, 102));
+        titleLabel.setText("Titulo Inmueble");
+        jPanel1.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        priceLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
+        priceLabel.setText("precio €/noche");
+        jPanel1.add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
 
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setBackground(new java.awt.Color(255, 250, 248));
         descriptionTextArea.setColumns(20);
+        descriptionTextArea.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         descriptionTextArea.setRows(5);
-        descriptionTextArea.setText("Descripcion : Casa preciosa en Gandía");
+        descriptionTextArea.setText("Descripción del inmueble");
         descriptionTextArea.setAutoscrolls(false);
-        descriptionTextArea.setBorder(null);
-        descriptionTextArea.setCaretPosition(0);
+        descriptionTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         descriptionTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(descriptionTextArea);
+        jPanel1.add(descriptionTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 710, 50));
 
-        barraarriba.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        returnButton.setBackground(new java.awt.Color(255, 153, 153));
+        returnButton.setBackground(new java.awt.Color(255, 102, 102));
         returnButton.setText("Volver");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
             }
         });
-
-        logoButton.setBackground(new java.awt.Color(255, 153, 153));
-        logoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        logoButton.setBorderPainted(false);
-        logoButton.setContentAreaFilled(false);
-        logoButton.setDefaultCapable(false);
-        logoButton.setFocusPainted(false);
-        logoButton.setFocusable(false);
-        logoButton.setRequestFocusEnabled(false);
-        logoButton.setRolloverEnabled(false);
-        logoButton.setVerifyInputWhenFocusTarget(false);
-        logoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoButtonActionPerformed(evt);
-            }
-        });
+        barraarriba.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 110, 50));
 
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
-        logoLabel.setForeground(new java.awt.Color(255, 90, 95));
         logoLabel.setText("JavaBNB");
+        barraarriba.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        javax.swing.GroupLayout barraarribaLayout = new javax.swing.GroupLayout(barraarriba);
-        barraarriba.setLayout(barraarribaLayout);
-        barraarribaLayout.setHorizontalGroup(
-            barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraarribaLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(logoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(logoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(returnButton)
-                .addGap(64, 64, 64))
-        );
-        barraarribaLayout.setVerticalGroup(
-            barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraarribaLayout.createSequentialGroup()
-                .addGroup(barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(logoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraarribaLayout.createSequentialGroup()
-                                .addComponent(logoLabel)
-                                .addGap(21, 21, 21)))))
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 70));
 
-        typeLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        typeLabel.setText("tipo");
+        typeLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
+        typeLabel.setText("Tipo de Inmueble");
+        jPanel1.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
 
         servicesTextArea.setEditable(false);
         servicesTextArea.setBackground(new java.awt.Color(255, 250, 248));
         servicesTextArea.setColumns(20);
+        servicesTextArea.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         servicesTextArea.setRows(5);
-        servicesTextArea.setText("Los servicios de este inmueble son blablabla");
-        servicesTextArea.setBorder(null);
-        jScrollPane3.setViewportView(servicesTextArea);
+        servicesTextArea.setText("Este inmueble ofrece los siguientes servicios: XXX");
+        servicesTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(servicesTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 710, 50));
 
         directionTextArea.setEditable(false);
         directionTextArea.setBackground(new java.awt.Color(255, 250, 248));
         directionTextArea.setColumns(20);
+        directionTextArea.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         directionTextArea.setRows(5);
-        directionTextArea.setText("Calle Ponferrada,  nº1, Alcalá de henares. CP:28804");
-        directionTextArea.setBorder(null);
-        jScrollPane4.setViewportView(directionTextArea);
+        directionTextArea.setText("Calle del inmueble");
+        directionTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(directionTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 710, 50));
 
-        guestLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        guestLabel.setText("Nº máximo de huéspedes:");
+        guestLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
+        guestLabel.setText("Número de húespedes:");
+        jPanel1.add(guestLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 540, -1, -1));
 
-        bathLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        bathLabel.setText("Baños:");
+        bathLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
+        bathLabel.setText("Número de baños:");
+        jPanel1.add(bathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 590, -1, -1));
 
-        roomLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        roomLabel.setText("Habitaciones:");
+        roomLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
+        roomLabel.setText("Número de habitaciones:");
+        jPanel1.add(roomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 640, -1, -1));
 
-        bedLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        bedLabel.setText("Camas:");
+        bedLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
+        bedLabel.setText("Número de camas:");
+        jPanel1.add(bedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 690, -1, -1));
 
-        guestsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        guestsLabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         guestsLabel.setText("1");
+        jPanel1.add(guestsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 540, 29, 20));
 
-        roomsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        roomsLabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         roomsLabel.setText("1");
+        jPanel1.add(roomsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 640, 25, 20));
 
-        bathsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bathsLabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         bathsLabel.setText("1");
+        jPanel1.add(bathsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 590, 29, 20));
 
-        bedsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bedsLabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         bedsLabel.setText("1");
+        jPanel1.add(bedsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 690, 35, 20));
 
         panelreservas.setBackground(new java.awt.Color(255, 250, 248));
         panelreservas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         reservenowLabel.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        reservenowLabel.setText("Reserva ya");
+        reservenowLabel.setForeground(new java.awt.Color(255, 153, 102));
+        reservenowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reservenowLabel.setText("Reserva ahora");
 
+        reserveButton.setBackground(new java.awt.Color(255, 153, 102));
         reserveButton.setText("Reservar");
         reserveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,21 +339,19 @@ public class MirarInmueble extends javax.swing.JPanel {
         });
 
         startDateLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        startDateLabel.setText("Fecha de llegada");
+        startDateLabel.setForeground(new java.awt.Color(255, 102, 102));
+        startDateLabel.setText("Fecha de entrada:");
 
         endDateLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        endDateLabel.setText("Fecha de salida");
+        endDateLabel.setForeground(new java.awt.Color(255, 102, 102));
+        endDateLabel.setText("Fecha de salida:");
 
         endDateFormattedField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
         startDateFormattedField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
-        daymonthyearLabel2.setText("dd/MM/yyyy");
-
+        daymonthyearLabel1.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         daymonthyearLabel1.setText("dd/MM/yyyy");
-
-        errorLabel1.setForeground(new java.awt.Color(255, 102, 102));
-        errorLabel1.setText("El inmueble no está disponible para estas fechas");
 
         javax.swing.GroupLayout panelreservasLayout = new javax.swing.GroupLayout(panelreservas);
         panelreservas.setLayout(panelreservasLayout);
@@ -387,36 +359,26 @@ public class MirarInmueble extends javax.swing.JPanel {
             panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelreservasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(reservenowLabel)
-                .addGap(116, 116, 116))
-            .addGroup(panelreservasLayout.createSequentialGroup()
                 .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelreservasLayout.createSequentialGroup()
+                        .addComponent(reservenowLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelreservasLayout.createSequentialGroup()
+                        .addComponent(daymonthyearLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125))))
+            .addGroup(panelreservasLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(reserveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelreservasLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(reserveButton))
-                    .addGroup(panelreservasLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelreservasLayout.createSequentialGroup()
-                                .addComponent(daymonthyearLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(86, 86, 86)
-                                .addComponent(daymonthyearLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9))
-                            .addComponent(errorLabel1)))
-                    .addGroup(panelreservasLayout.createSequentialGroup()
-                        .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelreservasLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(startDateFormattedField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelreservasLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(startDateLabel)
-                                .addGap(67, 67, 67)))
+                        .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(startDateFormattedField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(startDateLabel))
+                        .addGap(66, 66, 66)
                         .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(endDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(endDateFormattedField))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         panelreservasLayout.setVerticalGroup(
             panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,170 +391,47 @@ public class MirarInmueble extends javax.swing.JPanel {
                     .addComponent(endDateLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(daymonthyearLabel2)
-                    .addComponent(daymonthyearLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelreservasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startDateFormattedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(endDateFormattedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(errorLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(daymonthyearLabel1)
+                .addGap(30, 30, 30)
                 .addComponent(reserveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(31, 31, 31))
         );
 
-        markLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        markLabel.setText("Calificación: 2.5");
+        jPanel1.add(panelreservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 330, -1));
 
-        gradeButton.setBackground(new java.awt.Color(255, 102, 102));
-        gradeButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        gradeButton.setForeground(new java.awt.Color(255, 255, 255));
-        gradeButton.setText("Calificar");
+        markLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
+        markLabel.setText("Valoración: 2.5");
+        jPanel1.add(markLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, -1, -1));
+
+        gradeButton.setBackground(new java.awt.Color(255, 153, 102));
+        gradeButton.setFont(new java.awt.Font("Noto Sans SemiBold", 1, 18)); // NOI18N
+        gradeButton.setText("Valorar");
         gradeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gradeButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(gradeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 450, 120, 40));
 
-        numbermarksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        numbermarksLabel.setText("Calificado por x personas");
+        numbermarksLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        numbermarksLabel.setText("Ha sido valorado por x clientes");
+        jPanel1.add(numbermarksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, -1, -1));
 
-        hostLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        hostLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         hostLabel.setText("Anfitrion:");
+        jPanel1.add(hostLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
 
+        superhostLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         superhostLabel.setText("Superanfitrión");
+        jPanel1.add(superhostLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, -1, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraarriba, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(markLabel)
-                            .addComponent(gradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(starsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numbermarksLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelreservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(fotoboton, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(199, 199, 199)
-                                .addComponent(priceLabel))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 17, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(217, 217, 217)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(titleLabel)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(typeLabel))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane3))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(bedLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(bedsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(guestLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(guestsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(bathLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(bathsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addComponent(roomLabel))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(roomsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(hostLabel))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(superhostLabel)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(guestLabel)
-                                    .addComponent(guestsLabel))
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bathLabel)
-                                    .addComponent(bathsLabel)))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(roomLabel)
-                                    .addComponent(roomsLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bedLabel)
-                                    .addComponent(bedsLabel)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fotoboton, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(titleLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(typeLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(priceLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelreservas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(starsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(markLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(numbermarksLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(gradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(hostLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(superhostLabel)))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        errorLabel1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        errorLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        errorLabel1.setText("No está disponible para las fechas establecidas");
+        jPanel1.add(errorLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, -1, -1));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -607,27 +446,23 @@ public class MirarInmueble extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void logoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoButtonActionPerformed
-
     private void reserveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveButtonActionPerformed
         errorLabel1.setVisible(false);
         LocalDate llegada = convertToLocalDate(startDateFormattedField.getValue());
         LocalDate salida = convertToLocalDate(endDateFormattedField.getValue());
 
         Reserva reserva = new Reserva((Particular) Inicio.user, i, llegada, salida);
-        System.out.println("El inmueble está disponible: " + i.estaDisponible(llegada, salida));
+        System.out.println("Este inmueble está disponible: " + i.estaDisponible(llegada, salida));
         System.out.println(((Particular) Inicio.user).getSaldo() > reserva.calcularPrecioTotal());
 
         if (((Particular) Inicio.user).getSaldo() <= reserva.calcularPrecioTotal()) {
-            JOptionPane.showMessageDialog(this, "No tienes suficiente dinero para hacer esta reserva", "Dinero insuficiente", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Su dinero es insuficiente para completar esta reserva", "Dinero insuficiente", JOptionPane.WARNING_MESSAGE);
 
         }
 
         if ((i.estaDisponible(llegada, salida)) && (((Particular) Inicio.user).getSaldo() > reserva.calcularPrecioTotal())) {
 
-            String textoconfirmacion = "¿Quieres confirmar la reserva de este inmueble del " + llegada + " al " + salida + " por un coste total de " + reserva.calcularPrecioTotal() + " euros?";
+            String textoconfirmacion = "¿Desea confirmar la reserva de este inmueble del " + llegada + " al " + salida + " por un coste de " + reserva.calcularPrecioTotal() + " euros?";
             int n = JOptionPane.showConfirmDialog(this, textoconfirmacion, "ConfirmDialog", JOptionPane.YES_NO_CANCEL_OPTION);
             if (n == JOptionPane.YES_OPTION) {
                 System.out.println("SI. Haciendo reserva ");
@@ -675,7 +510,7 @@ public class MirarInmueble extends javax.swing.JPanel {
         if (reservaHecha) {
             try {
                 do {
-                    String notaIntroducida = JOptionPane.showInputDialog(this, "Introduzca la calificación (entre 0 y 5):");
+                    String notaIntroducida = JOptionPane.showInputDialog(this, "Ingrese una valoración (entre 0 y 5):");
                     nota = Double.parseDouble(notaIntroducida);
                 } while (nota < 0 || nota > 5);
 
@@ -688,8 +523,8 @@ public class MirarInmueble extends javax.swing.JPanel {
 
                 actualizar();
 
-                System.out.println("calificacion=" + nota);
-                System.out.println("nota del inmueble= " + i.getCalificacion());
+                System.out.println("Valoración=" + nota);
+                System.out.println("Valoración del inmueble= " + i.getCalificacion());
             } catch (NumberFormatException nfe) {
                 System.out.println("Error del formato: " + nfe.getMessage());
             } catch (Exception e) {
@@ -697,7 +532,7 @@ public class MirarInmueble extends javax.swing.JPanel {
 
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Solo los usuarios que han realizado al menos una reserva en este inmueble pueden calificarlo.");
+            JOptionPane.showMessageDialog(this, "Únicamente los usuarios que hayan realizado una reserva en este inmueble tienen permitido calificarlo.");
         }
 
     }//GEN-LAST:event_gradeButtonActionPerformed
@@ -710,7 +545,6 @@ public class MirarInmueble extends javax.swing.JPanel {
     private javax.swing.JLabel bedLabel;
     private javax.swing.JLabel bedsLabel;
     private javax.swing.JLabel daymonthyearLabel1;
-    private javax.swing.JLabel daymonthyearLabel2;
     private javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JTextArea directionTextArea;
     private javax.swing.JFormattedTextField endDateFormattedField;
@@ -727,10 +561,6 @@ public class MirarInmueble extends javax.swing.JPanel {
     private javax.swing.JLabel guestsLabel;
     private javax.swing.JLabel hostLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JButton logoButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel markLabel;
     private javax.swing.JLabel numbermarksLabel;

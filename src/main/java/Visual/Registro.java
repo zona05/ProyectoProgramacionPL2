@@ -73,10 +73,7 @@ public class Registro extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        createaccLabel = new javax.swing.JLabel();
         subtitleLabel = new javax.swing.JLabel();
-        photoLabel = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         promocodeTextField = new javax.swing.JTextField();
         promocodeLabel = new javax.swing.JLabel();
         tlfLabel = new javax.swing.JLabel();
@@ -108,49 +105,40 @@ public class Registro extends javax.swing.JPanel {
         yearLabel = new javax.swing.JLabel();
         cvvLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
-        statementLabel2 = new javax.swing.JLabel();
         monthTextField = new javax.swing.JTextField();
         statementLabel = new javax.swing.JLabel();
         userExiste = new javax.swing.JLabel();
         userLabel1 = new javax.swing.JLabel();
         userTextField1 = new javax.swing.JTextField();
         errorLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        createaccLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 236, 217));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        createaccLabel.setBackground(new java.awt.Color(255, 90, 95));
-        createaccLabel.setFont(new java.awt.Font("Serif", 0, 48)); // NOI18N
-        createaccLabel.setForeground(new java.awt.Color(255, 90, 95));
-        createaccLabel.setText("Cree su cuenta en JavaBNB");
-        jPanel1.add(createaccLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 16, -1, -1));
+        subtitleLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
+        subtitleLabel.setForeground(new java.awt.Color(255, 102, 102));
+        subtitleLabel.setText("Registrese como Particular o Anfitrión ->");
+        jPanel1.add(subtitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 41));
 
-        subtitleLabel.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        subtitleLabel.setForeground(new java.awt.Color(255, 90, 95));
-        subtitleLabel.setText("Anfitrión o cliente: ¡elija su función!");
-        jPanel1.add(subtitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 83, -1, 41));
-
-        photoLabel.setBackground(new java.awt.Color(255, 90, 95));
-        photoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        photoLabel.setBorderPainted(false);
-        photoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        photoLabel.setDefaultCapable(false);
-        photoLabel.setFocusPainted(false);
-        photoLabel.setFocusable(false);
-        photoLabel.setRequestFocusEnabled(false);
-        photoLabel.setRolloverEnabled(false);
-        photoLabel.setVerifyInputWhenFocusTarget(false);
-        jPanel1.add(photoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 144, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("REGISTRO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 273, -1, -1));
-
+        promocodeTextField.setBackground(new java.awt.Color(255, 236, 217));
+        promocodeTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         promocodeTextField.setToolTipText("");
-        promocodeTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        promocodeTextField.setBorder(null);
         promocodeTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         promocodeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -162,29 +150,29 @@ public class Registro extends javax.swing.JPanel {
                 promocodeTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(promocodeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 1036, 418, 27));
+        jPanel1.add(promocodeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 418, 27));
 
-        promocodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        promocodeLabel.setForeground(new java.awt.Color(102, 102, 102));
-        promocodeLabel.setText("Código promocional *");
-        jPanel1.add(promocodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 1004, -1, 22));
+        promocodeLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        promocodeLabel.setText("CÓDIGO PROMOCIONAL*");
+        jPanel1.add(promocodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, 22));
 
-        tlfLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tlfLabel.setForeground(new java.awt.Color(102, 102, 102));
-        tlfLabel.setText("Teléfono *");
-        jPanel1.add(tlfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 462, -1, -1));
+        tlfLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        tlfLabel.setText("TELÉFONO*");
+        jPanel1.add(tlfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        passwordTextField.setBackground(new java.awt.Color(255, 236, 217));
+        passwordTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        passwordTextField.setBorder(null);
         passwordTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         passwordTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passwordTextFieldMousePressed(evt);
             }
         });
-        jPanel1.add(passwordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 768, 418, 27));
+        jPanel1.add(passwordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 418, 27));
 
-        registerButton.setBackground(new java.awt.Color(255, 90, 95));
-        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setBackground(new java.awt.Color(255, 153, 102));
+        registerButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         registerButton.setText("Registrarse");
         registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -192,9 +180,10 @@ public class Registro extends javax.swing.JPanel {
                 registerButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 1177, 122, 44));
+        jPanel1.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 190, 44));
 
-        selectComboBox.setBackground(new java.awt.Color(255, 90, 95));
+        selectComboBox.setBackground(new java.awt.Color(255, 102, 102));
+        selectComboBox.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         selectComboBox.setForeground(new java.awt.Color(255, 255, 255));
         selectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione entre:", "Anfitrion", "Particular" }));
         selectComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -202,31 +191,32 @@ public class Registro extends javax.swing.JPanel {
                 selectComboBoxActionPerformed(evt);
             }
         });
-        jPanel1.add(selectComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 317, -1, -1));
+        jPanel1.add(selectComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
 
-        existaccLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        existaccLabel.setForeground(new java.awt.Color(255, 90, 95));
-        existaccLabel.setText("¿Ya tiene una cuenta?");
+        existaccLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        existaccLabel.setForeground(new java.awt.Color(255, 102, 102));
+        existaccLabel.setText("¿Ya tienes cuenta? Inicia sesión");
         existaccLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         existaccLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 existaccLabelMouseClicked(evt);
             }
         });
-        jPanel1.add(existaccLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 1239, -1, -1));
+        jPanel1.add(existaccLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, -1, -1));
 
-        noselectLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        noselectLabel.setForeground(new java.awt.Color(255, 0, 0));
+        noselectLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        noselectLabel.setForeground(new java.awt.Color(255, 102, 102));
         noselectLabel.setText("Alguno de los datos no es válido. Rellene todos los campos correctamente");
-        jPanel1.add(noselectLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 1125, -1, -1));
+        jPanel1.add(noselectLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, -1, -1));
 
-        DNILabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        DNILabel.setForeground(new java.awt.Color(102, 102, 102));
-        DNILabel.setText("DNI *");
-        jPanel1.add(DNILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 554, -1, -1));
+        DNILabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        DNILabel.setText("DNI*");
+        jPanel1.add(DNILabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
+        DNITextField.setBackground(new java.awt.Color(255, 236, 217));
+        DNITextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         DNITextField.setToolTipText("");
-        DNITextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DNITextField.setBorder(null);
         DNITextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         DNITextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -238,10 +228,12 @@ public class Registro extends javax.swing.JPanel {
                 DNITextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(DNITextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 584, 418, 27));
+        jPanel1.add(DNITextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 418, 27));
 
+        emailTextField.setBackground(new java.awt.Color(255, 236, 217));
+        emailTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         emailTextField.setToolTipText("");
-        emailTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        emailTextField.setBorder(null);
         emailTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         emailTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -253,10 +245,12 @@ public class Registro extends javax.swing.JPanel {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 676, 418, 27));
+        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 418, 27));
 
+        tlfTextField.setBackground(new java.awt.Color(255, 236, 217));
+        tlfTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         tlfTextField.setToolTipText("");
-        tlfTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tlfTextField.setBorder(null);
         tlfTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         tlfTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -268,23 +262,21 @@ public class Registro extends javax.swing.JPanel {
                 tlfTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(tlfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 492, 418, 27));
+        jPanel1.add(tlfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 418, 27));
 
-        dayLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dayLabel.setForeground(new java.awt.Color(102, 102, 102));
-        dayLabel.setText("Día:");
-        jPanel1.add(dayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 931, -1, -1));
+        dayLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        dayLabel.setText("DÍA:");
+        jPanel1.add(dayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
 
-        passLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        passLabel.setForeground(new java.awt.Color(102, 102, 102));
-        passLabel.setText("Contraseña *");
-        jPanel1.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 738, -1, -1));
+        passLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        passLabel.setText("CONTRASEÑA*");
+        jPanel1.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
 
-        CCLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        CCLabel.setForeground(new java.awt.Color(102, 102, 102));
-        CCLabel.setText("Tarjeta de crédito *");
-        jPanel1.add(CCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 857, -1, -1));
+        CCLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        CCLabel.setText("TARJETA DE CRÉDITO*");
+        jPanel1.add(CCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
+        errorLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel.setText("Seleccione algo, por favor");
         errorLabel.setEnabled(false);
         errorLabel.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -292,8 +284,9 @@ public class Registro extends javax.swing.JPanel {
                 errorLabelPropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 352, -1, -1));
+        jPanel1.add(errorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, 20));
 
+        errorLabel1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel1.setText("Esta tarjeta no existe");
         errorLabel1.setEnabled(false);
         errorLabel1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -301,8 +294,9 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel1PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 988, -1, -1));
+        jPanel1.add(errorLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, -1, -1));
 
+        errorLabel3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel3.setText("Contraseña poco segura");
         errorLabel3.setEnabled(false);
         errorLabel3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -310,8 +304,9 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel3PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 803, -1, -1));
+        jPanel1.add(errorLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, -1, -1));
 
+        errorLabel8.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel8.setText("Este código promocional no existe");
         errorLabel8.setEnabled(false);
         errorLabel8.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -319,8 +314,9 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel8PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 1071, -1, -1));
+        jPanel1.add(errorLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, -1, -1));
 
+        errorLabel5.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel5.setText("Formato no válido");
         errorLabel5.setEnabled(false);
         errorLabel5.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -328,8 +324,9 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel5PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 527, -1, -1));
+        jPanel1.add(errorLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
+        errorLabel6.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel6.setText("Formato no válido");
         errorLabel6.setEnabled(false);
         errorLabel6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -337,8 +334,9 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel6PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 711, -1, -1));
+        jPanel1.add(errorLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
 
+        errorLabel2.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel2.setText("Formato no válido");
         errorLabel2.setEnabled(false);
         errorLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -346,15 +344,17 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel2PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 619, -1, -1));
+        jPanel1.add(errorLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
 
-        requirementsLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        requirementsLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         requirementsLabel.setForeground(new java.awt.Color(102, 102, 102));
-        requirementsLabel.setText("Al menos una letra mayúscula, minúscula, dígitos y 8 caracteres de longitud");
-        jPanel1.add(requirementsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 830, -1, -1));
+        requirementsLabel.setText("Al menos una mayúscula, minúcula, números y de longitud 8");
+        jPanel1.add(requirementsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
+        dayTextField.setBackground(new java.awt.Color(255, 236, 217));
+        dayTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         dayTextField.setToolTipText("");
-        dayTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dayTextField.setBorder(null);
         dayTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         dayTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -366,10 +366,12 @@ public class Registro extends javax.swing.JPanel {
                 dayTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(dayTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 926, 91, 27));
+        jPanel1.add(dayTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 91, 27));
 
+        yearTextField.setBackground(new java.awt.Color(255, 236, 217));
+        yearTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         yearTextField.setToolTipText("");
-        yearTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        yearTextField.setBorder(null);
         yearTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         yearTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -381,11 +383,13 @@ public class Registro extends javax.swing.JPanel {
                 yearTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(yearTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 926, 91, 27));
+        jPanel1.add(yearTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, 91, 27));
 
+        cvvTextField.setBackground(new java.awt.Color(255, 236, 217));
+        cvvTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         cvvTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cvvTextField.setToolTipText("");
-        cvvTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cvvTextField.setBorder(null);
         cvvTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         cvvTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -397,10 +401,12 @@ public class Registro extends javax.swing.JPanel {
                 cvvTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(cvvTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(641, 926, 91, 27));
+        jPanel1.add(cvvTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 91, 27));
 
+        CCTextField.setBackground(new java.awt.Color(255, 236, 217));
+        CCTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         CCTextField.setToolTipText("");
-        CCTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CCTextField.setBorder(null);
         CCTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         CCTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -412,34 +418,30 @@ public class Registro extends javax.swing.JPanel {
                 CCTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(CCTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 887, 418, 27));
+        jPanel1.add(CCTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 418, 27));
 
-        monthLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        monthLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         monthLabel.setForeground(new java.awt.Color(102, 102, 102));
-        monthLabel.setText("Mes:");
-        jPanel1.add(monthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 931, -1, -1));
+        monthLabel.setText("MES:");
+        jPanel1.add(monthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, -1));
 
-        yearLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         yearLabel.setForeground(new java.awt.Color(102, 102, 102));
-        yearLabel.setText("Año:");
-        jPanel1.add(yearLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 931, -1, -1));
+        yearLabel.setText("AÑO:");
+        jPanel1.add(yearLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, -1, -1));
 
-        cvvLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cvvLabel.setForeground(new java.awt.Color(102, 102, 102));
+        cvvLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         cvvLabel.setText("CVV:");
-        jPanel1.add(cvvLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 931, -1, -1));
+        jPanel1.add(cvvLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
 
-        emailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        emailLabel.setForeground(new java.awt.Color(102, 102, 102));
-        emailLabel.setText("Correo *");
-        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 646, -1, -1));
+        emailLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        emailLabel.setText("CORREO ELECTRÓNICO*");
+        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        statementLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        statementLabel2.setText("Nota: se deben rellenar todos los campos obligatorios (marcados con *)");
-        jPanel1.add(statementLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 1098, -1, -1));
-
+        monthTextField.setBackground(new java.awt.Color(255, 236, 217));
+        monthTextField.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         monthTextField.setToolTipText("");
-        monthTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        monthTextField.setBorder(null);
         monthTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         monthTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -451,24 +453,26 @@ public class Registro extends javax.swing.JPanel {
                 monthTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(monthTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 926, 91, 27));
+        jPanel1.add(monthTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 91, 27));
 
+        statementLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         statementLabel.setForeground(new java.awt.Color(102, 102, 102));
         statementLabel.setText("Introduzca la fecha de caducidad y el CVV");
-        jPanel1.add(statementLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 966, -1, -1));
+        jPanel1.add(statementLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, -1, -1));
 
-        userExiste.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        userExiste.setForeground(new java.awt.Color(0, 153, 51));
-        userExiste.setText("Ya existe una cuenta asociada a este teléfono, DNI o correo. Por favor, inicie sesión.");
-        jPanel1.add(userExiste, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 1141, -1, -1));
+        userExiste.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        userExiste.setForeground(new java.awt.Color(0, 153, 0));
+        userExiste.setText("Ya existe una cuenta asociada a este correo. Por favor inicie sesión.");
+        jPanel1.add(userExiste, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, -1, -1));
 
-        userLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        userLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        userLabel1.setText("Nombre completo *");
-        jPanel1.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 368, -1, 22));
+        userLabel1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        userLabel1.setText("NOMBRE COMPLETO*");
+        jPanel1.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 22));
 
+        userTextField1.setBackground(new java.awt.Color(255, 236, 217));
+        userTextField1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         userTextField1.setToolTipText("");
-        userTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        userTextField1.setBorder(null);
         userTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         userTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -480,8 +484,9 @@ public class Registro extends javax.swing.JPanel {
                 userTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(userTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 400, 418, 27));
+        jPanel1.add(userTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 418, 27));
 
+        errorLabel4.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel4.setText("Formato no válido");
         errorLabel4.setEnabled(false);
         errorLabel4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -489,9 +494,53 @@ public class Registro extends javax.swing.JPanel {
                 errorLabel4PropertyChange(evt);
             }
         });
-        jPanel1.add(errorLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 435, -1, -1));
+        jPanel1.add(errorLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, -1, -1));
 
-        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 90, 20));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 420, 20));
+
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 420, 20));
+
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 420, 20));
+
+        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 420, 20));
+
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 420, 20));
+
+        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 420, 20));
+
+        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 420, 20));
+
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 90, 20));
+
+        jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 90, 20));
+
+        jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 380, 90, 20));
+
+        jPanel2.setBackground(new java.awt.Color(255, 153, 102));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        createaccLabel.setBackground(new java.awt.Color(255, 90, 95));
+        createaccLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 48)); // NOI18N
+        createaccLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createaccLabel.setText("REGISTRO");
+        jPanel2.add(createaccLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 80));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 80));
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void promocodeTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promocodeTextFieldMousePressed
@@ -817,21 +866,30 @@ public class Registro extends javax.swing.JPanel {
     private javax.swing.JLabel errorLabel6;
     private javax.swing.JLabel errorLabel8;
     private javax.swing.JLabel existaccLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel monthLabel;
     private javax.swing.JTextField monthTextField;
     private javax.swing.JLabel noselectLabel;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passwordTextField;
-    private javax.swing.JButton photoLabel;
     private javax.swing.JLabel promocodeLabel;
     private javax.swing.JTextField promocodeTextField;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel requirementsLabel;
     private javax.swing.JComboBox<String> selectComboBox;
     private javax.swing.JLabel statementLabel;
-    private javax.swing.JLabel statementLabel2;
     private javax.swing.JLabel subtitleLabel;
     private javax.swing.JLabel tlfLabel;
     private javax.swing.JTextField tlfTextField;

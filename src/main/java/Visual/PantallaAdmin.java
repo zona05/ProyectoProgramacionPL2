@@ -26,150 +26,86 @@ public class PantallaAdmin extends javax.swing.JPanel {
         barraarriba = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
-        logo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         checkBuildingsButton = new javax.swing.JButton();
         checkUsersButton = new javax.swing.JButton();
         checkBookingsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        photoLabel3 = new javax.swing.JLabel();
+        photoLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        barraarriba.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setBackground(new java.awt.Color(255, 153, 153));
+        jButton3.setBackground(new java.awt.Color(255, 102, 102));
+        jButton3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         jButton3.setText("Cerrar sesión");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        barraarriba.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 120, 50));
 
         titleLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(255, 90, 95));
         titleLabel.setText("JavaBNB");
+        barraarriba.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        logo.setBackground(new java.awt.Color(255, 153, 153));
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        logo.setBorderPainted(false);
-        logo.setContentAreaFilled(false);
-        logo.setDefaultCapable(false);
-        logo.setFocusPainted(false);
-        logo.setFocusable(false);
-        logo.setRequestFocusEnabled(false);
-        logo.setRolloverEnabled(false);
-        logo.setVerifyInputWhenFocusTarget(false);
-        logo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoActionPerformed(evt);
-            }
-        });
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1031, 91));
 
-        javax.swing.GroupLayout barraarribaLayout = new javax.swing.GroupLayout(barraarriba);
-        barraarriba.setLayout(barraarribaLayout);
-        barraarribaLayout.setHorizontalGroup(
-            barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraarribaLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(titleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
-        );
-        barraarribaLayout.setVerticalGroup(
-            barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraarribaLayout.createSequentialGroup()
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraarribaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(titleLabel))
-                .addGap(21, 21, 21))
-        );
+        jPanel2.setBackground(new java.awt.Color(255, 236, 217));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 250, 248));
-
-        checkBuildingsButton.setBackground(new java.awt.Color(255, 153, 153));
-        checkBuildingsButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        checkBuildingsButton.setText("Consultar inmuebles");
+        checkBuildingsButton.setBackground(new java.awt.Color(255, 153, 102));
+        checkBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
+        checkBuildingsButton.setText("INMUEBLES");
         checkBuildingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBuildingsButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(checkBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 289, 58));
 
-        checkUsersButton.setBackground(new java.awt.Color(255, 153, 153));
-        checkUsersButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        checkUsersButton.setText("Consultar usuarios");
+        checkUsersButton.setBackground(new java.awt.Color(255, 153, 102));
+        checkUsersButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
+        checkUsersButton.setText("USUARIOS");
         checkUsersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkUsersButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(checkUsersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 289, 58));
 
-        checkBookingsButton.setBackground(new java.awt.Color(255, 153, 153));
-        checkBookingsButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        checkBookingsButton.setText("Consultar reservas");
+        checkBookingsButton.setBackground(new java.awt.Color(255, 153, 102));
+        checkBookingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
+        checkBookingsButton.setText("RESERVAS");
         checkBookingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBookingsButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(checkBookingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 289, 58));
 
-        jLabel1.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        jLabel1.setText("¡Bienvenido de nuevo!");
+        jLabel1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("¿Qué desea consultar?");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 650, 69));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(411, 411, 411)
-                .addComponent(jLabel1))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(423, 423, 423)
-                .addComponent(checkUsersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(423, 423, 423)
-                .addComponent(checkBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(423, 423, 423)
-                .addComponent(checkBookingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(checkUsersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(checkBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(checkBookingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        photoLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        photoLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logo.png"))); // NOI18N
+        jPanel2.add(photoLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 360, 230));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraarriba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        photoLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/city.png"))); // NOI18N
+        jPanel2.add(photoLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 360, 530));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 1031, 570));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -177,10 +113,6 @@ public class PantallaAdmin extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla login");
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void logoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoActionPerformed
 
     private void checkBuildingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBuildingsButtonActionPerformed
         Aplicacion.loadAdminCheckBuildings();
@@ -204,7 +136,8 @@ public class PantallaAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton logo;
+    private javax.swing.JLabel photoLabel2;
+    private javax.swing.JLabel photoLabel3;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -138,46 +138,24 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         barraarriba = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
-        logo = new javax.swing.JButton();
         hostProfile = new javax.swing.JButton();
         addBuildingsButton = new javax.swing.JButton();
         myBuildingsButton = new javax.swing.JButton();
         misReservasButton = new javax.swing.JButton();
-        filtratubusqueda = new javax.swing.JScrollPane();
-        textteesperan1 = new javax.swing.JTextArea();
-        sientetecomoencasa = new javax.swing.JLabel();
         buscaalojamiento2 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        textteesperan6 = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        textbuscaaloj2 = new javax.swing.JTextArea();
-        destinopanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         cityTextField = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        endDateTextField = new javax.swing.JFormattedTextField();
         startDateTextField = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        endDateTextField = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
         searchButton = new javax.swing.JButton();
         showAllBuildingsButton = new javax.swing.JButton();
-        fotocasa = new javax.swing.JButton();
-        filtrospara = new javax.swing.JLabel();
-        mastiempopara = new javax.swing.JLabel();
-        disfrutade = new javax.swing.JScrollPane();
-        textteesperan2 = new javax.swing.JTextArea();
-        regalateun = new javax.swing.JScrollPane();
-        textteesperan3 = new javax.swing.JTextArea();
-        maspormenos = new javax.swing.JLabel();
-        masespacio = new javax.swing.JScrollPane();
-        textteesperan4 = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        textbuscaaloj2 = new javax.swing.JTextArea();
         barraabajo = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         buildingsContainer = new javax.swing.JPanel();
         filterComboBox = new javax.swing.JComboBox<>();
         applyButton = new javax.swing.JButton();
@@ -185,35 +163,24 @@ public class PantallaPrincipal extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 236, 217));
         jPanel1.setMaximumSize(new java.awt.Dimension(1817, 2551));
         jPanel1.setMinimumSize(new java.awt.Dimension(1817, 2551));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1500, 1000));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        barraarriba.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(255, 90, 95));
         titleLabel.setText("JavaBNB");
+        barraarriba.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
-        logo.setBackground(new java.awt.Color(255, 153, 153));
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        logo.setBorderPainted(false);
-        logo.setContentAreaFilled(false);
-        logo.setDefaultCapable(false);
-        logo.setFocusPainted(false);
-        logo.setFocusable(false);
-        logo.setRequestFocusEnabled(false);
-        logo.setRolloverEnabled(false);
-        logo.setVerifyInputWhenFocusTarget(false);
-        logo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoActionPerformed(evt);
-            }
-        });
-
-        hostProfile.setBackground(new java.awt.Color(153, 153, 153));
+        hostProfile.setBackground(new java.awt.Color(255, 204, 153));
+        hostProfile.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         hostProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).jpg"))); // NOI18N
+        hostProfile.setText("Mi Cuenta");
         hostProfile.setBorderPainted(false);
         hostProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hostProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -221,175 +188,63 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 hostProfileActionPerformed(evt);
             }
         });
+        barraarriba.add(hostProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1144, 10, 100, 50));
 
-        addBuildingsButton.setBackground(new java.awt.Color(255, 90, 95));
-        addBuildingsButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        addBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
+        addBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         addBuildingsButton.setText("Añadir inmueble");
         addBuildingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBuildingsButtonActionPerformed(evt);
             }
         });
+        barraarriba.add(addBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 130, 40));
 
-        myBuildingsButton.setBackground(new java.awt.Color(255, 90, 95));
-        myBuildingsButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        myBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
+        myBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         myBuildingsButton.setText("Mis inmuebles");
         myBuildingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 myBuildingsButtonActionPerformed(evt);
             }
         });
+        barraarriba.add(myBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 20, 120, 40));
 
-        misReservasButton.setBackground(new java.awt.Color(255, 90, 95));
-        misReservasButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        misReservasButton.setBackground(new java.awt.Color(255, 102, 102));
+        misReservasButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         misReservasButton.setText("Mis reservas");
         misReservasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 misReservasButtonActionPerformed(evt);
             }
         });
+        barraarriba.add(misReservasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 110, 40));
 
-        javax.swing.GroupLayout barraarribaLayout = new javax.swing.GroupLayout(barraarriba);
-        barraarriba.setLayout(barraarribaLayout);
-        barraarribaLayout.setHorizontalGroup(
-            barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraarribaLayout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(titleLabel)
-                .addGap(588, 588, 588)
-                .addComponent(misReservasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(addBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(myBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(hostProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        barraarribaLayout.setVerticalGroup(
-            barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraarribaLayout.createSequentialGroup()
-                .addGroup(barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(misReservasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(addBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(myBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(hostProfile))
-                    .addGroup(barraarribaLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(barraarribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraarribaLayout.createSequentialGroup()
-                                .addComponent(titleLabel)
-                                .addGap(21, 21, 21)))))
-                .addGap(5, 5, 5))
-        );
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 70));
 
-        filtratubusqueda.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        filtratubusqueda.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        buscaalojamiento2.setBackground(new java.awt.Color(214, 175, 136));
+        buscaalojamiento2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        buscaalojamiento2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textteesperan1.setEditable(false);
-        textteesperan1.setBackground(new java.awt.Color(255, 250, 248));
-        textteesperan1.setColumns(20);
-        textteesperan1.setForeground(new java.awt.Color(102, 102, 102));
-        textteesperan1.setRows(5);
-        textteesperan1.setText("Filtra tu búsqueda según el rango de precios,el \ntipo de alojamiento que buscas y otros servicios \nclave para encontrar el alojamiento que mejor \nse adapte a tus necesidades.");
-        textteesperan1.setAutoscrolls(false);
-        textteesperan1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        textteesperan1.setRequestFocusEnabled(false);
-        textteesperan1.setVerifyInputWhenFocusTarget(false);
-        filtratubusqueda.setViewportView(textteesperan1);
+        jLabel7.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Destino:");
+        buscaalojamiento2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 252, -1));
 
-        sientetecomoencasa.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        sientetecomoencasa.setText("Siéntete como en casa");
-
-        buscaalojamiento2.setBackground(new java.awt.Color(255, 250, 248));
-        buscaalojamiento2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-
-        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textteesperan6.setEditable(false);
-        textteesperan6.setBackground(new java.awt.Color(255, 250, 248));
-        textteesperan6.setColumns(20);
-        textteesperan6.setForeground(new java.awt.Color(102, 102, 102));
-        textteesperan6.setRows(5);
-        textteesperan6.setText("Te esperan alojamientos enteros y \nhabitaciones ideales para cualquier tipo de viaje.");
-        textteesperan6.setAutoscrolls(false);
-        textteesperan6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane6.setViewportView(textteesperan6);
-
-        jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textbuscaaloj2.setEditable(false);
-        textbuscaaloj2.setBackground(new java.awt.Color(255, 250, 248));
-        textbuscaaloj2.setColumns(20);
-        textbuscaaloj2.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        textbuscaaloj2.setRows(5);
-        textbuscaaloj2.setText("Busca alojamiento en \nJavaBNB");
-        textbuscaaloj2.setAutoscrolls(false);
-        textbuscaaloj2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane7.setViewportView(textbuscaaloj2);
-
-        destinopanel2.setBackground(new java.awt.Color(255, 250, 248));
-        destinopanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel7.setText("Ciudad de destino:");
-
+        cityTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         cityTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cityTextFieldActionPerformed(evt);
             }
         });
+        buscaalojamiento2.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 270, -1));
 
-        javax.swing.GroupLayout destinopanel2Layout = new javax.swing.GroupLayout(destinopanel2);
-        destinopanel2.setLayout(destinopanel2Layout);
-        destinopanel2Layout.setHorizontalGroup(
-            destinopanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(destinopanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(destinopanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        destinopanel2Layout.setVerticalGroup(
-            destinopanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(destinopanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(255, 250, 248));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jSeparator1.setForeground(new java.awt.Color(255, 153, 153));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
+        jLabel2.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         jLabel2.setText("Fecha de llegada");
-
-        jLabel3.setText("Fecha de salida");
-
-        endDateTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        endDateTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                endDateTextFieldActionPerformed(evt);
-            }
-        });
+        buscaalojamiento2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         startDateTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        startDateTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         startDateTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startDateTextFieldActionPerformed(evt);
@@ -400,72 +255,23 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 startDateTextFieldPropertyChange(evt);
             }
         });
+        buscaalojamiento2.add(startDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 108, -1));
 
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("dd/MM/yyyy");
+        endDateTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        endDateTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        endDateTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endDateTextFieldActionPerformed(evt);
+            }
+        });
+        buscaalojamiento2.add(endDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 108, -1));
 
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setText("dd/MM/yyyy");
+        jLabel3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        jLabel3.setText("Fecha de salida");
+        buscaalojamiento2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel2)
-                        .addGap(38, 38, 38))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(49, 49, 49))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(startDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)))))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(endDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel8))))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(endDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(startDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addComponent(jSeparator1)
-        );
-
-        searchButton.setBackground(new java.awt.Color(255, 153, 153));
-        searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setBackground(new java.awt.Color(255, 102, 102));
+        searchButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         searchButton.setText("Buscar");
         searchButton.setPreferredSize(new java.awt.Dimension(129, 36));
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -473,10 +279,10 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 searchButtonActionPerformed(evt);
             }
         });
+        buscaalojamiento2.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 143, -1));
 
-        showAllBuildingsButton.setBackground(new java.awt.Color(255, 153, 153));
-        showAllBuildingsButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        showAllBuildingsButton.setForeground(new java.awt.Color(255, 255, 255));
+        showAllBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
+        showAllBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         showAllBuildingsButton.setText("Mostrar todos los inmuebles");
         showAllBuildingsButton.setMaximumSize(new java.awt.Dimension(143, 58));
         showAllBuildingsButton.setMinimumSize(new java.awt.Dimension(143, 58));
@@ -486,253 +292,80 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 showAllBuildingsButtonActionPerformed(evt);
             }
         });
+        buscaalojamiento2.add(showAllBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 212, 40));
 
-        javax.swing.GroupLayout buscaalojamiento2Layout = new javax.swing.GroupLayout(buscaalojamiento2);
-        buscaalojamiento2.setLayout(buscaalojamiento2Layout);
-        buscaalojamiento2Layout.setHorizontalGroup(
-            buscaalojamiento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscaalojamiento2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(buscaalojamiento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6)
-                    .addComponent(destinopanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(1204, 1204, 1204))
-            .addGroup(buscaalojamiento2Layout.createSequentialGroup()
-                .addGroup(buscaalojamiento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buscaalojamiento2Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(buscaalojamiento2Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(showAllBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        buscaalojamiento2Layout.setVerticalGroup(
-            buscaalojamiento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buscaalojamiento2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(destinopanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(showAllBuildingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        jLabel6.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("dd/MM/yyyy");
+        buscaalojamiento2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
-        fotocasa.setBackground(new java.awt.Color(255, 250, 248));
-        fotocasa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/casa1.jpg"))); // NOI18N
-        fotocasa.setBorderPainted(false);
-        fotocasa.setDefaultCapable(false);
-        fotocasa.setFocusPainted(false);
-        fotocasa.setFocusable(false);
-        fotocasa.setRequestFocusEnabled(false);
-        fotocasa.setRolloverEnabled(false);
-        fotocasa.setVerifyInputWhenFocusTarget(false);
+        textbuscaaloj2.setEditable(false);
+        textbuscaaloj2.setBackground(new java.awt.Color(214, 175, 136));
+        textbuscaaloj2.setColumns(20);
+        textbuscaaloj2.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
+        textbuscaaloj2.setRows(5);
+        textbuscaaloj2.setText(" Busque el mejor inmueble\n      para sus vacaciones");
+        textbuscaaloj2.setAutoscrolls(false);
+        textbuscaaloj2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        buscaalojamiento2.add(textbuscaaloj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 330, 81));
 
-        filtrospara.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        filtrospara.setText("Filtros para una estancia a tu medida");
+        jPanel1.add(buscaalojamiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 354, 410));
 
-        mastiempopara.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        mastiempopara.setText("Más tiempo para disfrutar");
-
-        disfrutade.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        disfrutade.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textteesperan2.setEditable(false);
-        textteesperan2.setBackground(new java.awt.Color(255, 250, 248));
-        textteesperan2.setColumns(20);
-        textteesperan2.setForeground(new java.awt.Color(102, 102, 102));
-        textteesperan2.setRows(5);
-        textteesperan2.setText("Disfruta de cocinas totalmente \nequipadas, piscinas, grandes \njardines, terrazas y ¡mucho más!");
-        textteesperan2.setAutoscrolls(false);
-        textteesperan2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        disfrutade.setViewportView(textteesperan2);
-
-        regalateun.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        regalateun.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textteesperan3.setEditable(false);
-        textteesperan3.setBackground(new java.awt.Color(255, 250, 248));
-        textteesperan3.setColumns(20);
-        textteesperan3.setForeground(new java.awt.Color(102, 102, 102));
-        textteesperan3.setRows(5);
-        textteesperan3.setText("Regálate un viaje sin complicaciones: \ndesde que reservas hasta que \nllegas a tu destino.");
-        textteesperan3.setAutoscrolls(false);
-        textteesperan3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        regalateun.setViewportView(textteesperan3);
-
-        maspormenos.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        maspormenos.setText("Más por menos");
-
-        masespacio.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        masespacio.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textteesperan4.setEditable(false);
-        textteesperan4.setBackground(new java.awt.Color(255, 250, 248));
-        textteesperan4.setColumns(20);
-        textteesperan4.setForeground(new java.awt.Color(102, 102, 102));
-        textteesperan4.setRows(5);
-        textteesperan4.setText("Más espacio, más privacidad, \nmás servicios y ¡una mejor \nrelación calidad-precio!\n");
-        textteesperan4.setAutoscrolls(false);
-        textteesperan4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        masespacio.setViewportView(textteesperan4);
-
-        barraabajo.setBackground(new java.awt.Color(255, 250, 248));
+        barraabajo.setBackground(new java.awt.Color(255, 153, 102));
         barraabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        barraabajo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setText("© 2024 JavaBNB, Inc.");
+        jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        jLabel4.setText("© JavaBNB, 2024");
+        barraabajo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 20));
 
-        jLabel5.setText("Privacidad");
+        jLabel5.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        jLabel5.setText("Políticas de Privacidad");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
             }
         });
+        barraabajo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, 20));
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(barraabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 664, 1260, 40));
 
-        javax.swing.GroupLayout barraabajoLayout = new javax.swing.GroupLayout(barraabajo);
-        barraabajo.setLayout(barraabajoLayout);
-        barraabajoLayout.setHorizontalGroup(
-            barraabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraabajoLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel4)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel5)
-                .addGap(40, 40, 40)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        barraabajoLayout.setVerticalGroup(
-            barraabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraabajoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(barraabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        buildingsContainer.setBackground(new java.awt.Color(255, 250, 248));
+        buildingsContainer.setBackground(new java.awt.Color(255, 236, 217));
         buildingsContainer.setMinimumSize(new java.awt.Dimension(1242, 416));
         buildingsContainer.setPreferredSize(new java.awt.Dimension(1242, 426));
         buildingsContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        filterComboBox.setBackground(new java.awt.Color(255, 90, 95));
-        filterComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        filterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por:", "Precio mayor a menor", "Precio menor a mayor", "Casas", "Apartamentos", "Calificación de mayor a menor", "Calificación de menor a mayor" }));
+        filterComboBox.setBackground(new java.awt.Color(255, 153, 102));
+        filterComboBox.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        filterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por:", "Precio 🡡", "Precio 🡣", "Chalés", "Apartamentos", "Calificación 🡡", "Calificación 🡣" }));
         filterComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filterComboBoxActionPerformed(evt);
             }
         });
-        buildingsContainer.add(filterComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 10, 180, 40));
+        buildingsContainer.add(filterComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 180, 30));
 
-        applyButton.setBackground(new java.awt.Color(215, 90, 95));
-        applyButton.setForeground(new java.awt.Color(255, 255, 255));
+        applyButton.setBackground(new java.awt.Color(255, 153, 102));
+        applyButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         applyButton.setText("Aplicar");
         applyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 applyButtonActionPerformed(evt);
             }
         });
-        buildingsContainer.add(applyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 60, 100, 40));
+        buildingsContainer.add(applyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 40));
 
-        buildingsLabel.setFont(new java.awt.Font("Serif", 3, 48)); // NOI18N
-        buildingsLabel.setForeground(new java.awt.Color(255, 90, 95));
-        buildingsLabel.setText("Lista de inmuebles");
+        jPanel1.add(buildingsContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 780, 480));
+
+        buildingsLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 3, 48)); // NOI18N
+        buildingsLabel.setForeground(new java.awt.Color(255, 153, 102));
+        buildingsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buildingsLabel.setText("Inmuebles Disponibles");
         buildingsLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraarriba, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(filtratubusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(filtrospara))
-                            .addComponent(buscaalojamiento2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(125, 125, 125)
-                                .addComponent(fotocasa, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(buildingsLabel)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(disfrutade, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(sientetecomoencasa, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(161, 161, 161)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(regalateun, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(mastiempopara, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(125, 125, 125)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(masespacio, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(maspormenos, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 133, Short.MAX_VALUE))
-                    .addComponent(buildingsContainer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addComponent(barraabajo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buscaalojamiento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fotocasa, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(filtrospara)
-                    .addComponent(sientetecomoencasa)
-                    .addComponent(mastiempopara)
-                    .addComponent(maspormenos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(filtratubusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(disfrutade, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(regalateun, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(masespacio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(buildingsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buildingsContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 1515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(barraabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.add(buildingsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 590, -1));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoActionPerformed
 
     private void hostProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostProfileActionPerformed
         deleteBuildings();
@@ -764,10 +397,6 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         deleteBuildings();
         Aplicacion.loadGuestCheckReserves();
     }//GEN-LAST:event_misReservasButtonActionPerformed
-
-    private void cityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityTextFieldActionPerformed
 
     private void endDateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endDateTextFieldActionPerformed
         // TODO add your handling code here:
@@ -836,15 +465,6 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla privacypolicy");
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        deleteBuildings();
-        try {
-            Desktop.getDesktop().browse(new URI("https://www.instagram.com/javabnb/"));
-        } catch (IOException | URISyntaxException e1) {
-            e1.printStackTrace();
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void filterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterComboBoxActionPerformed
 
     }//GEN-LAST:event_filterComboBoxActionPerformed
@@ -895,6 +515,10 @@ public class PantallaPrincipal extends javax.swing.JPanel {
 
     }//GEN-LAST:event_applyButtonActionPerformed
 
+    private void cityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBuildingsButton;
@@ -905,44 +529,22 @@ public class PantallaPrincipal extends javax.swing.JPanel {
     private javax.swing.JLabel buildingsLabel;
     private javax.swing.JPanel buscaalojamiento2;
     private javax.swing.JTextField cityTextField;
-    private javax.swing.JPanel destinopanel2;
-    private javax.swing.JScrollPane disfrutade;
     private javax.swing.JFormattedTextField endDateTextField;
     private javax.swing.JComboBox<String> filterComboBox;
-    private javax.swing.JScrollPane filtratubusqueda;
-    private javax.swing.JLabel filtrospara;
-    private javax.swing.JButton fotocasa;
     private javax.swing.JButton hostProfile;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton logo;
-    private javax.swing.JScrollPane masespacio;
-    private javax.swing.JLabel maspormenos;
-    private javax.swing.JLabel mastiempopara;
     private javax.swing.JButton misReservasButton;
     private javax.swing.JButton myBuildingsButton;
-    private javax.swing.JScrollPane regalateun;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton showAllBuildingsButton;
-    private javax.swing.JLabel sientetecomoencasa;
     private javax.swing.JFormattedTextField startDateTextField;
     private javax.swing.JTextArea textbuscaaloj2;
-    private javax.swing.JTextArea textteesperan1;
-    private javax.swing.JTextArea textteesperan2;
-    private javax.swing.JTextArea textteesperan3;
-    private javax.swing.JTextArea textteesperan4;
-    private javax.swing.JTextArea textteesperan6;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

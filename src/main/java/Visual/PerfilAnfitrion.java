@@ -52,11 +52,9 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         uppermenu = new javax.swing.JPanel();
-        appname = new javax.swing.JLabel();
-        logo = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        appname1 = new javax.swing.JLabel();
         data = new javax.swing.JPanel();
         emailLabel = new javax.swing.JLabel();
         dniLabel = new javax.swing.JLabel();
@@ -69,33 +67,18 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         tlfTextField = new javax.swing.JTextField();
         errorLabel1 = new javax.swing.JLabel();
         requirementsLabel = new javax.swing.JLabel();
-        userpfp = new javax.swing.JButton();
-        username = new javax.swing.JLabel();
         hostlabel = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
+        photoLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel2.setBackground(new java.awt.Color(255, 236, 217));
         jPanel2.setMaximumSize(new java.awt.Dimension(1020, 828));
         jPanel2.setPreferredSize(new java.awt.Dimension(1020, 828));
 
-        uppermenu.setBackground(new java.awt.Color(255, 250, 248));
-        uppermenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        appname.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        appname.setForeground(new java.awt.Color(255, 90, 95));
-        appname.setText("JavaBNB");
-
-        logo.setBackground(new java.awt.Color(255, 153, 153));
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        logo.setBorderPainted(false);
-        logo.setContentAreaFilled(false);
-        logo.setDefaultCapable(false);
-        logo.setFocusPainted(false);
-        logo.setFocusable(false);
-        logo.setRequestFocusEnabled(false);
-        logo.setRolloverEnabled(false);
-        logo.setVerifyInputWhenFocusTarget(false);
+        uppermenu.setBackground(new java.awt.Color(255, 153, 102));
+        uppermenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signOutButton.setBackground(new java.awt.Color(255, 90, 95));
         signOutButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -109,6 +92,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                 signOutButtonActionPerformed(evt);
             }
         });
+        uppermenu.add(signOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 17, 109, 40));
 
         returnButton.setBackground(new java.awt.Color(255, 90, 95));
         returnButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -122,61 +106,39 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                 returnButtonActionPerformed(evt);
             }
         });
+        uppermenu.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(915, 17, 88, 39));
 
-        javax.swing.GroupLayout uppermenuLayout = new javax.swing.GroupLayout(uppermenu);
-        uppermenu.setLayout(uppermenuLayout);
-        uppermenuLayout.setHorizontalGroup(
-            uppermenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(uppermenuLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(appname)
-                .addGap(143, 143, 143)
-                .addComponent(signOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        uppermenuLayout.setVerticalGroup(
-            uppermenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uppermenuLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(uppermenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uppermenuLayout.createSequentialGroup()
-                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, uppermenuLayout.createSequentialGroup()
-                        .addGroup(uppermenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(appname)
-                            .addComponent(signOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25))))
-        );
-
-        jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        appname1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        appname1.setText("JavaBNB");
+        uppermenu.add(appname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 20, -1, -1));
 
         data.setBackground(new java.awt.Color(255, 250, 248));
         data.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         data.setMaximumSize(new java.awt.Dimension(306, 307));
         data.setPreferredSize(new java.awt.Dimension(306, 150));
+        data.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        emailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         emailLabel.setText("Correo electrónico:");
+        data.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        dniLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dniLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         dniLabel.setText("DNI:");
+        data.add(dniLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        tlfLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tlfLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         tlfLabel.setText("Teléfono:");
+        data.add(tlfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        passLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         passLabel.setText("Contraseña:");
+        data.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         passTextField.setText("contraseña1");
+        data.add(passTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 140, -1));
 
-        editUserButton.setBackground(new java.awt.Color(255, 90, 95));
-        editUserButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editUserButton.setBackground(new java.awt.Color(255, 153, 102));
+        editUserButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         editUserButton.setForeground(new java.awt.Color(255, 255, 255));
         editUserButton.setText("Editar datos");
         editUserButton.addActionListener(new java.awt.event.ActionListener() {
@@ -184,158 +146,80 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                 editUserButtonActionPerformed(evt);
             }
         });
+        data.add(editUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 112, 34));
 
         emailTextField.setEditable(false);
+        data.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 270, -1));
 
         dniTextField.setEditable(false);
+        data.add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 370, -1));
 
         tlfTextField.setEditable(false);
+        data.add(tlfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 340, -1));
 
         errorLabel1.setBackground(new java.awt.Color(255, 90, 95));
+        errorLabel1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         errorLabel1.setForeground(new java.awt.Color(255, 90, 95));
-        errorLabel1.setText("Alguno de los datos no cumple el formato requerido");
+        errorLabel1.setText("Alguno de los datos no es válido");
         errorLabel1.setEnabled(false);
         errorLabel1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 errorLabel1PropertyChange(evt);
             }
         });
+        data.add(errorLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
-        requirementsLabel.setFont(new java.awt.Font("Segoe UI", 2, 8)); // NOI18N
+        requirementsLabel.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
         requirementsLabel.setForeground(new java.awt.Color(102, 102, 102));
-        requirementsLabel.setText("Al menos una letra mayúscula, minúscula, dígitos y 8 caracteres de longitud");
-
-        javax.swing.GroupLayout dataLayout = new javax.swing.GroupLayout(data);
-        data.setLayout(dataLayout);
-        dataLayout.setHorizontalGroup(
-            dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dataLayout.createSequentialGroup()
-                .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dataLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dataLayout.createSequentialGroup()
-                                .addComponent(tlfLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(tlfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(dataLayout.createSequentialGroup()
-                                .addComponent(emailLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(dataLayout.createSequentialGroup()
-                                .addComponent(dniLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(dniTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(dataLayout.createSequentialGroup()
-                                .addComponent(passLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(passTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(dataLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(editUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dataLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(requirementsLabel)
-                            .addComponent(errorLabel1))))
-                .addContainerGap(115, Short.MAX_VALUE))
-        );
-        dataLayout.setVerticalGroup(
-            dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dataLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailLabel)
-                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dniLabel)
-                    .addComponent(dniTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tlfLabel)
-                    .addComponent(tlfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passLabel)
-                    .addComponent(passTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(requirementsLabel)
-                .addGap(28, 28, 28)
-                .addComponent(editUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(errorLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        userpfp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (2).jpg"))); // NOI18N
-        userpfp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userpfpActionPerformed(evt);
-            }
-        });
-
-        username.setFont(new java.awt.Font("Serif", 0, 30)); // NOI18N
-        username.setForeground(new java.awt.Color(255, 90, 95));
-        username.setText("PEPE RICO");
+        requirementsLabel.setText("Al menos una mayúscula, minúcula, números y de longitud 8");
+        data.add(requirementsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
 
         hostlabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         hostlabel.setForeground(new java.awt.Color(102, 102, 102));
+        hostlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hostlabel.setText("Anfitrión");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(userpfp, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(hostlabel))
-                            .addComponent(username))
-                        .addGap(121, 121, 121)))
-                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(userpfp, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(username))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hostlabel)
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
+        username.setFont(new java.awt.Font("Serif", 0, 30)); // NOI18N
+        username.setForeground(new java.awt.Color(255, 90, 95));
+        username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        username.setText("OOOOOOO");
+
+        photoLabel1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        photoLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        photoLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(uppermenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(uppermenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1054, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(98, 98, 98)
+                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(hostlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(photoLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(username)
+                        .addGap(18, 18, 18)
+                        .addComponent(hostlabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(photoLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101))))
         );
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -418,13 +302,9 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_errorLabel1PropertyChange
 
-    private void userpfpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userpfpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userpfpActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel appname;
+    private javax.swing.JLabel appname1;
     private javax.swing.JPanel data;
     private javax.swing.JLabel dniLabel;
     private javax.swing.JTextField dniTextField;
@@ -433,11 +313,10 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel errorLabel1;
     private javax.swing.JLabel hostlabel;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton logo;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passTextField;
+    private javax.swing.JLabel photoLabel1;
     private javax.swing.JLabel requirementsLabel;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton signOutButton;
@@ -445,6 +324,5 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
     private javax.swing.JTextField tlfTextField;
     private javax.swing.JPanel uppermenu;
     private javax.swing.JLabel username;
-    private javax.swing.JButton userpfp;
     // End of variables declaration//GEN-END:variables
 }
