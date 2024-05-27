@@ -4,30 +4,142 @@
  */
 package Visual;
 
+import Programa.Inmueble;
+import Programa.MainBNB;
+import Programa.Validate;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import javax.swing.JOptionPane;
+
 /**
- *
- * @author javie
+ * La clase AdminCheckBuildings permite al administrador revisar y gestionar los
+ * inmuebles registrados en la aplicación.
  */
-public class ComprobarInmuebleAdmin extends javax.swing.JPanel implements java.beans.Customizer {
-    
-    private Object bean;
+public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
+
+    private ArrayList<Inmueble> buildings; // Referencia al ArrayList de inmuebles de la clase JavaBNB
+    private ListIterator<Inmueble> li; // Iterador para recorrer el ArrayList en ambas direcciones
+    private Inmueble objInm; // Referencia a un objeto de tipo inmueble del ArrayList
 
     /**
-     * Creates new customizer ComprobarInmuebleAdmin
+     * Constructor de AdminCheckBuildings que inicializa los componentes y carga
+     * los inmuebles.
      */
     public ComprobarInmuebleAdmin() {
         initComponents();
+        errorNextLabel.setVisible(false);
+        errorPreviousLabel.setVisible(false);
+        titleTextPanel.setEditable(false);
+        descriptionTextPanel.setEditable(false);
+        serviceTextField.setEditable(false);
+        streetTextField.setEditable(false);
+        cityTextField.setEditable(false);
+        numberTextField.setEditable(false);
+        cpTextField.setEditable(false);
+        priceTextField.setEditable(false);
+        guestTextField.setEditable(false);
+        roomTextField.setEditable(false);
+        bedTextField.setEditable(false);
+        bathTextField.setEditable(false);
+        serviceTextField.setEditable(false);
+
+        consultarTodo();
     }
-    
-    public void setObject(Object bean) {
-        this.bean = bean;
+
+    /**
+     * Actualiza la vista y los datos de los inmuebles.
+     */
+    public void actualizar() {
+        errorNextLabel.setVisible(false);
+        errorPreviousLabel.setVisible(false);
+        consultarTodo();
+    }
+
+    /**
+     * Consulta y carga todos los inmuebles de JavaBNB en la lista local.
+     */
+    private void consultarTodo() {
+        try {
+            errorNextLabel.setVisible(false);
+            errorPreviousLabel.setVisible(false);
+
+            if (MainBNB.getInmuebles() != null) {
+                buildings = new ArrayList<>(MainBNB.getInmuebles()); // Copia de la lista para evitar problemas de concurrencia
+
+                li = buildings.listIterator();
+                if (buildings.isEmpty()) {
+                    nextButton.setEnabled(false);
+                    previousButton.setEnabled(false);
+                    deleteBuildingButton.setEnabled(false);
+                    limpiarCampos();
+                    return;
+                } else {
+                    nextButton.setEnabled(true);
+                    previousButton.setEnabled(true);
+                    deleteBuildingButton.setEnabled(true);
+                }
+
+                if (li.hasNext()) {
+                    objInm = li.next();
+                    presenta(objInm);
+                } else {
+                    errorNextLabel.setVisible(true);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+
+    /**
+     * Limpia los campos de texto en el panel de administración.
+     */
+    private void limpiarCampos() {
+        typeLabel.setText("");
+        titleTextPanel.setText("");
+        descriptionTextPanel.setText("");
+        streetTextField.setText("");
+        cityTextField.setText("");
+        numberTextField.setText("");
+        cpTextField.setText("");
+        priceTextField.setText("");
+        guestTextField.setText("");
+        roomTextField.setText("");
+        bedTextField.setText("");
+        bathTextField.setText("");
+        serviceTextField.setText("");
+        markTextField.setText("");
+    }
+
+    /**
+     * Presenta los detalles del inmueble en los campos de texto
+     * correspondientes.
+     *
+     * @param inmueble el inmueble cuyos detalles se van a mostrar
+     */
+    private void presenta(Inmueble inmueble) {
+        typeLabel.setText(inmueble.getTipo());
+        titleTextPanel.setText(inmueble.getTitulo());
+        descriptionTextPanel.setText(inmueble.getDescripcion());
+        streetTextField.setText(inmueble.getDireccion().getCalle());
+        cityTextField.setText(inmueble.getDireccion().getCiudad());
+        numberTextField.setText(inmueble.getDireccion().getNumero());
+        cpTextField.setText(inmueble.getDireccion().getCp());
+        priceTextField.setText(Double.toString(inmueble.getPrecioNoche()));
+        guestTextField.setText(Integer.toString(inmueble.getDatosInmueble().getMaxHuespedes()));
+        roomTextField.setText(Integer.toString(inmueble.getDatosInmueble().getHabitaciones()));
+        bedTextField.setText(Integer.toString(inmueble.getDatosInmueble().getCamas()));
+        bathTextField.setText(Integer.toString(inmueble.getDatosInmueble().getBaños()));
+        serviceTextField.setText(inmueble.getServicios());
+        markTextField.setText(String.valueOf(inmueble.getCalificacion()));
     }
 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the FormEditor.
+     * regenerated by the Form Editor.
      */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -296,12 +408,12 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel implements java.b
     }//GEN-LAST:event_logoButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        App.cardLayout.show(App.cards, "Pantalla adminscreen");
+        Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen");
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildingButtonActionPerformed
         if (objInm != null) {
-            JavaBNB.eliminarInmueble(objInm); // Llamar al método para eliminar el inmueble
+            MainBNB.eliminarInmueble(objInm); // Llamar al método para eliminar el inmueble
             li.remove();
 
             if (li.hasNext()) {
@@ -385,10 +497,10 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel implements java.b
             } else if (descripcion.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Cada inmueble necesita una descripción.", "Sin descripción", JOptionPane.WARNING_MESSAGE);
                 valido = false;
-            } else if (!Validacion.validarNombre(ciudad)) {
+            } else if (!Validate.validarNombre(ciudad)) {
                 JOptionPane.showMessageDialog(this, "Existe algún error con la ciudad, puede que esté vacía o que el formato no sea válido.", "Error con la ciudad", JOptionPane.WARNING_MESSAGE);
                 valido = false;
-            } else if (!Validacion.validarNombre(calle)) {
+            } else if (!Validate.validarNombre(calle)) {
                 JOptionPane.showMessageDialog(this, "La casilla de la calle del inmueble es necesaria.", "Falta la calle", JOptionPane.WARNING_MESSAGE);
                 valido = false;
             }

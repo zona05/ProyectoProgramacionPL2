@@ -6,7 +6,7 @@ import Visual.Aplicacion;
  * La clase Sesion maneja la gestión de la sesión del usuario en la aplicación JavaBNB.
  * Permite iniciar y cerrar sesión, actualizar información del usuario y registrar nuevos clientes.
  */
-public class Login {
+public class Inicio {
 
     public static Cliente user;
     public static boolean esAnfitrion;
@@ -96,7 +96,7 @@ public class Login {
             return;
         }
         MainBNB.getClientes().add(cliente);
-        App.sesion.nuevaSesion(cliente);
+        Aplicacion.sesion.nuevaSesion(cliente);
         System.out.println(cliente.toString());
     }
 

@@ -4,30 +4,131 @@
  */
 package Visual;
 
-/**
- *
- * @author javie
- */
-public class ComprobarReservaInvitado extends javax.swing.JPanel implements java.beans.Customizer {
-    
-    private Object bean;
+import Programa.MainBNB;
+import Programa.Reserva;
+import Programa.Inicio;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.stream.Collectors;
+import javax.swing.JFileChooser;
 
-    /**
-     * Creates new customizer ComprobarReservaInvitado
-     */
+public class ComprobarReservaInvitado extends javax.swing.JPanel {
+
+    private ArrayList<Reserva> reservas = new ArrayList<>();
+    private ListIterator<Reserva> li; //Iterador para recorrer el ArrayList en ambas direcciones
+    private Reserva objreserva; //Referencia a un objeto de tipo cliente del ArrayList
+
     public ComprobarReservaInvitado() {
         initComponents();
+        errorNoSig.setVisible(false);
+        errorNoAnt.setVisible(false);
+        fechareserva.setEditable(false);
+        fechallegada.setEditable(false);
+        fechasalida.setEditable(false);
+        name.setEditable(false);
+        preciototal.setEditable(false);
+        consultarTodo();
     }
-    
-    public void setObject(Object bean) {
-        this.bean = bean;
+
+    public void actualizar() {
+        errorNoSig.setVisible(false);
+        errorNoAnt.setVisible(false);
+        consultarTodo();
+    }
+
+    private void consultarTodo() {
+        try {
+            errorNoSig.setVisible(false);
+            errorNoAnt.setVisible(false);
+
+            if (MainBNB.getClientes() != null) {
+                // Limpiar la lista de reservas antes de añadir las nuevas
+                reservas.clear();
+
+                // flatMap convierte un Stream<Stream<T>> en un Stream<T>, en este caso para conseguir un stream solo de reservas 
+                List<Reserva> nuevasReservas = MainBNB.getInmuebles().stream()
+                        .flatMap(inmueble -> inmueble.getReservas().stream())
+                        .filter(reserva -> reserva.getParticular().getDni().equals(Inicio.user.getDni()))
+                        .collect(Collectors.toList());
+
+                reservas.addAll(nuevasReservas);
+                System.out.println(reservas);
+                li = reservas.listIterator();
+                if (reservas.size() < 1) {
+                    jButtonSig.setEnabled(false);
+                    jButtonAnt.setEnabled(false);
+                    recibo.setEnabled(false);
+                    limpiarCampos();
+                    return;
+                } else {
+                    jButtonSig.setEnabled(true);
+                    jButtonAnt.setEnabled(true);
+                    recibo.setEnabled(true);
+                }
+
+                if (li.hasNext()) {
+                    objreserva = li.next();
+                } else {
+                    errorNoSig.setVisible(true);
+                }
+                if (objreserva != null) {
+                    presenta();
+                } else {
+                    limpiarCampos();
+                    errorNoSig.setVisible(true);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+
+    private void limpiarCampos() {
+        fechallegada.setText("");
+        fechareserva.setText("");
+        fechasalida.setText("");
+        name.setText("");
+        preciototal.setText("");
+        dnilabel.setText("");
+        inmueblelabel.setText("");
+    }
+
+    private void presenta() {
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        fechallegada.setText(objreserva.getFechaInicio().format(formatoCorto));
+        fechareserva.setText(objreserva.getFechaReserva().format(formatoCorto));
+        fechasalida.setText(objreserva.getFechaFin().format(formatoCorto));
+        name.setText(objreserva.getParticular().getNombre());
+        preciototal.setText(String.valueOf(objreserva.calcularPrecioTotal()) + "€");
+        dnilabel.setText(objreserva.getParticular().getDni());
+        inmueblelabel.setText(objreserva.getInmueble().getTitulo());
+    }
+
+    public String seleccionarPath() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccione una ruta para guardar su factura");
+        fileChooser.setAcceptAllFileFilterUsed(false); // Deshabilitar la opción "Todos los archivos"
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);  // Permitir solo la selección de directorios, no archivos
+
+        int result = fileChooser.showOpenDialog(null); // Mostrar el diálogo de seleccion y capturar la respuesta
+
+        // Procesar la respuesta
+        if (result == JFileChooser.APPROVE_OPTION) {
+            return fileChooser.getSelectedFile().getAbsolutePath();
+        }
+        return null; // No file was selected or the user cancelled
+
     }
 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the FormEditor.
+     * regenerated by the Form Editor.
      */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -236,7 +337,7 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel implements java
     }//GEN-LAST:event_logo1ActionPerformed
 
     private void mainscrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainscrActionPerformed
-        App.loadMainScreen();
+        Aplicacion.loadMainScreen();
     }//GEN-LAST:event_mainscrActionPerformed
 
     private void reciboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboActionPerformed

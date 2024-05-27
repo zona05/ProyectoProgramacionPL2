@@ -4,30 +4,134 @@
  */
 package Visual;
 
-/**
- *
- * @author javie
- */
-public class PantallaPrincipal extends javax.swing.JPanel implements java.beans.Customizer {
-    
-    private Object bean;
+import Programa.Host;
+import Programa.Inmueble;
+import Programa.MainBNB;
+import Programa.Inicio;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
+public class PantallaPrincipal extends javax.swing.JPanel {
+
+    public ArrayList<ImagenInmueble> buildingsicon;
+    private ArrayList<Inmueble> buildings;
+    private ArrayList<Inmueble> allBuildings;
+    int estado;
 
     /**
-     * Creates new customizer PantallaPrincipal
+     * Creates new form MainScreen
      */
     public PantallaPrincipal() {
         initComponents();
+        buildingsLabel.setVisible(false);
     }
-    
-    public void setObject(Object bean) {
-        this.bean = bean;
+
+    public void actualizar() {
+        buildings = MainBNB.getInmuebles();
+        allBuildings = MainBNB.getInmuebles();
+
+        buildingsicon = new ArrayList<>();
+
+        if (Inicio.esAnfitrion) {
+            addBuildingsButton.setVisible(true);
+            myBuildingsButton.setVisible(true);
+            misReservasButton.setVisible(false);
+        } else {
+            addBuildingsButton.setVisible(false);
+            myBuildingsButton.setVisible(false);
+            misReservasButton.setVisible(true);
+        }
+    }
+
+    public void insertAllBuildings() {
+        buildingsLabel.setVisible(true);
+        deleteBuildings(); // Borra cualquier widget de edificio existente antes de insertar nuevos si es posible
+        if (allBuildings == null | allBuildings.isEmpty()) {
+            System.err.println("La lista de edificios está vacía. No se pueden insertar inmuebles.");
+            return;
+        }
+        System.out.println("La lista de edificios no está vacía:");
+
+        int fila = 0;
+        int x = 50; //valor de prueba
+        for (Inmueble inmueble : allBuildings) {
+            if (x >= 800) { //1920=tamaño de la ventana
+                fila += 400;//el tamaño de la ventana  del widget= [295, 400] 
+                x = 50;
+            }
+            ImagenInmueble iconoinm = new ImagenInmueble();
+            iconoinm.init(inmueble);
+            //AbsoluteConstraints constr = new org.netbeans.lib.awtextra.AbsoluteConstraints(295*x, fila, -1, -1);  //-1 en altura y anchura para que nos de la predeterminada del widget añadido
+            buildingsicon.add(iconoinm);
+            buildingsContainer.add(iconoinm, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, fila, -1, -1));  //método addLayoutComponent(java.awt.Component comp, java.lang.Object constr);  Adds the specified component to the layout, using the specified constraint object.
+            //System.out.println(inmueble);
+            x += 350; //valor de prueba
+        }
+        buildingsContainer.revalidate(); // Actualiza el contenedor para mostrar los cambios
+        buildingsContainer.repaint();   // Repinta el contenedor para asegurar que los cambios sean visibles
+        buildings = allBuildings;
+    }
+
+    public void insertBuildings() {
+        buildingsLabel.setVisible(true);
+        if (buildings == null | buildings.isEmpty()) {
+            System.err.println("La lista de edificios está vacía. No se pueden insertar inmuebles.");
+            return;
+        }
+        System.out.println("La lista de edificios no está vacía:");
+        deleteBuildings(); // Borra cualquier widget de edificio existente antes de insertar nuevos
+
+        int fila = 0;
+        //tamaño ventana widget= [295, 400] 
+        int x = 50; //valor de prueba
+        for (Inmueble inmueble : buildings) {
+            if (x >= 800) { //1920=tamaño de la ventana
+                fila += 400;
+                x = 50;
+            }
+            ImagenInmueble iconoinm = new ImagenInmueble();
+            iconoinm.init(inmueble);
+            //AbsoluteConstraints constr = new org.netbeans.lib.awtextra.AbsoluteConstraints(295*x, fila, -1, -1);  //-1 en altura y anchura para que nos de la predeterminada del widget añadido
+            buildingsicon.add(iconoinm);
+            buildingsContainer.add(iconoinm, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, fila, -1, -1));  //método addLayoutComponent(java.awt.Component comp, java.lang.Object constr);  Adds the specified component to the layout, using the specified constraint object.
+            //System.out.println(inmueble);
+            x += 350; //valor de prueba
+        }
+        buildingsContainer.revalidate(); // Actualiza el contenedor para mostrar los cambios
+        buildingsContainer.repaint();   // Repinta el contenedor para asegurar que los cambios sean visibles
+    }
+
+    public void deleteBuildings() {
+        for (ImagenInmueble ii : buildingsicon) {
+            this.buildingsContainer.remove(ii);
+        }
+        buildingsicon.clear(); // Limpia la lista de widgets de edificios después de eliminarlos
+        buildingsContainer.revalidate(); // Actualiza el contenedor para mostrar los cambios
+        buildingsContainer.repaint();   // Repinta el contenedor para asegurar que los cambios sean visibles
+    }
+
+    public LocalDate convertToLocalDate(Object dateObject) {
+        if (dateObject instanceof Date) {
+            return ((Date) dateObject).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        } else {
+            return null;
+        }
     }
 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the FormEditor.
+     * regenerated by the Form Editor.
      */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -632,23 +736,23 @@ public class PantallaPrincipal extends javax.swing.JPanel implements java.beans.
 
     private void hostProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostProfileActionPerformed
         deleteBuildings();
-        if (Sesion.esAnfitrion) {
-            App.loadHostProfile();
+        if (Inicio.esAnfitrion) {
+            Aplicacion.loadHostProfile();
         } else {
-            App.loadClientProfile();
+            Aplicacion.loadClientProfile();
         }
     }//GEN-LAST:event_hostProfileActionPerformed
 
     private void addBuildingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBuildingsButtonActionPerformed
         deleteBuildings();
-        App.cardLayout.show(App.cards, "Pantalla addbuildings");
+        Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla addbuildings");
     }//GEN-LAST:event_addBuildingsButtonActionPerformed
 
     private void myBuildingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBuildingsButtonActionPerformed
         deleteBuildings();
-        App.loadHostCheckBuildings();
-        if (Sesion.user != null) {
-            ArrayList<Inmueble> inmueblesAnfitrion = JavaBNB.filtrarInmueblesPorAnfitrion((Anfitrion) Sesion.user);
+        Aplicacion.loadHostCheckBuildings();
+        if (Inicio.user != null) {
+            ArrayList<Inmueble> inmueblesAnfitrion = MainBNB.filtrarInmueblesPorAnfitrion((Host) Inicio.user);
             for (Inmueble inmueble : inmueblesAnfitrion) {
                 //System.out.println(inmueble.toString());
 
@@ -658,7 +762,7 @@ public class PantallaPrincipal extends javax.swing.JPanel implements java.beans.
 
     private void misReservasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_misReservasButtonActionPerformed
         deleteBuildings();
-        App.loadGuestCheckReserves();
+        Aplicacion.loadGuestCheckReserves();
     }//GEN-LAST:event_misReservasButtonActionPerformed
 
     private void cityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTextFieldActionPerformed
@@ -709,7 +813,7 @@ public class PantallaPrincipal extends javax.swing.JPanel implements java.beans.
         }
 
         // Filtrar los inmuebles en función de los criterios introducidos
-        ArrayList<Inmueble> inmueblesFiltrados = JavaBNB.buscarInmuebles(ciudad, fechaEntrada, fechaSalida);
+        ArrayList<Inmueble> inmueblesFiltrados = MainBNB.buscarInmuebles(ciudad, fechaEntrada, fechaSalida);
 
         // Actualizar la lista de buildings con los inmuebles filtrados
         buildings = inmueblesFiltrados;
@@ -729,7 +833,7 @@ public class PantallaPrincipal extends javax.swing.JPanel implements java.beans.
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         deleteBuildings();
-        App.cardLayout.show(App.cards, "Pantalla privacypolicy");
+        Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla privacypolicy");
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -762,24 +866,24 @@ public class PantallaPrincipal extends javax.swing.JPanel implements java.beans.
         // Llama al método de filtrado correspondiente según la opción seleccionada
         switch (selectedOption) {
             case "Precio mayor a menor":
-            JavaBNB.ordenarPorPrecioDescCF(inmueblesFiltrados);
+            MainBNB.ordenarPorPrecioDescCF(inmueblesFiltrados);
             break;
             case "Precio menor a mayor":
-            JavaBNB.ordenarPorPrecioAscCF(inmueblesFiltrados);
+            MainBNB.ordenarPorPrecioAscCF(inmueblesFiltrados);
             break;
             case "Casas":
             // Filtra los inmuebles disponibles por tipo "Casa"
-            inmueblesFiltrados = JavaBNB.filtrarCasas(inmueblesFiltrados);
+            inmueblesFiltrados = MainBNB.filtrarCasas(inmueblesFiltrados);
             break;
             case "Apartamentos":
             // Filtra los inmuebles disponibles por tipo "Apartamento"
-            inmueblesFiltrados = JavaBNB.filtrarApartamentos(inmueblesFiltrados);
+            inmueblesFiltrados = MainBNB.filtrarApartamentos(inmueblesFiltrados);
             break;
             case "Calificación de mayor a menor":
-            JavaBNB.ordenarPorCalificacionDescCF(inmueblesFiltrados);
+            MainBNB.ordenarPorCalificacionDescCF(inmueblesFiltrados);
             break;
             case "Calificación de menor a mayor":
-            JavaBNB.ordenarPorCalificacionAscCF(inmueblesFiltrados);
+            MainBNB.ordenarPorCalificacionAscCF(inmueblesFiltrados);
             break;
         }
 

@@ -1,6 +1,6 @@
 package Visual;
 
-import Logica.*;
+import Programa.*;
 import java.awt.CardLayout;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
@@ -20,7 +20,7 @@ class WindowEventHandler extends WindowAdapter {
      */
     @Override
     public void windowClosing(WindowEvent evt) {
-        JavaBNB.guardarDatos();
+        MainBNB.guardarDatos();
     }
 }
 
@@ -53,7 +53,7 @@ public class Aplicacion {
     static PantallaPrincipal mainscreen = new PantallaPrincipal();
     static ComprobarReservaAnfitrion hostcheckreserves = new ComprobarReservaAnfitrion();
 
-    public static Login sesion = null;  // Iniciamos sesión como null
+    public static Inicio sesion = null;  // Iniciamos sesión como null
 
     /**
      * Método principal que inicia la aplicación.
@@ -62,8 +62,8 @@ public class Aplicacion {
      * caso).
      */
     public static void main(String[] args) {
-        JavaBNB.inicializadorJavaBNB();
-        JavaBNB.cargarDatos();
+        MainBNB.inicializadorJavaBNB();
+        MainBNB.cargarDatos();
 
         // Establecer el tamaño mínimo de la ventana.
         frame.setMinimumSize(Toolkit.getDefaultToolkit().getScreenSize());

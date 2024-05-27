@@ -4,30 +4,120 @@
  */
 package Visual;
 
-/**
- *
- * @author javie
- */
-public class MirarInmueble extends javax.swing.JPanel implements java.beans.Customizer {
-    
-    private Object bean;
+import Programa.Host;
+import Programa.Inmueble;
+import Programa.Particular;
+import Programa.Reserva;
+import Programa.Inicio;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+public class MirarInmueble extends javax.swing.JPanel {
+
+    Inmueble i;
 
     /**
-     * Creates new customizer MirarInmueble
+     * Creates new form PantallaInmueble
      */
     public MirarInmueble() {
         initComponents();
+        errorLabel1.setVisible(false);
     }
-    
-    public void setObject(Object bean) {
-        this.bean = bean;
+
+    public void actualizar() {
+        if (Inicio.esAnfitrion) {
+            panelreservas.setVisible(false);
+            gradeButton.setVisible(false);
+        } else {
+            panelreservas.setVisible(true);
+            gradeButton.setVisible(true);
+        }
+        titleLabel.setText(i.getTitulo());
+        typeLabel.setText(i.getTipo());
+        descriptionTextArea.setText(i.getDescripcion());
+        priceLabel.setText(Double.toString(i.getPrecioNoche()) + "€ por noche");
+
+        hostLabel.setText("Anfitrion: " + i.getAnfitrion().getNombre());
+        if (i.getAnfitrion().isSuperAnfitrion()) {
+            superhostLabel.setVisible(true);
+        } else {
+            superhostLabel.setVisible(false);
+        }
+
+        guestsLabel.setText(Integer.toString(i.getDatosInmueble().getMaxHuespedes()));
+        roomsLabel.setText(Integer.toString(i.getDatosInmueble().getHabitaciones()));
+        bathsLabel.setText(Integer.toString(i.getDatosInmueble().getBaños()));
+        bedsLabel.setText(Integer.toString(i.getDatosInmueble().getCamas()));
+
+        directionTextArea.setText(i.getDireccion().toString());
+        servicesTextArea.setText("los servicios de este inmueble son " + i.getServicios());
+        markLabel.setText("Calificación: " + Double.toString(i.getCalificacion()));
+        numbermarksLabel.setText("Calificado por " + Integer.toString(i.getValoraciones()) + " personas");
+
+        fotoboton.setIcon(resizeIMG(i.getFotografia()));
+        estrella1.setIcon(i.getCalificacion() >= 1 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
+        estrella2.setIcon(i.getCalificacion() >= 2 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
+        estrella3.setIcon(i.getCalificacion() >= 3 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
+        estrella4.setIcon(i.getCalificacion() >= 4 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
+        estrella5.setIcon(i.getCalificacion() >= 5 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
+
+    }
+
+    public void setInmueble(Inmueble inmueble) {
+        this.i = inmueble;
+        this.actualizar(); // Llamar al método actualizar() para actualizar la vista con el nuevo inmueble
+
+    }
+
+    public ImageIcon imagenIcon(String img) {
+        try {
+            Image image = ImageIO.read(new File(img));
+            ImageIcon icon = new ImageIcon(image);
+            return icon;
+        } catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+            return null;
+        }
+    }
+
+    public ImageIcon resizeIMG(String img) {
+        try {
+            File imagePath = new File(img);
+            BufferedImage originalImage = ImageIO.read(imagePath);
+            int width = 560;//fotoboton.getWidth();
+            int height = 331;//fotoboton.getHeight();
+            Image resizedImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+            ImageIcon imageIcon = new ImageIcon(resizedImage);
+            return imageIcon;
+        } catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+            return null;
+        }
+    }
+
+    public LocalDate convertToLocalDate(Object dateObject) {
+        if (dateObject instanceof Date) {
+            return ((Date) dateObject).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        } else {
+            return null;
+        }
     }
 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the FormEditor.
+     * regenerated by the Form Editor.
      */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -512,8 +602,8 @@ public class MirarInmueble extends javax.swing.JPanel implements java.beans.Cust
     }//GEN-LAST:event_estrella4ActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        if (Sesion.user != null) {
-            App.loadMainScreen();
+        if (Inicio.user != null) {
+            Aplicacion.loadMainScreen();
         }
     }//GEN-LAST:event_returnButtonActionPerformed
 
@@ -526,16 +616,16 @@ public class MirarInmueble extends javax.swing.JPanel implements java.beans.Cust
         LocalDate llegada = convertToLocalDate(startDateFormattedField.getValue());
         LocalDate salida = convertToLocalDate(endDateFormattedField.getValue());
 
-        Reserva reserva = new Reserva((Particular) Sesion.user, i, llegada, salida);
+        Reserva reserva = new Reserva((Particular) Inicio.user, i, llegada, salida);
         System.out.println("El inmueble está disponible: " + i.estaDisponible(llegada, salida));
-        System.out.println(((Particular) Sesion.user).getSaldo() > reserva.calcularPrecioTotal());
+        System.out.println(((Particular) Inicio.user).getSaldo() > reserva.calcularPrecioTotal());
 
-        if (((Particular) Sesion.user).getSaldo() <= reserva.calcularPrecioTotal()) {
+        if (((Particular) Inicio.user).getSaldo() <= reserva.calcularPrecioTotal()) {
             JOptionPane.showMessageDialog(this, "No tienes suficiente dinero para hacer esta reserva", "Dinero insuficiente", JOptionPane.WARNING_MESSAGE);
 
         }
 
-        if ((i.estaDisponible(llegada, salida)) && (((Particular) Sesion.user).getSaldo() > reserva.calcularPrecioTotal())) {
+        if ((i.estaDisponible(llegada, salida)) && (((Particular) Inicio.user).getSaldo() > reserva.calcularPrecioTotal())) {
 
             String textoconfirmacion = "¿Quieres confirmar la reserva de este inmueble del " + llegada + " al " + salida + " por un coste total de " + reserva.calcularPrecioTotal() + " euros?";
             int n = JOptionPane.showConfirmDialog(this, textoconfirmacion, "ConfirmDialog", JOptionPane.YES_NO_CANCEL_OPTION);
@@ -546,7 +636,7 @@ public class MirarInmueble extends javax.swing.JPanel implements java.beans.Cust
                 //añade la reserva a la lista de reservas y se realiza el "pago"
 
                 i.agregarReserva(reserva);
-                ((Particular) Sesion.user).disminuirSaldo(reserva.calcularPrecioTotal());
+                ((Particular) Inicio.user).disminuirSaldo(reserva.calcularPrecioTotal());
                 for (Reserva reservaa : reservass) {
                     System.out.println("Reserva :" + reservaa.toString());
                 }
@@ -574,7 +664,7 @@ public class MirarInmueble extends javax.swing.JPanel implements java.beans.Cust
         // Iterar sobre todas las reservas
         for (Reserva reserva : reservas) {
             // Verificar si el cliente de la reserva es el mismo que el usuario actual de la sesión
-            if (reserva.getParticular().getDni().equals((((Particular) Sesion.user).getDni()))) {
+            if (reserva.getParticular().getDni().equals((((Particular) Inicio.user).getDni()))) {
                 // El usuario ha realizado una reserva en este inmueble
                 reservaHecha = true;
                 break;
@@ -593,7 +683,7 @@ public class MirarInmueble extends javax.swing.JPanel implements java.beans.Cust
                 i.setCalificacion(nota);
 
                 // Obtener el anfitrión del inmueble
-                Anfitrion anfitrion = i.getAnfitrion();
+                Host anfitrion = i.getAnfitrion();
                 anfitrion.setSuperAnfitrion();
 
                 actualizar();

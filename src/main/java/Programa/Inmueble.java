@@ -40,7 +40,7 @@ public class Inmueble implements Serializable {
      * @param servicios los servicios ofrecidos en el inmueble
      * @param anfitrion el anfitrión del inmueble
      */
-    public Inmueble(String titulo, String descripcion, Direccion direccion, DatosInmueble datosInmueble, String tipo, double precioNoche, String fotografia, String servicios, Anfitrion anfitrion) {
+    public Inmueble(String titulo, String descripcion, Direccion direccion, InfoInmueble datosInmueble, String tipo, double precioNoche, String fotografia, String servicios, Host anfitrion) {
         this.titulo = titulo;
         this.direccion = direccion;
         this.datosInmueble = datosInmueble;

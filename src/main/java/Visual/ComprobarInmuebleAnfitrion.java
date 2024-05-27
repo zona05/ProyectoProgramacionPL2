@@ -4,30 +4,256 @@
  */
 package Visual;
 
+import Programa.Host;
+import Programa.Inmueble;
+import Programa.MainBNB;
+import Programa.Inicio;
+import Programa.Validate;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
- *
- * @author javie
+ * Panel para que el anfitrión revise sus inmuebles y realice acciones
+ * relacionadas.
  */
-public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements java.beans.Customizer {
-    
-    private Object bean;
+public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
+
+    private ArrayList<Inmueble> buildings; // Referencia al ArrayList de inmuebles del anfitrión de la sesión
+    private ListIterator<Inmueble> li; // Iterador para recorrer el ArrayList en ambas direcciones
+    private Inmueble objInm; // Referencia a un objeto de tipo inmueble del ArrayList
+    private Inmueble inmuebleActual;
+    private String fotografia = "";
 
     /**
-     * Creates new customizer ComprobarInmuebleAnfitrion
+     * Crea un nuevo panel para que el anfitrión revise sus inmuebles.
      */
     public ComprobarInmuebleAnfitrion() {
         initComponents();
+        errorNextLabel.setVisible(false);
+        errorPreviousLabel.setVisible(false);
+        setEditableFields(false);
+
+        consultarTodo();
     }
-    
-    public void setObject(Object bean) {
-        this.bean = bean;
+
+    /**
+     * Actualiza la vista de los inmuebles del anfitrión.
+     */
+    public void actualizar() {
+        errorNextLabel.setVisible(false);
+        errorPreviousLabel.setVisible(false);
+
+        consultarTodo();
+    }
+
+    /**
+     * Obtiene el inmueble actual que se muestra en el panel.
+     *
+     * @return El inmueble actual.
+     */
+    public Inmueble getInmuebleActual() {
+        return inmuebleActual;
+    }
+
+    /**
+     * Establece el inmueble actual que se mostrará en el panel.
+     *
+     * @param inmuebleActual El inmueble actual.
+     */
+    public void setInmuebleActual(Inmueble inmuebleActual) {
+        this.inmuebleActual = inmuebleActual;
+    }
+
+    /**
+     * Consulta todos los inmuebles del anfitrión y los muestra en la vista.
+     */
+    private void consultarTodo() {
+        if (Inicio.user != null) {
+            try {
+                errorNextLabel.setVisible(false);
+                errorPreviousLabel.setVisible(false);
+
+                // Verificar si el usuario actual es un anfitrión
+                if (Inicio.esAnfitrion) {
+                    Host anfitrion = (Host) Inicio.user;
+                    // Copia de la lista de inmuebles del anfitrión para evitar problemas de concurrencia
+                    buildings = new ArrayList<>(MainBNB.filtrarInmueblesPorAnfitrion(anfitrion)); // Obtener los inmuebles del anfitrión utilizando el método filtrarInmueblesPorAnfitrion
+
+                    // Verificar si hay inmuebles asociados al anfitrión
+                    if (buildings.isEmpty()) {
+                        setButtonsEnabled(false);
+                        limpiarCampos();
+                        return;
+                    } else {
+                        setButtonsEnabled(true);
+                    }
+
+                    // Configurar un iterador para los inmuebles
+                    li = buildings.listIterator();
+                    if (li.hasNext()) {
+                        objInm = li.next();
+                        presenta(objInm);
+                    } else {
+                        errorNextLabel.setVisible(true);
+                    }
+
+                } else {
+                    // Si el usuario no es un anfitrión, mostrar un mensaje de error
+                    System.out.println("El usuario actual no es un anfitrión.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.toString());
+            }
+        }
+    }
+
+    /**
+     * Establece si los campos editables del formulario están habilitados o no.
+     *
+     * @param editable true si los campos deben ser editables, false de lo
+     * contrario.
+     */
+    private void setEditableFields(boolean editable) {
+        titleTextPanel.setEditable(editable);
+        descriptionTextPanel.setEditable(editable);
+        serviceTextField.setEditable(editable);
+        streetTextField.setEditable(editable);
+        cityTextField.setEditable(editable);
+        numberTextField.setEditable(editable);
+        cpTextField.setEditable(editable);
+        priceTextField.setEditable(editable);
+        guestTextField.setEditable(editable);
+        roomTextField.setEditable(editable);
+        bedTextField.setEditable(editable);
+        bathTextField.setEditable(editable);
+        serviceTextField.setEditable(editable);
+    }
+
+    /**
+     * Establece si los botones del formulario están habilitados o no.
+     *
+     * @param enabled true si los botones deben estar habilitados, false de lo
+     * contrario.
+     */
+    private void setButtonsEnabled(boolean enabled) {
+        nextButton.setEnabled(enabled);
+        previousButton.setEnabled(enabled);
+        deleteBuildingButton.setEnabled(enabled);
+        checkReservesButton.setEnabled(enabled);
+        editBuildingButton.setEnabled(enabled);
+        editfoto1.setEnabled(enabled);
+    }
+
+    /**
+     * Muestra la información de un inmueble en los campos correspondientes del
+     * formulario.
+     *
+     * @param inmueble El inmueble a mostrar.
+     */
+    private void presenta(Inmueble inmueble) {
+        typeLabel.setText(inmueble.getTipo());
+        titleTextPanel.setText(inmueble.getTitulo());
+        descriptionTextPanel.setText(inmueble.getDescripcion());
+        streetTextField.setText(inmueble.getDireccion().getCalle());
+        cityTextField.setText(inmueble.getDireccion().getCiudad());
+        numberTextField.setText(inmueble.getDireccion().getNumero());
+        cpTextField.setText(inmueble.getDireccion().getCp());
+        priceTextField.setText(Double.toString(inmueble.getPrecioNoche()));
+        guestTextField.setText(Integer.toString(inmueble.getDatosInmueble().getMaxHuespedes()));
+        roomTextField.setText(Integer.toString(inmueble.getDatosInmueble().getHabitaciones()));
+        bedTextField.setText(Integer.toString(inmueble.getDatosInmueble().getCamas()));
+        bathTextField.setText(Integer.toString(inmueble.getDatosInmueble().getBaños()));
+        serviceTextField.setText(inmueble.getServicios());
+        markTextField.setText(String.valueOf(inmueble.getCalificacion()));
+    }
+
+    /**
+     * Abre un cuadro de diálogo para seleccionar una imagen y la devuelve.
+     *
+     * @return El archivo de imagen seleccionado, o null si no se selecciona
+     * ningún archivo.
+     */
+    public File openImage() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Selecciona una imagen");
+        fileChooser.setAcceptAllFileFilterUsed(false); // Deshabilitar la opción "Todos los archivos"
+        fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image files", "jpg", "jpeg", "png", "gif", "bmp"));
+
+        int result = fileChooser.showOpenDialog(null); // Mostrar el diálogo de selección y capturar la respuesta
+
+        // Procesar la respuesta
+        if (result == JFileChooser.APPROVE_OPTION) {
+            return fileChooser.getSelectedFile();
+        }
+        return null; // No se selecciona ningún archivo
+    }
+
+    public String saveImage(File archivofoto) {
+        String directoriodestino = "./src/main/resources/fotosinmuebles"; // Directorio de destino fijo
+        Path pathdestino = Paths.get(directoriodestino, archivofoto.getName());
+
+        try {
+            // Asegúrate de que el directorio exista
+            if (!Files.exists(Paths.get(directoriodestino))) {
+                Files.createDirectories(Paths.get(directoriodestino));
+            }
+
+            // Copia el archivo al directorio especificado
+            Files.copy(archivofoto.toPath(), pathdestino, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Imagen guardada en: " + pathdestino);
+            return pathdestino.toString(); // Devuelve la ruta de la imagen como String
+        } catch (IOException ex) {
+            System.out.println("Error al guardar la imagen: " + ex.getMessage());
+            return null; // Devuelve null si hay un error
+        }
+    }
+
+    /**
+     * Abre un cuadro de diálogo para seleccionar una imagen y la asigna al
+     * inmueble actual.
+     *
+     * @param i El inmueble al que se le asignará la imagen.
+     */
+    public void changeImage(Inmueble i) {
+        File fotoFile = openImage();
+        if (fotoFile != null) {
+            i.setFotografia(saveImage(fotoFile));
+        }
+    }
+
+    /**
+     * Limpia todos los campos de texto en el formulario.
+     */
+    private void limpiarCampos() {
+        typeLabel.setText("");
+        titleTextPanel.setText("");
+        descriptionTextPanel.setText("");
+        streetTextField.setText("");
+        cityTextField.setText("");
+        numberTextField.setText("");
+        cpTextField.setText("");
+        priceTextField.setText("");
+        guestTextField.setText("");
+        roomTextField.setText("");
+        bedTextField.setText("");
+        bathTextField.setText("");
+        serviceTextField.setText("");
     }
 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the FormEditor.
+     * regenerated by the Form Editor.
      */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -87,7 +313,6 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoButton.setBackground(new java.awt.Color(255, 153, 153));
-        logoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
         logoButton.setBorderPainted(false);
         logoButton.setContentAreaFilled(false);
         logoButton.setDefaultCapable(false);
@@ -101,12 +326,12 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
                 logoButtonActionPerformed(evt);
             }
         });
-        barraarriba1.add(logoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 5, 71, 75));
+        barraarriba1.add(logoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         logoLabel.setForeground(new java.awt.Color(255, 90, 95));
         logoLabel.setText("JavaBNB");
-        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 36, -1, -1));
+        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 36, -1, -1));
 
         returnButton.setBackground(new java.awt.Color(255, 90, 95));
         returnButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -120,7 +345,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
                 returnButtonActionPerformed(evt);
             }
         });
-        barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 22, 104, 53));
+        barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(983, 22, 104, 53));
 
         jPanel3.setBackground(new java.awt.Color(255, 250, 248));
 
@@ -350,12 +575,12 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
     }//GEN-LAST:event_logoButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        App.loadMainScreen();
+        Aplicacion.loadMainScreen();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildingButtonActionPerformed
         if (objInm != null) {
-            JavaBNB.eliminarInmueble(objInm); // Llamar al método para eliminar el inmueble
+            MainBNB.eliminarInmueble(objInm); // Llamar al método para eliminar el inmueble
 
             li.remove();
 
@@ -439,10 +664,10 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
             } else if (descripcion.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Cada inmueble necesita una descripción.", "Sin descripción", JOptionPane.WARNING_MESSAGE);
                 valido = false;
-            } else if (!Validacion.validarNombre(ciudad)) {
+            } else if (!Validate.validarNombre(ciudad)) {
                 JOptionPane.showMessageDialog(this, "Existe algún error con la ciudad, puede que esté vacía o que el formato no sea válido.", "Error con la ciudad", JOptionPane.WARNING_MESSAGE);
                 valido = false;
-            } else if (!Validacion.validarNombre(calle)) {
+            } else if (!Validate.validarNombre(calle)) {
                 JOptionPane.showMessageDialog(this, "La casilla de la calle del inmueble es necesaria.", "Falta la calle", JOptionPane.WARNING_MESSAGE);
                 valido = false;
             }
@@ -567,7 +792,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
 
         System.out.println("Inmueble actual:" + objInm.toString());
 
-        App.loadHostCheckReserves();
+        Aplicacion.loadHostCheckReserves();
     }//GEN-LAST:event_checkReservesButtonActionPerformed
 
     private void editfoto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editfoto1ActionPerformed
@@ -578,6 +803,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel implements ja
 
         } else {
             System.out.println("no existe la ruta");
+        }
     }//GEN-LAST:event_editfoto1ActionPerformed
 
     private void previousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonActionPerformed
