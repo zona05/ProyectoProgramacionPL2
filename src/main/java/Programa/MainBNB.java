@@ -154,7 +154,7 @@ public class MainBNB implements Serializable {
 
     public static void cargarDatos() {
         try {
-            FileInputStream istreamClientes = new FileInputStream("./src/main/resources/data/copiasegClientes.dat");
+            FileInputStream istreamClientes = new FileInputStream("./src/main/resources/datos/datainfoClientes.dat");
             ObjectInputStream oisClientes = new ObjectInputStream(istreamClientes);
             clientes = (ArrayList<Cliente>) oisClientes.readObject();
             istreamClientes.close();
@@ -167,7 +167,7 @@ public class MainBNB implements Serializable {
         }
 
         try {
-            FileInputStream istreamInmuebles = new FileInputStream("./src/main/resources/data/copiasegInmuebles.dat");
+            FileInputStream istreamInmuebles = new FileInputStream("./src/main/resources/datos/datainfoInmuebles.dat");
             ObjectInputStream oisInmuebles = new ObjectInputStream(istreamInmuebles);
             inmuebles = (ArrayList<Inmueble>) oisInmuebles.readObject();
             istreamInmuebles.close();
@@ -183,7 +183,7 @@ public class MainBNB implements Serializable {
     public static void guardarDatos() {
         try {
             if (!clientes.isEmpty()) {
-                FileOutputStream ostreamClientes = new FileOutputStream("./src/main/resources/data/copiasegClientes.dat");
+                FileOutputStream ostreamClientes = new FileOutputStream("./src/main/resources/datos/datainfoClientes.dat");
                 ObjectOutputStream oosClientes = new ObjectOutputStream(ostreamClientes);
                 oosClientes.writeObject(clientes);
                 ostreamClientes.close();
@@ -198,7 +198,7 @@ public class MainBNB implements Serializable {
 
         try {
             if (!inmuebles.isEmpty()) {
-                FileOutputStream ostreamInmuebles = new FileOutputStream("./src/main/resources/data/copiasegInmuebles.dat");
+                FileOutputStream ostreamInmuebles = new FileOutputStream("./src/main/resources/datos/datainfoInmuebles.dat");
                 ObjectOutputStream oosInmuebles = new ObjectOutputStream(ostreamInmuebles);
                 oosInmuebles.writeObject(inmuebles);
                 ostreamInmuebles.close();
@@ -210,18 +210,7 @@ public class MainBNB implements Serializable {
         }
     }
 
-    /**
-     * public static void eliminarCliente(Cliente cliente) { if (cliente
-     * instanceof Particular) { Particular particular = (Particular) cliente; //
-     * particular.getReservas().clear(); } else if (cliente instanceof
-     * Anfitrion) { Anfitrion anfitrion = (Anfitrion) cliente;
-     * ArrayList<Inmueble> inmueblesAnfitrion = new ArrayList<>(); for (Inmueble
-     * inmueble : inmuebles) { if (inmueble.getAnfitrion().equals(anfitrion)) {
-     * inmueblesAnfitrion.add(inmueble); } } for (Inmueble inmueble :
-     * inmueblesAnfitrion) { inmueble.getReservas().clear();
-     * inmuebles.remove(inmueble); } } clientes.remove(cliente); guardarDatos();
-     * }
-     */
+     
     public static void eliminarAnfitrion(Cliente cliente) {
         Host anfitrion = (Host) cliente;
         for (Inmueble inmueble : inmuebles) {
