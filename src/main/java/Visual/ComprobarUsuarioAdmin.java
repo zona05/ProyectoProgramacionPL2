@@ -24,7 +24,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
 
     private ArrayList<Cliente> clientesaux; // Referencia al ArrayList de personas de la clase JavaBNB
     private ListIterator<Cliente> li; // Iterador para recorrer el ArrayList en ambas direcciones
-    private Cliente objcli; // Referencia a un objeto de types cliente del ArrayList
+    private Cliente objcli; // Referencia a un objeto de tipo cliente del ArrayList
 
     /**
      * Crea un nuevo formulario AdminConsultarUser.
@@ -98,16 +98,16 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
      * @param per el usuario cuyos detalles se van a mostrar
      */
     private void presenta(Cliente per) {
-        String types = per.getClass().getSimpleName();
+        String tipo = per.getClass().getSimpleName();
         dniTextField.setText(objcli.getDni());
         nameTextField.setText(objcli.getNombre());
         emailTextField.setText(objcli.getCorreo());
         passTextField.setText(objcli.getpassw());
         tlfTextField.setText(objcli.getTelefono());
-        if (types.equals("Anfitrion")) {
-            typeLabel.setText(types);
+        if (tipo.equals("Anfitrion")) {
+            typeLabel.setText(tipo);
         } else {
-            typeLabel.setText(types);
+            typeLabel.setText(tipo);
         }
     }
 
@@ -147,9 +147,9 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 236, 217));
 
-        barraarriba1.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -175,7 +175,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         logoLabel.setText("JavaBNB");
         barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 36, -1, -1));
 
-        returnButton.setBackground(new java.awt.Color(255, 90, 95));
+        returnButton.setBackground(new java.awt.Color(255, 153, 102));
         returnButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Volver");
@@ -187,9 +187,9 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
                 returnButtonActionPerformed(evt);
             }
         });
-        barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(758, 22, 104, 53));
+        barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 104, 53));
 
-        jPanel3.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel3.setBackground(new java.awt.Color(255, 236, 217));
 
         jPanel2.setBackground(new java.awt.Color(255, 250, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -198,30 +198,30 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dniLabel.setText("DNI:");
-        jPanel2.add(dniLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 142, -1, -1));
+        jPanel2.add(dniLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 20));
 
         nameLabel.setText("Nombre:");
-        jPanel2.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 102, -1, -1));
-        jPanel2.add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 139, 208, -1));
-        jPanel2.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 99, 208, -1));
+        jPanel2.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jPanel2.add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 208, -1));
+        jPanel2.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 208, -1));
 
         typeLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         typeLabel.setText("var1");
-        jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 42, 161, -1));
+        jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 20, 120, -1));
 
         emailLabel.setText("Correo:");
-        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 182, -1, -1));
-        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 179, 208, -1));
+        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 20));
+        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 208, -1));
 
-        passLabel.setText("passw:");
-        jPanel2.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 222, -1, -1));
-        jPanel2.add(passTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 219, 208, -1));
+        passLabel.setText("Contraseña:");
+        jPanel2.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
+        jPanel2.add(passTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 208, -1));
 
         tlfLabel.setText("Telefono:");
-        jPanel2.add(tlfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 262, -1, -1));
-        jPanel2.add(tlfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 259, 208, -1));
+        jPanel2.add(tlfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(tlfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 208, -1));
 
-        deleteUserButton.setBackground(new java.awt.Color(255, 153, 153));
+        deleteUserButton.setBackground(new java.awt.Color(255, 153, 102));
         deleteUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteUserButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteUserButton.setText("Eliminar usuario");
@@ -230,9 +230,9 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
                 deleteUserButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(deleteUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 342, -1, -1));
+        jPanel2.add(deleteUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
 
-        editUserButton.setBackground(new java.awt.Color(255, 90, 95));
+        editUserButton.setBackground(new java.awt.Color(255, 153, 102));
         editUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editUserButton.setForeground(new java.awt.Color(255, 255, 255));
         editUserButton.setText("Editar usuario");
@@ -241,9 +241,9 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
                 editUserButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(editUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 298, -1, -1));
+        jPanel2.add(editUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        previousButton.setBackground(new java.awt.Color(255, 153, 153));
+        previousButton.setBackground(new java.awt.Color(255, 153, 102));
         previousButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         previousButton.setForeground(new java.awt.Color(255, 255, 255));
         previousButton.setText("Anterior");
@@ -253,7 +253,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
             }
         });
 
-        nextButton.setBackground(new java.awt.Color(255, 153, 153));
+        nextButton.setBackground(new java.awt.Color(255, 153, 102));
         nextButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Siguiente");
@@ -264,12 +264,10 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         });
 
         errorNextLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorNextLabel.setForeground(new java.awt.Color(255, 102, 102));
-        errorNextLabel.setText("No hay un siguiente usuario");
+        errorNextLabel.setText("No hay otro usuario");
 
         errorPreviousLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorPreviousLabel.setForeground(new java.awt.Color(255, 102, 102));
-        errorPreviousLabel.setText("No hay un usuario anterior");
+        errorPreviousLabel.setText("No hay otro usuario");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -278,43 +276,44 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
+                        .addGap(102, 102, 102)
                         .addComponent(previousButton)
-                        .addGap(54, 54, 54)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(nextButton))
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(errorPreviousLabel)
+                                .addGap(63, 63, 63)
+                                .addComponent(nextButton))
+                            .addComponent(errorNextLabel)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(395, 395, 395)
-                        .addComponent(errorNextLabel))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(401, 401, 401)
-                        .addComponent(errorPreviousLabel)))
-                .addGap(255, 255, 255))
+                        .addGap(175, 175, 175)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(errorNextLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(previousButton)
-                            .addComponent(nextButton)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
-                .addComponent(errorNextLabel)
-                .addGap(6, 6, 6)
-                .addComponent(errorPreviousLabel))
+                        .addComponent(errorPreviousLabel)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nextButton)
+                            .addComponent(previousButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraarriba1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(barraarriba1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

@@ -17,7 +17,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
 
     private ArrayList<Reserva> reservas = new ArrayList<>(); //Referencia al ArrayList de reservas de la clase JavaBNB
     private ListIterator<Reserva> li; //Iterador para recorrer el ArrayList en ambas direcciones
-    private Reserva objreserva; //Referencia a un objeto de types reserva del ArrayList
+    private Reserva objreserva; //Referencia a un objeto de tipo reserva del ArrayList
 
     public ComprobarReservaAnfitrion() {
         initComponents();
@@ -56,7 +56,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                         if (reservasInmuebleActual.size() < 1) {
                             jButtonSig.setEnabled(false);
                             jButtonAnt.setEnabled(false);
-                            limpiezaTextos();
+                            limpiarCampos();
                             return;
                         } else {
                             jButtonSig.setEnabled(true);
@@ -71,7 +71,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                         if (objreserva != null) {
                             presenta();
                         } else {
-                            limpiezaTextos();
+                            limpiarCampos();
                             errorNoSig.setVisible(true);
                         }
                     }
@@ -82,7 +82,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         }
     }
 
-    private void limpiezaTextos() {
+    private void limpiarCampos() {
         fechallegada.setText("");
         fechareserva.setText("");
         fechasalida.setText("");
@@ -138,7 +138,6 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         feLabel = new javax.swing.JLabel();
         frLabel = new javax.swing.JLabel();
         fechallegada = new javax.swing.JTextField();
-        fechareserva = new javax.swing.JTextField();
         dnilabel = new javax.swing.JLabel();
         fsLabel = new javax.swing.JLabel();
         fechasalida = new javax.swing.JTextField();
@@ -148,6 +147,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         preciototal = new javax.swing.JTextField();
         recibo = new javax.swing.JButton();
         inmueblelabel = new javax.swing.JTextField();
+        fechareserva = new javax.swing.JTextField();
         jButtonAnt = new javax.swing.JButton();
         jButtonSig = new javax.swing.JButton();
         errorNoSig = new javax.swing.JLabel();
@@ -155,7 +155,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 250, 248));
 
-        barraarriba1.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -179,9 +179,9 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         titleLabel1.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         titleLabel1.setForeground(new java.awt.Color(255, 90, 95));
         titleLabel1.setText("JavaBNB");
-        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 36, -1, -1));
+        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        mainscr.setBackground(new java.awt.Color(255, 90, 95));
+        mainscr.setBackground(new java.awt.Color(255, 153, 102));
         mainscr.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         mainscr.setForeground(new java.awt.Color(255, 255, 255));
         mainscr.setText("Volver");
@@ -193,9 +193,9 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                 mainscrActionPerformed(evt);
             }
         });
-        barraarriba1.add(mainscr, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 22, 104, 53));
+        barraarriba1.add(mainscr, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 100, 40));
 
-        jPanel3.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel3.setBackground(new java.awt.Color(255, 236, 217));
 
         jPanel2.setBackground(new java.awt.Color(255, 250, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -204,31 +204,30 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         feLabel.setText("Fecha de llegada:");
-        jPanel2.add(feLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 142, -1, -1));
+        jPanel2.add(feLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
         frLabel.setText("Fecha de reserva:");
-        jPanel2.add(frLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 102, -1, -1));
-        jPanel2.add(fechallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 139, 168, -1));
-        jPanel2.add(fechareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 99, 168, -1));
+        jPanel2.add(frLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
+        jPanel2.add(fechallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 168, -1));
 
         dnilabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         dnilabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dnilabel.setText("DNI");
-        jPanel2.add(dnilabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 17, 294, -1));
+        jPanel2.add(dnilabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 300, -1));
 
         fsLabel.setText("Fecha de salida:");
-        jPanel2.add(fsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 182, -1, -1));
-        jPanel2.add(fechasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 179, 168, -1));
+        jPanel2.add(fsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 20));
+        jPanel2.add(fechasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 168, -1));
 
         nLabel.setText("Nombre:");
-        jPanel2.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 222, -1, -1));
-        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 219, 168, -1));
+        jPanel2.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 20));
+        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 168, -1));
 
-        pLabel.setText("Precio total:");
-        jPanel2.add(pLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 262, -1, -1));
-        jPanel2.add(preciototal, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 259, 168, -1));
+        pLabel.setText("Precio final:");
+        jPanel2.add(pLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel2.add(preciototal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 168, -1));
 
-        recibo.setBackground(new java.awt.Color(255, 102, 102));
+        recibo.setBackground(new java.awt.Color(255, 153, 102));
         recibo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         recibo.setForeground(new java.awt.Color(255, 255, 255));
         recibo.setText("Descargar recibo");
@@ -237,13 +236,14 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                 reciboActionPerformed(evt);
             }
         });
-        jPanel2.add(recibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 293, 168, 39));
+        jPanel2.add(recibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 168, 39));
 
         inmueblelabel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inmueblelabel.setText("Inmueble");
-        jPanel2.add(inmueblelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 59, 288, 28));
+        jPanel2.add(inmueblelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 288, 28));
+        jPanel2.add(fechareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 168, -1));
 
-        jButtonAnt.setBackground(new java.awt.Color(255, 153, 153));
+        jButtonAnt.setBackground(new java.awt.Color(255, 153, 102));
         jButtonAnt.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButtonAnt.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnt.setText("Anterior");
@@ -253,7 +253,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
             }
         });
 
-        jButtonSig.setBackground(new java.awt.Color(255, 153, 153));
+        jButtonSig.setBackground(new java.awt.Color(255, 153, 102));
         jButtonSig.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButtonSig.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSig.setText("Siguiente");
@@ -264,48 +264,44 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         });
 
         errorNoSig.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorNoSig.setForeground(new java.awt.Color(255, 102, 102));
-        errorNoSig.setText("No hay una siguiente reserva");
+        errorNoSig.setText("No hay otra reserva");
 
         errorNoAnt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorNoAnt.setForeground(new java.awt.Color(255, 102, 102));
-        errorNoAnt.setText("No hay una reserva anterior");
+        errorNoAnt.setText("No hay otra reserva");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(195, 195, 195))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(147, 147, 147)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(errorNoAnt)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
                         .addComponent(jButtonAnt)
-                        .addGap(418, 418, 418)
-                        .addComponent(jButtonSig))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(411, 411, 411)
-                        .addComponent(errorNoSig))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(422, 422, 422)
-                        .addComponent(errorNoAnt))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(255, 255, 255))
+                        .addGap(56, 56, 56)
+                        .addComponent(errorNoSig)))
+                .addGap(60, 60, 60)
+                .addComponent(jButtonSig)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonAnt)
-                    .addComponent(jButtonSig))
-                .addGap(6, 6, 6)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(errorNoSig)
-                .addGap(6, 6, 6)
-                .addComponent(errorNoAnt))
+                .addContainerGap()
+                .addComponent(errorNoAnt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(errorNoSig)
+                    .addComponent(jButtonSig)
+                    .addComponent(jButtonAnt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -313,7 +309,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(barraarriba1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

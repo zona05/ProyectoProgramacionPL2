@@ -64,7 +64,7 @@ public class ImagenInmueble extends javax.swing.JPanel {
         calificacionlabel = new javax.swing.JLabel();
         ciudadlabel = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 236, 217));
         jPanel1.setMaximumSize(new java.awt.Dimension(295, 400));
         jPanel1.setMinimumSize(new java.awt.Dimension(295, 400));
 
@@ -86,7 +86,7 @@ public class ImagenInmueble extends javax.swing.JPanel {
 
         precio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         precio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        precio.setText("Precio €/noche");
+        precio.setText("Precio € por noche");
 
         calificacionlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         calificacionlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

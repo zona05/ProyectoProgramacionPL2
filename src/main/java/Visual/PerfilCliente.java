@@ -491,7 +491,7 @@ public class PerfilCliente extends javax.swing.JPanel {
                 Inicio.user.setTelefono(telefono);
                 Inicio.user.setpassw(password);
 
-                // Verificar y actualizar el estado VIP del usuario si el código promocional es válido
+                // Verificar y update el estado VIP del usuario si el código promocional es válido
                 if (Inicio.hacerVipSiPromocodeValido(promocode)) {
                     System.out.println("Este usuario ahora es VIP.");
                 }

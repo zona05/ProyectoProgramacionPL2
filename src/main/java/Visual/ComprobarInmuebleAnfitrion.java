@@ -28,9 +28,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
 
     private ArrayList<Inmueble> buildings; // Referencia al ArrayList de inmuebles del anfitrión de la sesión
     private ListIterator<Inmueble> li; // Iterador para recorrer el ArrayList en ambas direcciones
-    private Inmueble objInm; // Referencia a un objeto de types inmueble del ArrayList
+    private Inmueble objInm; // Referencia a un objeto de tipo inmueble del ArrayList
     private Inmueble inmuebleActual;
-    private String foto = "";
+    private String fotografia = "";
 
     /**
      * Crea un nuevo panel para que el anfitrión revise sus inmuebles.
@@ -90,7 +90,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                     // Verificar si hay inmuebles asociados al anfitrión
                     if (buildings.isEmpty()) {
                         setButtonsEnabled(false);
-                        limpiezaTextos();
+                        limpiarCampos();
                         return;
                     } else {
                         setButtonsEnabled(true);
@@ -159,13 +159,13 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
      * @param inmueble El inmueble a mostrar.
      */
     private void presenta(Inmueble inmueble) {
-        typeLabel.setText(inmueble.gettypes());
         titleTextPanel.setText(inmueble.getTitulo());
         descriptionTextPanel.setText(inmueble.getDescripcion());
         streetTextField.setText(inmueble.getDireccion().getCalle());
         cityTextField.setText(inmueble.getDireccion().getCiudad());
         numberTextField.setText(inmueble.getDireccion().getNumero());
         cpTextField.setText(inmueble.getDireccion().getCp());
+        typeLabel.setText(inmueble.gettypes());
         priceTextField.setText(Double.toString(inmueble.getPrecioNoche()));
         guestTextField.setText(Integer.toString(inmueble.getDatosInmueble().getMaxHuespedes()));
         roomTextField.setText(Integer.toString(inmueble.getDatosInmueble().getHabitaciones()));
@@ -181,7 +181,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
      * @return El archivo de imagen seleccionado, o null si no se selecciona
      * ningún archivo.
      */
-    public File abrirImagen() {
+    public File openImage() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Selecciona una imagen");
         fileChooser.setAcceptAllFileFilterUsed(false); // Deshabilitar la opción "Todos los archivos"
@@ -196,7 +196,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         return null; // No se selecciona ningún archivo
     }
 
-    public String guardadoImagen(File archivofoto) {
+    public String saveImage(File archivofoto) {
         String directoriodestino = "./src/main/resources/fotosinmuebles"; // Directorio de destino fijo
         Path pathdestino = Paths.get(directoriodestino, archivofoto.getName());
 
@@ -223,16 +223,16 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
      * @param i El inmueble al que se le asignará la imagen.
      */
     public void changeImage(Inmueble i) {
-        File fotoFile = abrirImagen();
+        File fotoFile = openImage();
         if (fotoFile != null) {
-            i.setfoto(guardadoImagen(fotoFile));
+            i.setfoto(saveImage(fotoFile));
         }
     }
 
     /**
      * Limpia todos los campos de texto en el formulario.
      */
-    private void limpiezaTextos() {
+    private void limpiarCampos() {
         typeLabel.setText("");
         titleTextPanel.setText("");
         descriptionTextPanel.setText("");
@@ -304,11 +304,11 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         errorNextLabel = new javax.swing.JLabel();
         errorPreviousLabel = new javax.swing.JLabel();
 
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 236, 217));
 
-        barraarriba1.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -331,9 +331,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         logoLabel.setForeground(new java.awt.Color(255, 90, 95));
         logoLabel.setText("JavaBNB");
-        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 36, -1, -1));
+        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        returnButton.setBackground(new java.awt.Color(255, 90, 95));
+        returnButton.setBackground(new java.awt.Color(255, 153, 102));
         returnButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Volver");
@@ -345,9 +345,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                 returnButtonActionPerformed(evt);
             }
         });
-        barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(983, 22, 104, 53));
+        barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 20, 90, 40));
 
-        jPanel3.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel3.setBackground(new java.awt.Color(255, 236, 217));
 
         jPanel2.setBackground(new java.awt.Color(255, 250, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -356,23 +356,23 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setText("Título:");
-        jPanel2.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 112, -1, 15));
+        jPanel2.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 40, 30));
 
         typeLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         typeLabel.setText("var1");
-        jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 11, 161, -1));
+        jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 161, -1));
 
         descriptionLabel.setText("Descripción:");
-        jPanel2.add(descriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 158, -1, -1));
+        jPanel2.add(descriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 40));
 
         streetLabel.setText("Calle:");
-        jPanel2.add(streetLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 207, -1, -1));
+        jPanel2.add(streetLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, 30));
 
         cityLabel.setText("Ciudad:");
-        jPanel2.add(cityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 247, -1, -1));
-        jPanel2.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 244, 200, -1));
+        jPanel2.add(cityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, 30));
+        jPanel2.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 90, 30));
 
-        deleteBuildingButton.setBackground(new java.awt.Color(255, 153, 153));
+        deleteBuildingButton.setBackground(new java.awt.Color(255, 153, 102));
         deleteBuildingButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteBuildingButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteBuildingButton.setText("Eliminar inmueble");
@@ -381,35 +381,41 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                 deleteBuildingButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(deleteBuildingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 741, -1, -1));
+        jPanel2.add(deleteBuildingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, -1, -1));
 
-        cpLabel.setText("C. Postal:");
-        jPanel2.add(cpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 328, -1, -1));
+        cpLabel.setText("Código postal:");
+        jPanel2.add(cpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
         numberLabel.setText("Número:");
-        jPanel2.add(numberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 288, -1, -1));
-        jPanel2.add(numberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 284, 200, -1));
-        jPanel2.add(cpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 324, 200, -1));
+        jPanel2.add(numberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, 30));
+        jPanel2.add(numberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 210, 30));
+        jPanel2.add(cpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 460, 50));
 
-        priceLabel.setText("P.Noche:");
-        jPanel2.add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 368, -1, -1));
-        jPanel2.add(priceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 364, 200, -1));
+        priceLabel.setText("Precio por noche:");
+        jPanel2.add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 30));
+
+        priceTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(priceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 460, 30));
 
         guestLabel.setText("Huéspedes:");
-        jPanel2.add(guestLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 408, -1, -1));
-        jPanel2.add(guestTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 404, 200, -1));
+        jPanel2.add(guestLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, 30));
+        jPanel2.add(guestTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 80, 30));
 
         roomLabel.setText("Habitaciones:");
-        jPanel2.add(roomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 448, -1, -1));
-        jPanel2.add(roomTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 444, 200, -1));
+        jPanel2.add(roomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 30));
+        jPanel2.add(roomTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 180, 30));
 
         bedLabel.setText("Camas:");
-        jPanel2.add(bedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 488, -1, -1));
+        jPanel2.add(bedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, 30));
 
         bathLabel.setText("Baños:");
-        jPanel2.add(bathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 528, -1, -1));
-        jPanel2.add(bedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 484, 200, -1));
-        jPanel2.add(bathTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 524, 200, -1));
+        jPanel2.add(bathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, 30));
+        jPanel2.add(bedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 100, 30));
+        jPanel2.add(bathTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 180, 30));
 
         jScrollPane3.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane3.setPreferredSize(new java.awt.Dimension(64, 22));
@@ -418,8 +424,8 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         titleTextPanel.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane3.setViewportView(titleTextPanel);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 104, 200, 32));
-        jPanel2.add(streetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 204, 200, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 460, 32));
+        jPanel2.add(streetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 180, 30));
 
         jScrollPane4.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane4.setPreferredSize(new java.awt.Dimension(64, 22));
@@ -428,9 +434,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         serviceTextField.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane4.setViewportView(serviceTextField);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 564, 200, 32));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 150, 32));
 
-        editBuildingButton.setBackground(new java.awt.Color(255, 90, 95));
+        editBuildingButton.setBackground(new java.awt.Color(255, 153, 102));
         editBuildingButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editBuildingButton.setForeground(new java.awt.Color(255, 255, 255));
         editBuildingButton.setText("Editar inmueble");
@@ -439,10 +445,10 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                 editBuildingButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(editBuildingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 696, 139, -1));
+        jPanel2.add(editBuildingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, 139, -1));
 
         serviceLabel.setText("Servicios:");
-        jPanel2.add(serviceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 568, -1, -1));
+        jPanel2.add(serviceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, 50));
 
         jScrollPane5.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane5.setPreferredSize(new java.awt.Dimension(64, 22));
@@ -451,10 +457,10 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         descriptionTextPanel.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane5.setViewportView(descriptionTextPanel);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 154, 200, 32));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 180, 32));
 
         markLabel.setText("Calificación:");
-        jPanel2.add(markLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 54, -1, -1));
+        jPanel2.add(markLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, 30));
 
         jScrollPane6.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane6.setPreferredSize(new java.awt.Dimension(64, 22));
@@ -463,9 +469,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         markTextField.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane6.setViewportView(markTextField);
 
-        jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 54, 200, 32));
+        jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 460, 40));
 
-        checkReservesButton.setBackground(new java.awt.Color(255, 90, 95));
+        checkReservesButton.setBackground(new java.awt.Color(255, 153, 102));
         checkReservesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         checkReservesButton.setForeground(new java.awt.Color(255, 255, 255));
         checkReservesButton.setText("Ver reservas");
@@ -474,9 +480,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                 checkReservesButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(checkReservesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 613, 133, -1));
+        jPanel2.add(checkReservesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 133, -1));
 
-        editfoto1.setBackground(new java.awt.Color(255, 90, 95));
+        editfoto1.setBackground(new java.awt.Color(255, 153, 102));
         editfoto1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editfoto1.setForeground(new java.awt.Color(255, 255, 255));
         editfoto1.setText("Cambiar foto");
@@ -485,9 +491,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                 editfoto1ActionPerformed(evt);
             }
         });
-        jPanel2.add(editfoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 657, 138, -1));
+        jPanel2.add(editfoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 138, -1));
 
-        previousButton.setBackground(new java.awt.Color(255, 153, 153));
+        previousButton.setBackground(new java.awt.Color(255, 153, 102));
         previousButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         previousButton.setForeground(new java.awt.Color(255, 255, 255));
         previousButton.setText("Anterior");
@@ -497,7 +503,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
             }
         });
 
-        nextButton.setBackground(new java.awt.Color(255, 153, 153));
+        nextButton.setBackground(new java.awt.Color(255, 153, 102));
         nextButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Siguiente");
@@ -508,12 +514,10 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         });
 
         errorNextLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorNextLabel.setForeground(new java.awt.Color(255, 102, 102));
-        errorNextLabel.setText("No hay un inmueble posterior");
+        errorNextLabel.setText("No hay otro inmueble");
 
         errorPreviousLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorPreviousLabel.setForeground(new java.awt.Color(255, 102, 102));
-        errorPreviousLabel.setText("No hay un inmueble anterior");
+        errorPreviousLabel.setText("No hay otro inmueble");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -522,84 +526,99 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(418, 418, 418)
-                        .addComponent(previousButton)
-                        .addGap(463, 463, 463)
-                        .addComponent(nextButton))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(561, 561, 561)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(620, 620, 620)
+                        .addGap(150, 150, 150)
+                        .addComponent(previousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(179, 179, 179)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(errorPreviousLabel)
-                            .addComponent(errorNextLabel))))
-                .addGap(481, 481, 481))
+                            .addComponent(errorNextLabel)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(errorPreviousLabel)
+                                .addGap(184, 184, 184)
+                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(498, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(previousButton)
-                    .addComponent(nextButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addComponent(errorNextLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(errorPreviousLabel)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(errorPreviousLabel)
+                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(previousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraarriba1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 1110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoButtonActionPerformed
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        if (li.hasNext()) {
+            objInm = li.next();
+            errorNextLabel.setVisible(false);
+            errorPreviousLabel.setVisible(false);
+            presenta(objInm);
 
-    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        Aplicacion.cargaPantallaPrincipal();
-    }//GEN-LAST:event_returnButtonActionPerformed
-
-    private void deleteBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildingButtonActionPerformed
-        if (objInm != null) {
-            MainBNB.eliminarInmueble(objInm); // Llamar al método para eliminar el inmueble
-
-            li.remove();
-
-            if (li.hasNext()) {
-                objInm = li.next();
-                if (objInm != null) {
-                    presenta(objInm);
-                }
-            } else if (li.hasPrevious()) {
-                objInm = li.previous();
-                if (objInm != null) {
-                    presenta(objInm);
-                }
-            } else {
-                limpiezaTextos();
-            }
+        } else {
+            errorNextLabel.setVisible(true);
         }
+    }//GEN-LAST:event_nextButtonActionPerformed
 
-    }//GEN-LAST:event_deleteBuildingButtonActionPerformed
+    private void previousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonActionPerformed
+        if (li.hasPrevious()) {
+            objInm = li.previous();
+            errorNextLabel.setVisible(false);
+            errorPreviousLabel.setVisible(false);
+            presenta(objInm);
+
+        } else {
+            errorPreviousLabel.setVisible(true);
+        }
+    }//GEN-LAST:event_previousButtonActionPerformed
+
+    private void editfoto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editfoto1ActionPerformed
+        File f = openImage();
+        if (f != null) {
+            fotografia = saveImage(f);
+            objInm.setfoto(fotografia);
+
+        } else {
+            System.out.println("no existe la ruta");
+        }
+    }//GEN-LAST:event_editfoto1ActionPerformed
+
+    private void checkReservesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkReservesButtonActionPerformed
+        // Establecer el inmueble actual antes de cambiar a la pantalla HostCheckReserves
+        setInmuebleActual(objInm);
+
+        System.out.println("Inmueble actual:" + objInm.toString());
+
+        Aplicacion.cargaComprobarReservaAnfitrion();
+    }//GEN-LAST:event_checkReservesButtonActionPerformed
 
     private void editBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBuildingButtonActionPerformed
         // ActionListener para el botón
@@ -647,7 +666,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
             String numero = numberTextField.getText();
             String ciudad = cityTextField.getText();
             String cp = cpTextField.getText();
-            String types = typeLabel.getText();
+            String tipo = typeLabel.getText();
             double precio = Double.parseDouble(priceTextField.getText());
             int huespedes = Integer.parseInt(guestTextField.getText());
             int habitaciones = Integer.parseInt(roomTextField.getText());
@@ -759,14 +778,14 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
             } else {
             }
 
-            if (!types.equals("Casa") && !types.equals("Apartamento")) {
-                JOptionPane.showMessageDialog(this, "El types solo puede ser 'Casa' o 'Apartamento'.", "types inválido", JOptionPane.WARNING_MESSAGE);
+            if (!tipo.equals("Casa") && !tipo.equals("Apartamento")) {
+                JOptionPane.showMessageDialog(this, "El tipo solo puede ser 'Casa' o 'Apartamento'.", "Tipo inválido", JOptionPane.WARNING_MESSAGE);
                 valido = false;
             }
 
             if (valido) {
                 objInm.setTitulo(titulo);
-                objInm.settypes(types);
+                objInm.settypes(tipo);
                 objInm.setDescripcion(descripcion);
                 objInm.getDireccion().setCalle(calle);
                 objInm.getDireccion().setCiudad(ciudad);
@@ -786,49 +805,39 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_editBuildingButtonActionPerformed
 
-    private void checkReservesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkReservesButtonActionPerformed
-        // Establecer el inmueble actual antes de cambiar a la pantalla HostCheckReserves
-        setInmuebleActual(objInm);
+    private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceTextFieldActionPerformed
 
-        System.out.println("Inmueble actual:" + objInm.toString());
+    private void deleteBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildingButtonActionPerformed
+        if (objInm != null) {
+            MainBNB.eliminarInmueble(objInm); // Llamar al método para eliminar el inmueble
 
-        Aplicacion.cargaComprobarReservaAnfitrion();
-    }//GEN-LAST:event_checkReservesButtonActionPerformed
+            li.remove();
 
-    private void editfoto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editfoto1ActionPerformed
-        File f = abrirImagen();
-        if (f != null) {
-            foto = guardadoImagen(f);
-            objInm.setfoto(foto);
-
-        } else {
-            System.out.println("no existe la ruta");
+            if (li.hasNext()) {
+                objInm = li.next();
+                if (objInm != null) {
+                    presenta(objInm);
+                }
+            } else if (li.hasPrevious()) {
+                objInm = li.previous();
+                if (objInm != null) {
+                    presenta(objInm);
+                }
+            } else {
+                limpiarCampos();
+            }
         }
-    }//GEN-LAST:event_editfoto1ActionPerformed
+    }//GEN-LAST:event_deleteBuildingButtonActionPerformed
 
-    private void previousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonActionPerformed
-        if (li.hasPrevious()) {
-            objInm = li.previous();
-            errorNextLabel.setVisible(false);
-            errorPreviousLabel.setVisible(false);
-            presenta(objInm);
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        Aplicacion.cargaPantallaPrincipal();
+    }//GEN-LAST:event_returnButtonActionPerformed
 
-        } else {
-            errorPreviousLabel.setVisible(true);
-        }
-    }//GEN-LAST:event_previousButtonActionPerformed
-
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        if (li.hasNext()) {
-            objInm = li.next();
-            errorNextLabel.setVisible(false);
-            errorPreviousLabel.setVisible(false);
-            presenta(objInm);
-
-        } else {
-            errorNextLabel.setVisible(true);
-        }
-    }//GEN-LAST:event_nextButtonActionPerformed
+    private void logoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

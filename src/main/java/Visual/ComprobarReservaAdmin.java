@@ -17,7 +17,7 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
 
     private ArrayList<Reserva> reservas = new ArrayList<>(); //Referencia al ArrayList de personas de la clase JavaBNB
     private ListIterator<Reserva> li; //Iterador para recorrer el ArrayList en ambas direcciones
-    private Reserva objreserva; //Referencia a un objeto de types cliente del ArrayList
+    private Reserva objreserva; //Referencia a un objeto de tipo cliente del ArrayList
 
     public ComprobarReservaAdmin() {
         initComponents();
@@ -58,7 +58,7 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
                 if (reservas.size() < 1) {
                     jButtonSig.setEnabled(false);
                     jButtonAnt.setEnabled(false);
-                    limpiezaTextos();
+                    limpiarCampos();
                     return;
                 } else {
                     jButtonSig.setEnabled(true);
@@ -73,7 +73,7 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
                 if (objreserva != null) {
                     presenta();
                 } else {
-                    limpiezaTextos();
+                    limpiarCampos();
                     errorNoSig.setVisible(true);
                 }
             }
@@ -82,7 +82,7 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
         }
     }
 
-    private void limpiezaTextos() {
+    private void limpiarCampos() {
         fechallegada.setText("");
         fechareserva.setText("");
         fechasalida.setText("");
@@ -136,11 +136,11 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
         errorNoSig = new javax.swing.JLabel();
         errorNoAnt = new javax.swing.JLabel();
 
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 250, 248));
 
-        barraarriba1.setBackground(new java.awt.Color(255, 250, 248));
+        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -164,9 +164,9 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
         titleLabel1.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         titleLabel1.setForeground(new java.awt.Color(255, 90, 95));
         titleLabel1.setText("JavaBNB");
-        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 31, -1, -1));
+        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        mainscr.setBackground(new java.awt.Color(255, 90, 95));
+        mainscr.setBackground(new java.awt.Color(255, 153, 102));
         mainscr.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         mainscr.setForeground(new java.awt.Color(255, 255, 255));
         mainscr.setText("Volver");
@@ -178,9 +178,9 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
                 mainscrActionPerformed(evt);
             }
         });
-        barraarriba1.add(mainscr, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 10, 101, 53));
+        barraarriba1.add(mainscr, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 90, 40));
 
-        jPanel3.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel3.setBackground(new java.awt.Color(255, 236, 217));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 250, 248));
@@ -190,12 +190,12 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         feLabel.setText("Fecha de llegada:");
-        jPanel2.add(feLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 145, -1, -1));
+        jPanel2.add(feLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 20));
 
         frLabel.setText("Fecha de reserva:");
-        jPanel2.add(frLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 105, -1, -1));
-        jPanel2.add(fechallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 142, 168, -1));
-        jPanel2.add(fechareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 102, 168, -1));
+        jPanel2.add(frLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
+        jPanel2.add(fechallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 168, -1));
+        jPanel2.add(fechareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 168, -1));
 
         dnilabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         dnilabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -203,24 +203,24 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
         jPanel2.add(dnilabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 17, 191, -1));
 
         fsLabel.setText("Fecha de salida:");
-        jPanel2.add(fsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 185, -1, -1));
-        jPanel2.add(fechasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 182, 168, -1));
+        jPanel2.add(fsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 20));
+        jPanel2.add(fechasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 168, -1));
 
         nLabel.setText("Nombre:");
-        jPanel2.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 225, -1, -1));
-        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 222, 168, -1));
+        jPanel2.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 20));
+        jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 168, -1));
 
-        pLabel.setText("Precio total:");
-        jPanel2.add(pLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 265, -1, -1));
-        jPanel2.add(preciototal, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 262, 168, -1));
+        pLabel.setText("Precio final:");
+        jPanel2.add(pLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 20));
+        jPanel2.add(preciototal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 168, -1));
 
         inmueblelabel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inmueblelabel.setText("Inmueble");
         jPanel2.add(inmueblelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 56, 288, 28));
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 40, -1, 328));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, 300));
 
-        jButtonAnt.setBackground(new java.awt.Color(255, 153, 153));
+        jButtonAnt.setBackground(new java.awt.Color(255, 153, 102));
         jButtonAnt.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButtonAnt.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnt.setText("Anterior");
@@ -229,9 +229,9 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
                 jButtonAntActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 3, -1, -1));
+        jPanel3.add(jButtonAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
-        jButtonSig.setBackground(new java.awt.Color(255, 153, 153));
+        jButtonSig.setBackground(new java.awt.Color(255, 153, 102));
         jButtonSig.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jButtonSig.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSig.setText("Siguiente");
@@ -240,43 +240,45 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
                 jButtonSigActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 3, -1, -1));
+        jPanel3.add(jButtonSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
 
         errorNoSig.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorNoSig.setForeground(new java.awt.Color(255, 102, 102));
-        errorNoSig.setText("No hay una siguiente reserva");
-        jPanel3.add(errorNoSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 386, -1, -1));
+        errorNoSig.setText("No hay otra reserva");
+        jPanel3.add(errorNoSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         errorNoAnt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        errorNoAnt.setForeground(new java.awt.Color(255, 102, 102));
-        errorNoAnt.setText("No hay una reserva anterior");
-        jPanel3.add(errorNoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 417, -1, -1));
+        errorNoAnt.setText("No hay otra reserva");
+        jPanel3.add(errorNoAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1057, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(barraarriba1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 703));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logo1ActionPerformed
+    private void jButtonSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSigActionPerformed
+        if (li.hasNext()) {
+            objreserva = li.next();
+            errorNoSig.setVisible(false);
+            errorNoAnt.setVisible(false);
+            presenta();
 
-    private void mainscrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainscrActionPerformed
-        Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen");
-    }//GEN-LAST:event_mainscrActionPerformed
+        } else {
+            errorNoSig.setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonSigActionPerformed
 
     private void jButtonAntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAntActionPerformed
         if (li.hasPrevious()) {
@@ -290,17 +292,13 @@ public class ComprobarReservaAdmin extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonAntActionPerformed
 
-    private void jButtonSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSigActionPerformed
-        if (li.hasNext()) {
-            objreserva = li.next();
-            errorNoSig.setVisible(false);
-            errorNoAnt.setVisible(false);
-            presenta();
+    private void mainscrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainscrActionPerformed
+        Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen");
+    }//GEN-LAST:event_mainscrActionPerformed
 
-        } else {
-            errorNoSig.setVisible(true);
-        }
-    }//GEN-LAST:event_jButtonSigActionPerformed
+    private void logo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logo1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

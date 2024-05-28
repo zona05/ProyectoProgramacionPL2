@@ -193,12 +193,17 @@ public class MirarInmueble extends javax.swing.JPanel {
         fotoboton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/casa1.jpg"))); // NOI18N
         jPanel1.add(fotoboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 560, 330));
 
-        starsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        starsPanel.setBackground(new java.awt.Color(255, 153, 102));
         starsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         estrella1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/estrella50roja.png"))); // NOI18N
         estrella1.setToolTipText("");
         estrella1.setBorderPainted(false);
+        estrella1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estrella1ActionPerformed(evt);
+            }
+        });
 
         estrella2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/estrella50roja.png"))); // NOI18N
         estrella2.setToolTipText("");
@@ -226,32 +231,32 @@ public class MirarInmueble extends javax.swing.JPanel {
         starsPanelLayout.setHorizontalGroup(
             starsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(starsPanelLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(estrella1)
-                .addGap(6, 6, 6)
-                .addComponent(estrella2)
-                .addGap(6, 6, 6)
-                .addComponent(estrella3)
-                .addGap(6, 6, 6)
-                .addComponent(estrella4)
-                .addGap(6, 6, 6)
-                .addComponent(estrella5)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(estrella1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(estrella2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(estrella3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(estrella4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(estrella5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         starsPanelLayout.setVerticalGroup(
             starsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(starsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(starsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(estrella1)
-                    .addComponent(estrella2)
-                    .addComponent(estrella3)
-                    .addComponent(estrella4)
-                    .addComponent(estrella5))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(estrella1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(estrella2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(estrella3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(estrella4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(estrella5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jPanel1.add(starsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, 40));
+        jPanel1.add(starsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 390, 50));
 
         titleLabel.setFont(new java.awt.Font("Noto Sans SemiCondensed", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 153, 102));
@@ -290,10 +295,10 @@ public class MirarInmueble extends javax.swing.JPanel {
         logoLabel.setText("JavaBNB");
         barraarriba.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 70));
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 70));
 
         typeLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
-        typeLabel.setText("types de Inmueble");
+        typeLabel.setText("Tipo de Inmueble");
         jPanel1.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
 
         servicesTextArea.setEditable(false);
@@ -427,7 +432,7 @@ public class MirarInmueble extends javax.swing.JPanel {
         jPanel1.add(panelreservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 330, -1));
 
         markLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
-        markLabel.setText("Valoración: 2.5");
+        markLabel.setText("Valoración: 3");
         jPanel1.add(markLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, -1, -1));
 
         gradeButton.setBackground(new java.awt.Color(255, 153, 102));
@@ -565,6 +570,10 @@ public class MirarInmueble extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_gradeButtonActionPerformed
+
+    private void estrella1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estrella1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_estrella1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
