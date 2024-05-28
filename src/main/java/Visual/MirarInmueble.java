@@ -69,11 +69,11 @@ public class MirarInmueble extends javax.swing.JPanel {
         
         // Actualiza la imagen del inmueble y las estrellas de calificación
         fotoboton.setIcon(resizeIMG(i.getfotografia()));
-        estrella1.setIcon(i.getCalificacion() >= 1 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
-        estrella2.setIcon(i.getCalificacion() >= 2 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
-        estrella3.setIcon(i.getCalificacion() >= 3 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
-        estrella4.setIcon(i.getCalificacion() >= 4 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
-        estrella5.setIcon(i.getCalificacion() >= 5 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
+        estrella1.setIcon(i.getCalificacion() >= 1 ? imagenIcon("./src/main/resources/logos/valoracionimage.PNG") : (imagenIcon("./src/main/resources/logos/valoracionimagenNA.PNG")));
+        estrella2.setIcon(i.getCalificacion() >= 2 ? imagenIcon("./src/main/resources/logos/valoracionimage.PNG") : (imagenIcon("./src/main/resources/logos/valoracionimagenNA.PNG")));
+        estrella3.setIcon(i.getCalificacion() >= 3 ? imagenIcon("./src/main/resources/logos/valoracionimage.PNG") : (imagenIcon("./src/main/resources/logos/valoracionimagenNA.PNG")));
+        estrella4.setIcon(i.getCalificacion() >= 4 ? imagenIcon("./src/main/resources/logos/valoracionimage.PNG") : (imagenIcon("./src/main/resources/logos/valoracionimagenNA.PNG")));
+        estrella5.setIcon(i.getCalificacion() >= 5 ? imagenIcon("./src/main/resources/logos/valoracionimage.PNG") : (imagenIcon("./src/main/resources/logos/valoracionimagenNA.PNG")));
 
     }
     /**
