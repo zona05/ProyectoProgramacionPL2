@@ -1,8 +1,5 @@
 package Programa;
 
-import java.util.ArrayList;
-
-
 
 public class Admin {   //antes:   public record Administrador(String correo, String contrasena) {
 

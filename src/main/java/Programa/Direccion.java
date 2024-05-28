@@ -1,10 +1,11 @@
-package Programa;
+package Programa; // Define el paquete al que pertenece la clase
 
-import java.io.Serializable;
-import java.util.Objects;
+import java.io.Serializable; // Importa la interfaz Serializable para serialización
+import java.util.Objects; // Importa la clase Objects para comparaciones
 
 public class Direccion implements Serializable {
 
+    // Atributos de la clase
     private String calle;
     private String numero;
     private String codigopostal;
@@ -13,115 +14,78 @@ public class Direccion implements Serializable {
     /**
      * Constructor de la clase Direccion
      *
-     * @param calle
-     * @param numero
-     * @param codigopostal
-     * @param ciudad
+     * @param calle nombre de la calle
+     * @param numero número de la calle
+     * @param codigopostal código postal de la dirección
+     * @param ciudad nombre de la ciudad
      */
     public Direccion(String calle, String numero, String codigopostal, String ciudad) {
-        this.calle = calle;
-        this.numero = numero;
-        this.codigopostal = codigopostal;
-        this.ciudad = ciudad;
+        this.calle = calle; // Asigna el valor del parámetro calle al atributo calle
+        this.numero = numero; // Asigna el valor del parámetro numero al atributo numero
+        this.codigopostal = codigopostal; // Asigna el valor del parámetro codigopostal al atributo codigopostal
+        this.ciudad = ciudad; // Asigna el valor del parámetro ciudad al atributo ciudad
     }
 
-    //Método que iguala direcciones por su contenido, no por su dirección de memoria
+    // Método equals para comparar direcciones por su contenido
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        if (this == obj) { // Comprueba si las referencias son iguales
+            return true; // Devuelve true si son la misma instancia
         }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
+        if (obj == null || getClass() != obj.getClass()) { // Comprueba si el objeto es nulo o de una clase diferente
+            return false; // Devuelve false si son diferentes
         }
-        Direccion otraDireccion = (Direccion) obj;
+        Direccion otraDireccion = (Direccion) obj; // Convierte el objeto en una instancia de Direccion
+        // Compara los atributos de las direcciones y devuelve true si son iguales, false si son diferentes
         return Objects.equals(calle, otraDireccion.calle)
                 && Objects.equals(numero, otraDireccion.numero)
                 && Objects.equals(codigopostal, otraDireccion.codigopostal)
                 && Objects.equals(ciudad, otraDireccion.ciudad);
     }
 
+    // Método hashCode para generar un código hash basado en los atributos de la dirección
     @Override
     public int hashCode() {
-        return Objects.hash(calle, numero, codigopostal, ciudad);
+        return Objects.hash(calle, numero, codigopostal, ciudad); // Devuelve un código hash basado en los atributos
     }
 
-    //G&S
-    /**
-     * Get the value of ciudad
-     *
-     * @return the value of ciudad
-     */
+    // Getters y Setters para los atributos de la clase
     public String getCiudad() {
         return ciudad;
     }
 
-    /**
-     * Set the value of ciudad
-     *
-     * @param ciudad new value of ciudad
-     */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
 
-    /**
-     * Get the value of codigopostal
-     *
-     * @return the value of codigopostal
-     */
     public String getcodigopostal() {
         return codigopostal;
     }
 
-    /**
-     * Set the value of codigopostal
-     *
-     * @param codigopostal new value of codigopostal
-     */
     public void setcodigopostal(String codigopostal) {
         this.codigopostal = codigopostal;
     }
 
-    /**
-     * Get the value of numero
-     *
-     * @return the value of numero
-     */
     public String getNumero() {
         return numero;
     }
 
-    /**
-     * Set the value of numero
-     *
-     * @param numero new value of numero
-     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
-    /**
-     * Get the value of calle
-     *
-     * @return the value of calle
-     */
     public String getCalle() {
         return calle;
     }
 
-    /**
-     * Set the value of calle
-     *
-     * @param calle new value of calle
-     */
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
+    // Método toString para obtener una representación de la dirección como cadena de texto
     @Override
     public String toString() {
-        return "Calle " + calle + ", nº" + numero + ", " + ciudad+ ". codigopostal:" + codigopostal;
+        return "Calle " + calle + ", nº" + numero + ", " + ciudad + ". Código postal:" + codigopostal;
     }
 
 }

@@ -10,21 +10,24 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+// Clase principal del programa
 public class MainBNB implements Serializable {
 
+    // Listas estáticas para almacenar inmuebles, clientes y los inmuebles de un anfitrión específico
     private static ArrayList<Inmueble> inmuebles;
     private static ArrayList<Cliente> clientes;
     private static ArrayList<Inmueble> inmueblesAnfitrion;
 
+    // Método para inicializar las listas
     public static void inicializadorJavaBNB() {
         inmuebles = new ArrayList<>();
         clientes = new ArrayList<>();
         inmueblesAnfitrion = new ArrayList<>();
         System.out.println(inmuebles);
         System.out.println(inmueblesAnfitrion);
-
     }
 
+    // Métodos para obtener las listas de inmuebles y clientes
     public static ArrayList<Inmueble> getInmuebles() {
         return inmuebles;
     }
@@ -33,10 +36,13 @@ public class MainBNB implements Serializable {
         return clientes;
     }
 
+    // Método para agregar un inmueble a la lista
     public static boolean agregarinmueble(Inmueble inmueble) {
+        // Verificar si ya existe un inmueble con la misma dirección
         boolean existeInmuebleConMismaDireccion = inmuebles.stream()
                 .anyMatch(inmuebleExistente -> inmuebleExistente.getDireccion().equals(inmueble.getDireccion()));
 
+        // Si no existe, agregar el inmueble a la lista
         if (!existeInmuebleConMismaDireccion) {
             inmuebles.add(inmueble);
         } else {
@@ -45,10 +51,13 @@ public class MainBNB implements Serializable {
         return !existeInmuebleConMismaDireccion;
     }
 
+    // Método para añadir un cliente a la lista
     public static boolean añadirCliente(Cliente cliente) {
+        // Verificar si ya existe un cliente con el mismo DNI
         boolean existeClienteConMismoDni = clientes.stream()
                 .anyMatch(clienteExistente -> clienteExistente.getDni().equals(cliente.getDni()));
 
+        // Si no existe, agregar el cliente a la lista
         if (!existeClienteConMismoDni) {
             clientes.add(cliente);
         } else {
@@ -57,13 +66,16 @@ public class MainBNB implements Serializable {
         return !existeClienteConMismoDni;
     }
 
+    // Método para buscar inmuebles disponibles en una ciudad y fecha específicas
     public static ArrayList<Inmueble> buscarInmuebles(String ciudad, LocalDate fechaEntrada, LocalDate fechaSalida) {
         ArrayList<Inmueble> inmueblesDisponiblesEnCiudad = new ArrayList<>();
 
         for (Inmueble inmueble : inmuebles) {
+            // Verificar si la ciudad coincide y si el inmueble está disponible en las fechas especificadas
             boolean coincideCiudad = ciudad.isEmpty() || inmueble.getDireccion().getCiudad().equalsIgnoreCase(ciudad);
             boolean coincideDisponibilidad = (fechaEntrada == null && fechaSalida == null) || (fechaEntrada != null && fechaSalida != null && inmueble.estaDisponible(fechaEntrada, fechaSalida));
 
+            // Si coincide, agregar el inmueble a la lista de disponibles
             if (coincideCiudad && coincideDisponibilidad) {
                 inmueblesDisponiblesEnCiudad.add(inmueble);
             }
@@ -72,6 +84,7 @@ public class MainBNB implements Serializable {
         return inmueblesDisponiblesEnCiudad;
     }
 
+    // Métodos para ordenar inmuebles por precio, tipo y calificación, de forma ascendente y descendente
     public static void ordenarPorPrecioAscSF() {
         if (inmuebles != null) {
             inmuebles.sort(Comparator.comparingDouble(Inmueble::getPrecioNoche));
@@ -102,6 +115,7 @@ public class MainBNB implements Serializable {
         }
     }
 
+    // Métodos para ordenar inmuebles filtrados por ciudad por precio, tipo y calificación, de forma ascendente y descendente
     public static void ordenarPorPrecioAscCF(ArrayList<Inmueble> inmueblesDisponiblesEnCiudad) {
         if (inmueblesDisponiblesEnCiudad != null) {
             inmueblesDisponiblesEnCiudad.sort(Comparator.comparingDouble(Inmueble::getPrecioNoche));
@@ -120,6 +134,7 @@ public class MainBNB implements Serializable {
         }
     }
 
+    // Métodos para filtrar inmuebles disponibles por tipo (casas y apartamentos)
     public static ArrayList<Inmueble> filtrarCasas(ArrayList<Inmueble> inmueblesDisponibles) {
         ArrayList<Inmueble> casas = new ArrayList<>();
         for (Inmueble inmueble : inmueblesDisponibles) {
@@ -140,7 +155,9 @@ public class MainBNB implements Serializable {
         return apartamentos;
     }
 
-    public static void ordenarPorCalificacionAscCF(ArrayList<Inmueble> inmueblesDisponiblesEnCiudad) {
+   
+
+        public static void ordenarPorCalificacionAscCF(ArrayList<Inmueble> inmueblesDisponiblesEnCiudad) {
         if (inmueblesDisponiblesEnCiudad != null) {
             inmueblesDisponiblesEnCiudad.sort(Comparator.comparingDouble(Inmueble::getCalificacion));
         }
@@ -152,6 +169,7 @@ public class MainBNB implements Serializable {
         }
     }
 
+    // Método para cargar datos desde archivos
     public static void cargarDatos() {
         try {
             FileInputStream istreamClientes = new FileInputStream("./src/main/resources/datos/datainfoClientes.dat");
@@ -180,6 +198,7 @@ public class MainBNB implements Serializable {
         }
     }
 
+    // Método para guardar datos en archivos
     public static void guardarDatos() {
         try {
             if (!clientes.isEmpty()) {
@@ -210,7 +229,7 @@ public class MainBNB implements Serializable {
         }
     }
 
-     
+    // Método para eliminar un anfitrión y sus inmuebles
     public static void eliminarAnfitrion(Cliente cliente) {
         Host anfitrion = (Host) cliente;
         for (Inmueble inmueble : inmuebles) {
@@ -223,6 +242,7 @@ public class MainBNB implements Serializable {
         guardarDatos();
     }
 
+    // Método para eliminar un cliente particular y sus reservas
     public static void eliminarParticular(Cliente cliente) {
         Particular particular = (Particular) cliente;
         for (Inmueble inmueble : inmuebles) {
@@ -235,9 +255,9 @@ public class MainBNB implements Serializable {
         }
         clientes.remove(cliente);
         guardarDatos();
-
     }
 
+    // Método para filtrar inmuebles por el DNI de su anfitrión
     public static ArrayList<Inmueble> filtrarInmueblesPorAnfitrion(Cliente anfitrion) {
         inmueblesAnfitrion = new ArrayList<>();
         for (Inmueble inmueble : inmuebles) {
@@ -248,6 +268,7 @@ public class MainBNB implements Serializable {
         return inmueblesAnfitrion;
     }
 
+    // Método para eliminar las reservas asociadas a un inmueble
     public static void eliminarReservasDeInmueble(Inmueble inmueble) {
         System.out.println("Eliminando reservas asociadas al inmueble (2): " + inmueble.getTitulo());
         //for (Reserva reserva : inmueble.getReservas()) {System.out.println("Eliminando reserva: " + reserva);reserva.getParticular().getReservas().remove(reserva);}
@@ -255,6 +276,7 @@ public class MainBNB implements Serializable {
         System.out.println("Las reservas se han eliminado correctamente.");
     }
 
+    // Método para eliminar un inmueble y sus reservas
     public static void eliminarInmueble(Inmueble inmueble) {
         // Eliminar el inmueble de la lista de inmuebles
         System.out.println("Se ha eliminado el inmueble: " + inmueble.toString());

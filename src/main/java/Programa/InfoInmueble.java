@@ -1,34 +1,35 @@
-package Programa;
+package Programa; // Define el paquete al que pertenece la clase
 
-import java.io.Serializable;
+import java.io.Serializable; // Importa la interfaz Serializable para permitir la serialización
 
 /**
- * La clase infoinmueble representa los datos básicos de un inmueble, incluyendo
- * la cantidad de huéspedes que puede alojar, el número de habitaciones, numcamas y numtoilet.
+ * La clase InfoInmueble representa los datos básicos de un inmueble, incluyendo
+ * la cantidad de huéspedes que puede alojar, el número de habitaciones, camas y baños.
  */
 public class InfoInmueble implements Serializable {
     
-    private int maxHuespedes;
-    private int habitaciones;
-    private int numcamas;
-    private int numtoilet;
+    // Atributos de la clase InfoInmueble
+    private int maxHuespedes; // Cantidad máxima de huéspedes que puede alojar el inmueble
+    private int habitaciones; // Número de habitaciones en el inmueble
+    private int numcamas; // Número de camas en el inmueble
+    private int numtoilet; // Número de baños en el inmueble
 
     /**
-     * Constructor de la clase infoinmueble.
+     * Constructor de la clase InfoInmueble.
      *
      * @param maxHuespedes la cantidad máxima de huéspedes que pueden alojarse en el inmueble
      * @param habitaciones el número de habitaciones en el inmueble
-     * @param numcamas el número de numcamas en el inmueble
-     * @param numtoilet el número de numtoilet en el inmueble
+     * @param numcamas el número de camas en el inmueble
+     * @param numtoilet el número de baños en el inmueble
      */
     public InfoInmueble(int maxHuespedes, int habitaciones, int numcamas, int numtoilet) {
-        this.maxHuespedes = maxHuespedes;
-        this.habitaciones = habitaciones;
-        this.numcamas = numcamas;
-        this.numtoilet = numtoilet;
+        this.maxHuespedes = maxHuespedes; // Inicializa la cantidad máxima de huéspedes
+        this.habitaciones = habitaciones; // Inicializa el número de habitaciones
+        this.numcamas = numcamas; // Inicializa el número de camas
+        this.numtoilet = numtoilet; // Inicializa el número de baños
     }
     
-    // Getters y Setters
+    // Getters y Setters para acceder y modificar los atributos privados
 
     /**
      * Obtiene el valor de numtoilet.
@@ -109,6 +110,6 @@ public class InfoInmueble implements Serializable {
      */
     @Override
     public String toString() {
-        return "Como máximo " + maxHuespedes + " huéspedes se pueden alojar en este inmueble. El inmueble tiene " + habitaciones + " habitaciones, " + numcamas + " numcamas, y " + numtoilet + " numtoilet.";
+        return "Como máximo " + maxHuespedes + " huéspedes se pueden alojar en este inmueble. El inmueble tiene " + habitaciones + " habitaciones, " + numcamas + " camas, y " + numtoilet + " baños.";
     }
 }
