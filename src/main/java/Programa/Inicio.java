@@ -53,25 +53,25 @@ public class Inicio {
     }
 
     /**
-     * Inicia sesión con el correo y la passw proporcionados.
+     * Inicia sesión con el correo y la contrasena proporcionados.
      *
      * @param correo el correo del cliente
-     * @param passw la passw del cliente
+     * @param contrasena la contrasena del cliente
      * @return un entero que indica el types de usuario (1: administrador, 2: cliente, 3: anfitrión, 0: no encontrado)
      */
-    public static int iniciarSesion(String correo, String passw) {
+    public static int iniciarSesion(String correo, String contrasena) {
         boolean isHost = false;
-        if (correo.equals("admin@java.bnb") && passw.equals("admin")) {
-            System.out.println("Sesión iniciada como administrador");
+        if (correo.equals("admin@java.bnb") && contrasena.equals("admin")) {
+            System.out.println("La sesion ha sido iniciada como administrador");
             return 1;
         }
         for (Cliente cliente : MainBNB.getClientes()) {
-            System.out.println("Revisando cliente: " + cliente);
+            System.out.println("Revision cliente: " + cliente);
             isHost = (cliente instanceof Host);
 
-            if (cliente.getCorreo().equals(correo.toLowerCase()) && cliente.getpassw().equals(passw)) {
+            if (cliente.getCorreo().equals(correo.toLowerCase()) && cliente.getcontrasena().equals(contrasena)) {
                 Aplicacion.sesion.nuevaSesion(cliente);
-                System.out.println("Sesión iniciada por " + Aplicacion.sesion.user);
+                System.out.println("La sesion ha sido iniciada por " + Aplicacion.sesion.user);
                 return isHost ? 3 : 2;
             }
         }

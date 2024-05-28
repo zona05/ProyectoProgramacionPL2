@@ -27,7 +27,7 @@ public class ImagenInmueble extends javax.swing.JPanel {
         this.i = i;
         nombre.setText(this.i.getTitulo());
         precio.setText(String.valueOf(this.i.getPrecioNoche()) + "€/noche");
-        fotoboton.setIcon(resizeIMG(this.i.getfoto()));
+        fotoboton.setIcon(resizeIMG(this.i.getfotografia()));
         calificacionlabel.setText("Calificación: " + Double.toString(i.getCalificacion()));
         ciudadlabel.setText("Ciudad: "+this.i.getDireccion().getCiudad());
 
@@ -80,19 +80,19 @@ public class ImagenInmueble extends javax.swing.JPanel {
             }
         });
 
-        nombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nombre.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombre.setText("Titulo");
 
-        precio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        precio.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         precio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         precio.setText("Precio € por noche");
 
-        calificacionlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        calificacionlabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         calificacionlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         calificacionlabel.setText("Calificación: 4.5");
 
-        ciudadlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ciudadlabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         ciudadlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ciudadlabel.setText("Ciudad");
 
@@ -126,7 +126,7 @@ public class ImagenInmueble extends javax.swing.JPanel {
                 .addComponent(calificacionlabel)
                 .addGap(18, 18, 18)
                 .addComponent(ciudadlabel)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

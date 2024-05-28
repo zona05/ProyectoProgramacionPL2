@@ -7,7 +7,7 @@ public class Direccion implements Serializable {
 
     private String calle;
     private String numero;
-    private String cp;
+    private String codigopostal;
     private String ciudad;
 
     /**
@@ -15,13 +15,13 @@ public class Direccion implements Serializable {
      *
      * @param calle
      * @param numero
-     * @param cp
+     * @param codigopostal
      * @param ciudad
      */
-    public Direccion(String calle, String numero, String cp, String ciudad) {
+    public Direccion(String calle, String numero, String codigopostal, String ciudad) {
         this.calle = calle;
         this.numero = numero;
-        this.cp = cp;
+        this.codigopostal = codigopostal;
         this.ciudad = ciudad;
     }
 
@@ -37,13 +37,13 @@ public class Direccion implements Serializable {
         Direccion otraDireccion = (Direccion) obj;
         return Objects.equals(calle, otraDireccion.calle)
                 && Objects.equals(numero, otraDireccion.numero)
-                && Objects.equals(cp, otraDireccion.cp)
+                && Objects.equals(codigopostal, otraDireccion.codigopostal)
                 && Objects.equals(ciudad, otraDireccion.ciudad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(calle, numero, cp, ciudad);
+        return Objects.hash(calle, numero, codigopostal, ciudad);
     }
 
     //G&S
@@ -66,21 +66,21 @@ public class Direccion implements Serializable {
     }
 
     /**
-     * Get the value of cp
+     * Get the value of codigopostal
      *
-     * @return the value of cp
+     * @return the value of codigopostal
      */
-    public String getCp() {
-        return cp;
+    public String getcodigopostal() {
+        return codigopostal;
     }
 
     /**
-     * Set the value of cp
+     * Set the value of codigopostal
      *
-     * @param cp new value of cp
+     * @param codigopostal new value of codigopostal
      */
-    public void setCp(String cp) {
-        this.cp = cp;
+    public void setcodigopostal(String codigopostal) {
+        this.codigopostal = codigopostal;
     }
 
     /**
@@ -121,7 +121,7 @@ public class Direccion implements Serializable {
 
     @Override
     public String toString() {
-        return "Calle " + calle + ", nº" + numero + ", " + ciudad+ ". CP:" + cp;
+        return "Calle " + calle + ", nº" + numero + ", " + ciudad+ ". codigopostal:" + codigopostal;
     }
 
 }

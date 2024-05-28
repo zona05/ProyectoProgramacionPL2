@@ -8,23 +8,23 @@ import java.io.Serializable;
  */
 public class Particular extends Cliente implements Serializable {
 
-    private Credito tarjetaCredito;
+    private Credito tarjetatarjetaCredito;
     private boolean vip;
 
     /**
      * Constructor de la clase Particular.
      *
-     * @param tarjetaCredito la tarjeta de crédito del cliente
+     * @param tarjetatarjetaCredito la tarjeta de crédito del cliente
      * @param vip            indica si el cliente es VIP
      * @param dni            el DNI del cliente
      * @param nombre         el nombre del cliente
      * @param correo         el correo electrónico del cliente
-     * @param passw          la passw del cliente
+     * @param contrasena          la contrasena del cliente
      * @param telefono       el teléfono del cliente
      */
-    public Particular(Credito tarjetaCredito, boolean vip, String dni, String nombre, String correo, String passw, String telefono) {
-        super(dni, nombre, correo, passw, telefono);
-        this.tarjetaCredito = tarjetaCredito;
+    public Particular(Credito tarjetatarjetaCredito, boolean vip, String dni, String nombre, String correo, String contrasena, String telefono) {
+        super(dni, nombre, correo, contrasena, telefono);
+        this.tarjetatarjetaCredito = tarjetatarjetaCredito;
         this.vip = vip;
     }
 
@@ -36,14 +36,14 @@ public class Particular extends Cliente implements Serializable {
      * @return un mensaje con el saldo actual
      */
     public String disminuirSaldo(double cantidad) {
-        Double saldo = tarjetaCredito.getSaldo();
+        Double saldo = tarjetatarjetaCredito.getSaldo();
         if (vip) {
             saldo -= cantidad * 0.9;
         } else {
             saldo -= cantidad;
         }
-        tarjetaCredito.setSaldo(saldo);
-        return "El saldo actual es: " + saldo + "€";
+        tarjetatarjetaCredito.setSaldo(saldo);
+        return "Tu saldo actual es de  " + saldo + "€";
     }
 
     /**
@@ -53,10 +53,10 @@ public class Particular extends Cliente implements Serializable {
      * @return un mensaje con el saldo actual
      */
     public String aumentarSaldo(double cantidad) {
-        Double saldo = tarjetaCredito.getSaldo();
+        Double saldo = tarjetatarjetaCredito.getSaldo();
         saldo += cantidad;
-        tarjetaCredito.setSaldo(saldo);
-        return "El saldo actual es: " + saldo + "€";
+        tarjetatarjetaCredito.setSaldo(saldo);
+        return "Tu saldo actual es de " + saldo + "€";
     }
 
     /**
@@ -65,7 +65,7 @@ public class Particular extends Cliente implements Serializable {
      * @return el saldo de la tarjeta de crédito
      */
     public double getSaldo() {
-        return tarjetaCredito.getSaldo();
+        return tarjetatarjetaCredito.getSaldo();
     }
 
     /**
@@ -74,7 +74,7 @@ public class Particular extends Cliente implements Serializable {
      * @param saldo el nuevo saldo de la tarjeta de crédito
      */
     public void setSaldo(double saldo) {
-        tarjetaCredito.setSaldo(saldo);
+        tarjetatarjetaCredito.setSaldo(saldo);
     }
 
     /**
@@ -100,17 +100,17 @@ public class Particular extends Cliente implements Serializable {
      *
      * @return la tarjeta de crédito del cliente
      */
-    public Credito getTarjetaCredito() {
-        return tarjetaCredito;
+    public Credito getTarjetatarjetaCredito() {
+        return tarjetatarjetaCredito;
     }
 
     /**
      * Establece la tarjeta de crédito del cliente.
      *
-     * @param tarjetaCredito la nueva tarjeta de crédito del cliente
+     * @param tarjetatarjetaCredito la nueva tarjeta de crédito del cliente
      */
-    public void setTarjetaCredito(Credito tarjetaCredito) {
-        this.tarjetaCredito = tarjetaCredito;
+    public void setTarjetatarjetaCredito(Credito tarjetatarjetaCredito) {
+        this.tarjetatarjetaCredito = tarjetatarjetaCredito;
     }
 
     /**
@@ -120,6 +120,6 @@ public class Particular extends Cliente implements Serializable {
      */
     @Override
     public String toString() {
-        return super.toString() + tarjetaCredito.toString() + ", vip:" + vip;
+        return super.toString() + tarjetatarjetaCredito.toString() + ", vip:" + vip;
     }
 }

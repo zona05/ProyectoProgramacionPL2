@@ -154,8 +154,9 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         errorNoAnt = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
+        barraarriba1.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -178,11 +179,11 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
 
         titleLabel1.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         titleLabel1.setForeground(new java.awt.Color(255, 90, 95));
-        titleLabel1.setText("JavaBNB");
-        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        titleLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
-        mainscr.setBackground(new java.awt.Color(255, 153, 102));
-        mainscr.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        mainscr.setBackground(new java.awt.Color(255, 102, 102));
+        mainscr.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         mainscr.setForeground(new java.awt.Color(255, 255, 255));
         mainscr.setText("Volver");
         mainscr.setBorderPainted(false);
@@ -195,6 +196,8 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         });
         barraarriba1.add(mainscr, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 100, 40));
 
+        jPanel1.add(barraarriba1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 735, 88));
+
         jPanel3.setBackground(new java.awt.Color(255, 236, 217));
 
         jPanel2.setBackground(new java.awt.Color(255, 250, 248));
@@ -203,32 +206,45 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(325, 400));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        feLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         feLabel.setText("Fecha de llegada:");
         jPanel2.add(feLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
+        frLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         frLabel.setText("Fecha de reserva:");
         jPanel2.add(frLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
+
+        fechallegada.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(fechallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 168, -1));
 
-        dnilabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        dnilabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
         dnilabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dnilabel.setText("DNI");
         jPanel2.add(dnilabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 300, -1));
 
+        fsLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         fsLabel.setText("Fecha de salida:");
         jPanel2.add(fsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 20));
+
+        fechasalida.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(fechasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 168, -1));
 
+        nLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         nLabel.setText("Nombre:");
         jPanel2.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 20));
+
+        name.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 168, -1));
 
+        pLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         pLabel.setText("Precio final:");
         jPanel2.add(pLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+
+        preciototal.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(preciototal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 168, -1));
 
         recibo.setBackground(new java.awt.Color(255, 153, 102));
-        recibo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        recibo.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         recibo.setForeground(new java.awt.Color(255, 255, 255));
         recibo.setText("Descargar recibo");
         recibo.addActionListener(new java.awt.event.ActionListener() {
@@ -238,13 +254,16 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         });
         jPanel2.add(recibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 168, 39));
 
+        inmueblelabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         inmueblelabel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inmueblelabel.setText("Inmueble");
         jPanel2.add(inmueblelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 288, 28));
+
+        fechareserva.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(fechareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 168, -1));
 
         jButtonAnt.setBackground(new java.awt.Color(255, 153, 102));
-        jButtonAnt.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonAnt.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         jButtonAnt.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnt.setText("Anterior");
         jButtonAnt.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +273,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         });
 
         jButtonSig.setBackground(new java.awt.Color(255, 153, 102));
-        jButtonSig.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonSig.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         jButtonSig.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSig.setText("Siguiente");
         jButtonSig.addActionListener(new java.awt.event.ActionListener() {
@@ -287,37 +306,24 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                         .addComponent(errorNoSig)))
                 .addGap(60, 60, 60)
                 .addComponent(jButtonSig)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(errorNoAnt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(errorNoSig)
                     .addComponent(jButtonSig)
                     .addComponent(jButtonAnt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 85, 735, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

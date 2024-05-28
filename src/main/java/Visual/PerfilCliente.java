@@ -29,7 +29,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         errorLabel1.setVisible(false);
         requirementsLabel.setVisible(false);
         emailTextField.setEditable(false);
-        passw.setEditable(false);
+        clave.setEditable(false);
         tlfTextField.setEditable(false);
         promocodeTextField.setEditable(false);
         CCTextField.setEditable(false);
@@ -49,7 +49,7 @@ public class PerfilCliente extends javax.swing.JPanel {
             dniTextField.setText(Inicio.user.getDni());
             username.setText(Inicio.user.getNombre().toUpperCase());
             emailTextField.setText(Inicio.user.getCorreo());
-            passw.setText(Inicio.user.getpassw());
+            clave.setText(Inicio.user.getcontrasena());
             tlfTextField.setText(Inicio.user.getTelefono());
             if (Inicio.esUsuarioVip()) {
                 promocodeTextField.setText("JAVABNB2024");
@@ -57,7 +57,7 @@ public class PerfilCliente extends javax.swing.JPanel {
                 promocodeTextField.setText("           ");
             }
 
-            Credito tarjeta = ((Particular) Inicio.user).getTarjetaCredito();
+            Credito tarjeta = ((Particular) Inicio.user).getTarjetatarjetaCredito();
             if (tarjeta != null) {
                 CCTextField.setText(tarjeta.getNumeroTarjeta());
                 LocalDate fechaCaducidad = tarjeta.getFechaCaducidad();
@@ -86,7 +86,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         dniLabel = new javax.swing.JLabel();
         tlfLabel = new javax.swing.JLabel();
         passLabel = new javax.swing.JLabel();
-        passw = new javax.swing.JPasswordField();
+        clave = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         emailTextField = new javax.swing.JTextField();
         dniTextField = new javax.swing.JTextField();
@@ -143,9 +143,9 @@ public class PerfilCliente extends javax.swing.JPanel {
         passLabel.setText("Contraseña:");
         data.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 387, -1, -1));
 
-        passw.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
-        passw.setText("contraseña1");
-        data.add(passw, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 387, 143, -1));
+        clave.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        clave.setText("contraseña1");
+        data.add(clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 387, 143, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 153, 102));
         jButton1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -267,8 +267,8 @@ public class PerfilCliente extends javax.swing.JPanel {
         uppermenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         photoLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        photoLabel.setText("JavaBNB");
-        uppermenu.add(photoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        photoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        uppermenu.add(photoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
         mainscr.setBackground(new java.awt.Color(255, 102, 102));
         mainscr.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -339,8 +339,8 @@ public class PerfilCliente extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,7 +361,7 @@ public class PerfilCliente extends javax.swing.JPanel {
             // Convierte el usuario en un objeto de tipo Particular
             Particular particular = (Particular) Inicio.user;
             // Obtiene la tarjeta de crédito asociada al Particular
-            Credito tarjeta = particular.getTarjetaCredito();
+            Credito tarjeta = particular.getTarjetatarjetaCredito();
             try {
                 // Verifica si el Particular tiene una tarjeta de crédito asociada
                 if (tarjeta != null) {
@@ -429,7 +429,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         if (jButton1.getText().equals("Editar datos")) {
             // Si el botón está en modo "Editar datos", establece los campos de texto como editables
             emailTextField.setEditable(true);
-            passw.setEditable(true);
+            clave.setEditable(true);
             tlfTextField.setEditable(true);
             if (Inicio.esUsuarioVip()) {
                 // Si el usuario es VIP, el campo de texto del código promocional no se puede editar
@@ -443,7 +443,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         } else {
             // Si el botón está en modo "Aceptar", establece los campos de texto como no editables
             emailTextField.setEditable(false);
-            passw.setEditable(false);
+            clave.setEditable(false);
             tlfTextField.setEditable(false);
             promocodeTextField.setEditable(false);
 
@@ -451,7 +451,7 @@ public class PerfilCliente extends javax.swing.JPanel {
 
             // Verificar la validez de los datos ingresados
             String email = emailTextField.getText();
-            char[] passwCharArray = passw.getPassword();
+            char[] passwCharArray = clave.getPassword();
             String password = new String(passwCharArray);
             String telefono = tlfTextField.getText();
             String promocode = promocodeTextField.getText();
@@ -466,7 +466,7 @@ public class PerfilCliente extends javax.swing.JPanel {
             } // Verificar la contraseña
             else if (!Validate.validarContraseña(password)) {
                 errorLabel1.setVisible(true);
-                passw.setText("");
+                clave.setText("");
                 valido = false;
             } // Verificar el teléfono
             else if (!Validate.validarTelefono(telefono)) {
@@ -489,7 +489,7 @@ public class PerfilCliente extends javax.swing.JPanel {
                 errorLabel1.setVisible(false);
                 Inicio.user.setCorreo(email);
                 Inicio.user.setTelefono(telefono);
-                Inicio.user.setpassw(password);
+                Inicio.user.setcontrasena(password);
 
                 // Verificar y update el estado VIP del usuario si el código promocional es válido
                 if (Inicio.hacerVipSiPromocodeValido(promocode)) {
@@ -510,7 +510,7 @@ public class PerfilCliente extends javax.swing.JPanel {
     private javax.swing.JLabel ParLabel;
     private javax.swing.JButton addMoneyButton;
     private javax.swing.JButton cerrarsesion;
-    private javax.swing.JPasswordField passw;
+    private javax.swing.JPasswordField clave;
     private javax.swing.JLabel cvvLabel;
     private javax.swing.JTextField cvvTextField;
     private javax.swing.JPanel data;

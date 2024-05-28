@@ -32,7 +32,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
             dniTextField.setText(Inicio.user.getDni());
             username.setText(Inicio.user.getNombre().toUpperCase());
             emailTextField.setText(Inicio.user.getCorreo());
-            passTextField.setText(Inicio.user.getpassw());
+            passTextField.setText(Inicio.user.getcontrasena());
             tlfTextField.setText(Inicio.user.getTelefono());
 
             // Verifica si el usuario es un super anfitrión y actualiza la etiqueta correspondiente
@@ -113,8 +113,8 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         uppermenu.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(915, 17, 88, 39));
 
         appname1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        appname1.setText("JavaBNB");
-        uppermenu.add(appname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 20, -1, -1));
+        appname1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        uppermenu.add(appname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
         data.setBackground(new java.awt.Color(255, 250, 248));
         data.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -217,10 +217,10 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addGap(109, 109, 109)
                         .addComponent(username)
                         .addGap(18, 18, 18)
                         .addComponent(hostlabel)
@@ -228,7 +228,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                         .addComponent(photoLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(9, 9, 9)
                         .addComponent(perfilLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,7 +302,7 @@ if (editUserButton.getText().equals("Editar datos")) {
         errorLabel1.setVisible(false);
         Inicio.user.setCorreo(email);
         Inicio.user.setTelefono(telefono);
-        Inicio.user.setpassw(password);
+        Inicio.user.setcontrasena(password);
         System.out.println(Inicio.user);
     } else {
         errorLabel1.setVisible(true);

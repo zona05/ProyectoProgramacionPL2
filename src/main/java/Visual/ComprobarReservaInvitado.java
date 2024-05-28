@@ -161,7 +161,7 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 236, 217));
 
-        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
+        barraarriba1.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -184,11 +184,11 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel {
 
         titleLabel1.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         titleLabel1.setForeground(new java.awt.Color(255, 90, 95));
-        titleLabel1.setText("JavaBNB");
-        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 36, -1, -1));
+        titleLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba1.add(titleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
-        mainscr.setBackground(new java.awt.Color(255, 153, 102));
-        mainscr.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        mainscr.setBackground(new java.awt.Color(255, 102, 102));
+        mainscr.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         mainscr.setForeground(new java.awt.Color(255, 255, 255));
         mainscr.setText("Volver");
         mainscr.setBorderPainted(false);
@@ -209,32 +209,45 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(325, 400));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        feLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         feLabel.setText("Fecha de llegada:");
         jPanel2.add(feLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
 
+        frLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         frLabel.setText("Fecha de reserva:");
         jPanel2.add(frLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, 20));
+
+        fechallegada.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(fechallegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 168, -1));
 
-        dnilabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        dnilabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
         dnilabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dnilabel.setText("DNI");
-        jPanel2.add(dnilabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 300, -1));
+        jPanel2.add(dnilabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 300, -1));
 
+        fsLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         fsLabel.setText("Fecha de salida:");
         jPanel2.add(fsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        fechasalida.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(fechasalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 168, -1));
 
+        nLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         nLabel.setText("Nombre:");
         jPanel2.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 20));
+
+        name.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 168, -1));
 
+        pLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         pLabel.setText("Precio total:");
         jPanel2.add(pLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+
+        preciototal.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(preciototal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 168, -1));
 
         recibo.setBackground(new java.awt.Color(255, 153, 102));
-        recibo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        recibo.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         recibo.setForeground(new java.awt.Color(255, 255, 255));
         recibo.setText("Descargar recibo");
         recibo.addActionListener(new java.awt.event.ActionListener() {
@@ -244,13 +257,16 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel {
         });
         jPanel2.add(recibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 168, 39));
 
+        inmueblelabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         inmueblelabel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inmueblelabel.setText("Inmueble");
         jPanel2.add(inmueblelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 288, 28));
+
+        fechareserva.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(fechareserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 168, -1));
 
         jButtonAnt.setBackground(new java.awt.Color(255, 153, 102));
-        jButtonAnt.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonAnt.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         jButtonAnt.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnt.setText("Anterior");
         jButtonAnt.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +276,7 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel {
         });
 
         jButtonSig.setBackground(new java.awt.Color(255, 153, 102));
-        jButtonSig.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonSig.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         jButtonSig.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSig.setText("Siguiente");
         jButtonSig.addActionListener(new java.awt.event.ActionListener() {
@@ -269,10 +285,10 @@ public class ComprobarReservaInvitado extends javax.swing.JPanel {
             }
         });
 
-        errorNoSig.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        errorNoSig.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         errorNoSig.setText("No hay otra reserva");
 
-        errorNoAnt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        errorNoAnt.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         errorNoAnt.setText("No hay otra reserva");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

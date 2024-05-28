@@ -18,11 +18,11 @@ public class Host extends Cliente {
      * @param dni      el DNI del anfitrión
      * @param nombre   el nombre del anfitrión
      * @param correo   el correo electrónico del anfitrión
-     * @param passw    la passw de acceso del anfitrión
+     * @param contrasena    la contrasena de acceso del anfitrión
      * @param telefono el número de teléfono del anfitrión
      */
-    public Host(String dni, String nombre, String correo, String passw, String telefono) {
-        super(dni, nombre, correo, passw, telefono);
+    public Host(String dni, String nombre, String correo, String contrasena, String telefono) {
+        super(dni, nombre, correo, contrasena, telefono);
         this.fechaRegistro = LocalDate.now();
         this.superAnfitrion = false;
     }
@@ -58,8 +58,8 @@ public class Host extends Cliente {
      * 
      * @param inmueble el inmueble a añadir
      */
-    public void añadirInmueble(Inmueble inmueble) {
-        MainBNB.añadirInmueble(inmueble);
+    public void agregarinmueble(Inmueble inmueble) {
+        MainBNB.agregarinmueble(inmueble);
         MainBNB.guardarDatos();
     }
 

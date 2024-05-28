@@ -57,10 +57,10 @@ public class MirarInmueble extends javax.swing.JPanel {
             superhostLabel.setVisible(false);
         }
         
-        guestsLabel.setText(Integer.toString(i.getDatosInmueble().getMaxHuespedes()));
-        roomsLabel.setText(Integer.toString(i.getDatosInmueble().getHabitaciones()));
-        bathsLabel.setText(Integer.toString(i.getDatosInmueble().getBaños()));
-        bedsLabel.setText(Integer.toString(i.getDatosInmueble().getCamas()));
+        guestsLabel.setText(Integer.toString(i.getinfoinmueble().getMaxHuespedes()));
+        roomsLabel.setText(Integer.toString(i.getinfoinmueble().getHabitaciones()));
+        bathsLabel.setText(Integer.toString(i.getinfoinmueble().getnumtoilet()));
+        bedsLabel.setText(Integer.toString(i.getinfoinmueble().getnumcamas()));
 
         directionTextArea.setText(i.getDireccion().toString());
         servicesTextArea.setText("Este inmueble ofrece los siguientes servicios: " + i.getServicios());
@@ -68,7 +68,7 @@ public class MirarInmueble extends javax.swing.JPanel {
         numbermarksLabel.setText("Ha sido valorado por" + Integer.toString(i.getValoraciones()) + " clientes");
         
         // Actualiza la imagen del inmueble y las estrellas de calificación
-        fotoboton.setIcon(resizeIMG(i.getfoto()));
+        fotoboton.setIcon(resizeIMG(i.getfotografia()));
         estrella1.setIcon(i.getCalificacion() >= 1 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
         estrella2.setIcon(i.getCalificacion() >= 2 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
         estrella3.setIcon(i.getCalificacion() >= 3 ? imagenIcon("./src/main/resources/images/estrella50roja.PNG") : (imagenIcon("./src/main/resources/images/estrella50.PNG")));
@@ -261,7 +261,7 @@ public class MirarInmueble extends javax.swing.JPanel {
         titleLabel.setFont(new java.awt.Font("Noto Sans SemiCondensed", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 153, 102));
         titleLabel.setText("Titulo Inmueble");
-        jPanel1.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 40));
 
         priceLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         priceLabel.setText("precio €/noche");
@@ -292,10 +292,10 @@ public class MirarInmueble extends javax.swing.JPanel {
         barraarriba.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 110, 50));
 
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
-        logoLabel.setText("JavaBNB");
-        barraarriba.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
-        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 70));
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 90));
 
         typeLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         typeLabel.setText("Tipo de Inmueble");

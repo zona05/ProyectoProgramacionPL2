@@ -8,18 +8,18 @@ import java.util.ArrayList;
  * La clase Inmueble representa un inmueble disponible para alquiler en la
  * plataforma JavaBNB. Incluye detalles como el título, la dirección, los datos
  * del inmueble, el types, el precio por noche, los servicios, la calificación,
- * la fotografía, la descripción, las valoraciones y las reservas asociadas.
+ * la fotografiagrafía, la descripción, las valoraciones y las reservas asociadas.
  */
 public class Inmueble implements Serializable {
 
     private String titulo;
     private Direccion direccion;
-    private InfoInmueble datosInmueble;
+    private InfoInmueble infoinmueble;
     private String types; // Casa o apartamento
     private double precioNoche;
     private String servicios;
     private double calificacion;
-    private String foto;
+    private String fotografia;
     private String descripcion;
     private int valoraciones;
     private ArrayList<Reserva> reservas; // ArrayList para almacenar las reservas asociadas al inmueble
@@ -32,22 +32,22 @@ public class Inmueble implements Serializable {
      * @param titulo el título del inmueble
      * @param descripcion la descripción del inmueble
      * @param direccion la dirección del inmueble
-     * @param datosInmueble los datos del inmueble (capacidad, habitaciones,
+     * @param infoinmueble los datos del inmueble (capacidad, habitaciones,
      * etc.)
      * @param types el types de inmueble (casa o apartamento)
      * @param precioNoche el precio por noche del inmueble
-     * @param foto la fotografía del inmueble
+     * @param fotografia la fotografiagrafía del inmueble
      * @param servicios los servicios ofrecidos en el inmueble
      * @param anfitrion el anfitrión del inmueble
      */
-    public Inmueble(String titulo, String descripcion, Direccion direccion, InfoInmueble datosInmueble, String types, double precioNoche, String foto, String servicios, Host anfitrion) {
+    public Inmueble(String titulo, String descripcion, Direccion direccion, InfoInmueble infoinmueble, String types, double precioNoche, String fotografia, String servicios, Host anfitrion) {
         this.titulo = titulo;
         this.direccion = direccion;
-        this.datosInmueble = datosInmueble;
+        this.infoinmueble = infoinmueble;
         this.types = types;
         this.precioNoche = precioNoche;
         this.calificacion = 0;
-        this.foto = foto;
+        this.fotografia = fotografia;
         this.servicios = servicios;
         this.descripcion = descripcion;
         this.valoraciones = 0;
@@ -185,21 +185,21 @@ public class Inmueble implements Serializable {
 
     // Getters y Setters
     /**
-     * Obtiene la fotografía del inmueble.
+     * Obtiene la fotografiagrafía del inmueble.
      *
-     * @return la fotografía del inmueble
+     * @return la fotografiagrafía del inmueble
      */
-    public String getfoto() {
-        return foto;
+    public String getfotografia() {
+        return fotografia;
     }
 
     /**
-     * Establece la fotografía del inmueble.
+     * Establece la fotografiagrafía del inmueble.
      *
-     * @param foto la nueva fotografía del inmueble
+     * @param fotografia la nueva fotografiagrafía del inmueble
      */
-    public void setfoto(String foto) {
-        this.foto = foto;
+    public void setfotografia(String fotografia) {
+        this.fotografia = fotografia;
         MainBNB.guardarDatos();
     }
 
@@ -220,7 +220,7 @@ public class Inmueble implements Serializable {
      */
     public void setCalificacion(double nota) {
         if (nota < 0 || nota > 5) {
-            throw new IllegalArgumentException("La calificación debe estar entre 0 y 5.");
+            throw new IllegalArgumentException("La calificación debe ser un numero entre 0 y 5.");
         } else {
             this.calificacion = (this.calificacion * this.valoraciones + nota) / (this.valoraciones + 1);
             this.valoraciones++;
@@ -290,17 +290,17 @@ public class Inmueble implements Serializable {
      *
      * @return los datos del inmueble
      */
-    public InfoInmueble getDatosInmueble() {
-        return datosInmueble;
+    public InfoInmueble getinfoinmueble() {
+        return infoinmueble;
     }
 
     /**
      * Establece los datos del inmueble.
      *
-     * @param datosInmueble los nuevos datos del inmueble
+     * @param infoinmueble los nuevos datos del inmueble
      */
-    public void setDatosInmueble(InfoInmueble datosInmueble) {
-        this.datosInmueble = datosInmueble;
+    public void setinfoinmueble(InfoInmueble infoinmueble) {
+        this.infoinmueble = infoinmueble;
         MainBNB.guardarDatos();
     }
 
@@ -396,6 +396,6 @@ public class Inmueble implements Serializable {
      */
     @Override
     public String toString() {
-        return "Inmueble{" + ", titulo=" + titulo + ", direccion=" + direccion + ", datosInmueble=" + datosInmueble + ", types=" + types + ", precioNoche=" + precioNoche + ", servicios=" + servicios + ", calificacion=" + calificacion + ", foto=" + foto + ", descripcion=" + descripcion + '}';
+        return "Inmueble{" + ", titulo=" + titulo + ", direccion=" + direccion + ", infoinmueble=" + infoinmueble + ", types=" + types + ", precioNoche=" + precioNoche + ", servicios=" + servicios + ", calificacion=" + calificacion + ", fotografia=" + fotografia + ", descripcion=" + descripcion + '}';
     }
 }

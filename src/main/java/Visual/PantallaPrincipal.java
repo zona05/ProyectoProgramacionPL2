@@ -186,8 +186,8 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
-        titleLabel.setText("JavaBNB");
-        barraarriba.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        titleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
         hostProfile.setBackground(new java.awt.Color(255, 204, 153));
         hostProfile.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -232,7 +232,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         });
         barraarriba.add(misReservasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 110, 40));
 
-        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 70));
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 90));
 
         buscaalojamiento2.setBackground(new java.awt.Color(214, 175, 136));
         buscaalojamiento2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

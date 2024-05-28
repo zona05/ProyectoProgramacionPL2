@@ -124,12 +124,12 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         cityTextField.setText(inmueble.getDireccion().getCiudad());
         typeLabel.setText(inmueble.gettypes());
         numberTextField.setText(inmueble.getDireccion().getNumero());
-        cpTextField.setText(inmueble.getDireccion().getCp());
+        cpTextField.setText(inmueble.getDireccion().getcodigopostal());
         priceTextField.setText(Double.toString(inmueble.getPrecioNoche()));
-        guestTextField.setText(Integer.toString(inmueble.getDatosInmueble().getMaxHuespedes()));
-        roomTextField.setText(Integer.toString(inmueble.getDatosInmueble().getHabitaciones()));
-        bedTextField.setText(Integer.toString(inmueble.getDatosInmueble().getCamas()));
-        bathTextField.setText(Integer.toString(inmueble.getDatosInmueble().getBaños()));
+        guestTextField.setText(Integer.toString(inmueble.getinfoinmueble().getMaxHuespedes()));
+        roomTextField.setText(Integer.toString(inmueble.getinfoinmueble().getHabitaciones()));
+        bedTextField.setText(Integer.toString(inmueble.getinfoinmueble().getnumcamas()));
+        bathTextField.setText(Integer.toString(inmueble.getinfoinmueble().getnumtoilet()));
         serviceTextField.setText(inmueble.getServicios());
         markTextField.setText(String.valueOf(inmueble.getCalificacion()));
     }
@@ -145,7 +145,6 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         barraarriba1 = new javax.swing.JPanel();
-        logoButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
         returnButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -191,34 +190,18 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 250, 248));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
+        barraarriba1.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoButton.setBackground(new java.awt.Color(255, 153, 153));
-        logoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        logoButton.setBorderPainted(false);
-        logoButton.setContentAreaFilled(false);
-        logoButton.setDefaultCapable(false);
-        logoButton.setFocusPainted(false);
-        logoButton.setFocusable(false);
-        logoButton.setRequestFocusEnabled(false);
-        logoButton.setRolloverEnabled(false);
-        logoButton.setVerifyInputWhenFocusTarget(false);
-        logoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoButtonActionPerformed(evt);
-            }
-        });
-        barraarriba1.add(logoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 5, 71, 75));
-
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         logoLabel.setForeground(new java.awt.Color(255, 90, 95));
-        logoLabel.setText("JavaBNB");
-        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
-        returnButton.setBackground(new java.awt.Color(255, 153, 102));
+        returnButton.setBackground(new java.awt.Color(255, 102, 102));
         returnButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Volver");
@@ -232,6 +215,8 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         });
         barraarriba1.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 100, 40));
 
+        jPanel1.add(barraarriba1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 982, 90));
+
         jPanel3.setBackground(new java.awt.Color(255, 236, 217));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -241,25 +226,31 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(370, 750));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        titleLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         titleLabel.setText("Título:");
         jPanel2.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 40, 30));
 
-        typeLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        typeLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
         typeLabel.setText("var1");
-        jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 190, 60));
+        jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 190, 60));
 
+        descriptionLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         descriptionLabel.setText("Descripción:");
         jPanel2.add(descriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, 40));
 
+        streetLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         streetLabel.setText("Calle:");
         jPanel2.add(streetLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 40, 30));
 
+        cityLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         cityLabel.setText("Ciudad:");
         jPanel2.add(cityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 30));
+
+        cityTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 200, 30));
 
         deleteBuildingButton.setBackground(new java.awt.Color(255, 153, 102));
-        deleteBuildingButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBuildingButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         deleteBuildingButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteBuildingButton.setText("Eliminar inmueble");
         deleteBuildingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -269,23 +260,30 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         });
         jPanel2.add(deleteBuildingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 160, 40));
 
+        cpLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         cpLabel.setText("Codigo postal:");
         jPanel2.add(cpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 80, 30));
 
+        numberLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         numberLabel.setText("Número:");
         jPanel2.add(numberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, 30));
 
+        numberTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         numberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberTextFieldActionPerformed(evt);
             }
         });
         jPanel2.add(numberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 170, 30));
+
+        cpTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(cpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 170, 30));
 
+        priceLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         priceLabel.setText("Precio por noche:");
         jPanel2.add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 30));
 
+        priceTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         priceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceTextFieldActionPerformed(evt);
@@ -293,9 +291,11 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         });
         jPanel2.add(priceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 170, 30));
 
+        guestLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         guestLabel.setText("Huéspedes:");
         jPanel2.add(guestLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, 30));
 
+        guestTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         guestTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guestTextFieldActionPerformed(evt);
@@ -303,27 +303,38 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         });
         jPanel2.add(guestTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 170, 30));
 
+        roomLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         roomLabel.setText("Habitaciones:");
         jPanel2.add(roomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 326, -1, 30));
+
+        roomTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(roomTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 60, 30));
 
+        bedLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         bedLabel.setText("Camas:");
         jPanel2.add(bedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, 30));
 
+        bathLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         bathLabel.setText("Baños:");
         jPanel2.add(bathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, 30));
+
+        bedTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(bedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 110, 30));
+
+        bathTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(bathTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 120, 30));
 
         jScrollPane3.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane3.setPreferredSize(new java.awt.Dimension(64, 22));
 
+        titleTextPanel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         titleTextPanel.setMinimumSize(new java.awt.Dimension(64, 22));
         titleTextPanel.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane3.setViewportView(titleTextPanel);
 
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 450, 30));
 
+        streetTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         streetTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 streetTextFieldActionPerformed(evt);
@@ -334,6 +345,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         jScrollPane4.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane4.setPreferredSize(new java.awt.Dimension(64, 22));
 
+        serviceTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         serviceTextField.setMinimumSize(new java.awt.Dimension(64, 22));
         serviceTextField.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane4.setViewportView(serviceTextField);
@@ -341,7 +353,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 442, 50));
 
         editBuildingButton.setBackground(new java.awt.Color(255, 153, 102));
-        editBuildingButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editBuildingButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         editBuildingButton.setForeground(new java.awt.Color(255, 255, 255));
         editBuildingButton.setText("Editar inmueble");
         editBuildingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -351,12 +363,14 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         });
         jPanel2.add(editBuildingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 517, 150, 40));
 
+        serviceLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         serviceLabel.setText("Servicios:");
         jPanel2.add(serviceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 376, -1, 50));
 
         jScrollPane5.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane5.setPreferredSize(new java.awt.Dimension(64, 22));
 
+        descriptionTextPanel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         descriptionTextPanel.setMinimumSize(new java.awt.Dimension(64, 22));
         descriptionTextPanel.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane5.setViewportView(descriptionTextPanel);
@@ -366,19 +380,21 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         jScrollPane6.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane6.setPreferredSize(new java.awt.Dimension(64, 22));
 
+        markTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         markTextField.setMinimumSize(new java.awt.Dimension(64, 22));
         markTextField.setPreferredSize(new java.awt.Dimension(64, 22));
         jScrollPane6.setViewportView(markTextField);
 
         jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 440, 40));
 
+        markLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         markLabel.setText("Calificación:");
         jPanel2.add(markLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 580, 580));
 
         previousButton.setBackground(new java.awt.Color(255, 153, 102));
-        previousButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        previousButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         previousButton.setForeground(new java.awt.Color(255, 255, 255));
         previousButton.setText("Anterior");
         previousButton.addActionListener(new java.awt.event.ActionListener() {
@@ -389,7 +405,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         jPanel3.add(previousButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 50, 100, 40));
 
         nextButton.setBackground(new java.awt.Color(255, 153, 102));
-        nextButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        nextButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Siguiente");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -399,29 +415,15 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         });
         jPanel3.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 50, 100, 40));
 
-        errorNextLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        errorNextLabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         errorNextLabel.setText("No hay otro inmueble");
         jPanel3.add(errorNextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
-        errorPreviousLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        errorPreviousLabel.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         errorPreviousLabel.setText("No hay otro inmueble");
         jPanel3.add(errorPreviousLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraarriba1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraarriba1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 898, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 64, 982, 900));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 982, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -622,12 +624,12 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
                 objInm.getDireccion().setCalle(calle);
                 objInm.getDireccion().setCiudad(ciudad);
                 objInm.getDireccion().setNumero(numero);
-                objInm.getDireccion().setCp(cp);
+                objInm.getDireccion().setcodigopostal(cp);
                 objInm.setPrecioNoche(precio);
-                objInm.getDatosInmueble().setMaxHuespedes(huespedes);
-                objInm.getDatosInmueble().setHabitaciones(habitaciones);
-                objInm.getDatosInmueble().setCamas(camas);
-                objInm.getDatosInmueble().setBaños(baños);
+                objInm.getinfoinmueble().setMaxHuespedes(huespedes);
+                objInm.getinfoinmueble().setHabitaciones(habitaciones);
+                objInm.getinfoinmueble().setnumcamas(camas);
+                objInm.getinfoinmueble().setnumtoilet(baños);
                 objInm.setServicios(servicios);
                 editBuildingButton.setText("Editar inmueble");
             }
@@ -658,10 +660,6 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen");
     }//GEN-LAST:event_returnButtonActionPerformed
-
-    private void logoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoButtonActionPerformed
 
     private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
         // TODO add your handling code here:
@@ -705,7 +703,6 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JButton logoButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel markLabel;
     private javax.swing.JTextPane markTextField;

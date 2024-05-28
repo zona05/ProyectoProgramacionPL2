@@ -54,8 +54,8 @@ public class PantallaAdmin extends javax.swing.JPanel {
         barraarriba.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 120, 50));
 
         titleLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
-        titleLabel.setText("JavaBNB");
-        barraarriba.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        titleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
         jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1031, 91));
 

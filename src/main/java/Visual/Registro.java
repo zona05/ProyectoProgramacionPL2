@@ -134,6 +134,7 @@ public class Registro extends javax.swing.JPanel {
         jSeparator11 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         createaccLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -546,9 +547,12 @@ public class Registro extends javax.swing.JPanel {
         createaccLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 48)); // NOI18N
         createaccLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         createaccLabel.setText("REGISTRO");
-        jPanel2.add(createaccLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 80));
+        jPanel2.add(createaccLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, -1, 80));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 80));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 90));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -913,6 +917,7 @@ public class Registro extends javax.swing.JPanel {
     private javax.swing.JLabel errorLabel6;
     private javax.swing.JLabel errorLabel8;
     private javax.swing.JLabel existaccLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

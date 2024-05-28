@@ -33,7 +33,7 @@ public class MainBNB implements Serializable {
         return clientes;
     }
 
-    public static boolean añadirInmueble(Inmueble inmueble) {
+    public static boolean agregarinmueble(Inmueble inmueble) {
         boolean existeInmuebleConMismaDireccion = inmuebles.stream()
                 .anyMatch(inmuebleExistente -> inmuebleExistente.getDireccion().equals(inmueble.getDireccion()));
 
@@ -52,7 +52,7 @@ public class MainBNB implements Serializable {
         if (!existeClienteConMismoDni) {
             clientes.add(cliente);
         } else {
-            System.out.println("El cliente ya está añadido");
+            System.out.println("El cliente ya ha sido añadido previamente");
         }
         return !existeClienteConMismoDni;
     }
@@ -159,11 +159,11 @@ public class MainBNB implements Serializable {
             clientes = (ArrayList<Cliente>) oisClientes.readObject();
             istreamClientes.close();
         } catch (IOException ioe) {
-            System.out.println("Error de IO: " + ioe.getMessage());
+            System.out.println("Error  IO: " + ioe.getMessage());
         } catch (ClassNotFoundException cnfe) {
-            System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
+            System.out.println("Error clase no encontrada: " + cnfe.getMessage());
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error desconocido: " + e.getMessage());
         }
 
         try {
@@ -172,11 +172,11 @@ public class MainBNB implements Serializable {
             inmuebles = (ArrayList<Inmueble>) oisInmuebles.readObject();
             istreamInmuebles.close();
         } catch (IOException ioe) {
-            System.out.println("Error de IO: " + ioe.getMessage());
+            System.out.println("Error IO: " + ioe.getMessage());
         } catch (ClassNotFoundException cnfe) {
-            System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
+            System.out.println("Error clase no encontrada: " + cnfe.getMessage());
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error desconocido: " + e.getMessage());
         }
     }
 
@@ -191,9 +191,9 @@ public class MainBNB implements Serializable {
                 System.out.println("Error: No hay datos de clientes...");
             }
         } catch (IOException ioe) {
-            System.out.println("Error de IO: " + ioe.getMessage());
+            System.out.println("Error IO: " + ioe.getMessage());
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error desconocido: " + e.getMessage());
         }
 
         try {
@@ -204,9 +204,9 @@ public class MainBNB implements Serializable {
                 ostreamInmuebles.close();
             }
         } catch (IOException ioe) {
-            System.out.println("Error de IO: " + ioe.getMessage());
+            System.out.println("Error IO: " + ioe.getMessage());
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error desconocido: " + e.getMessage());
         }
     }
 
@@ -252,7 +252,7 @@ public class MainBNB implements Serializable {
         System.out.println("Eliminando reservas asociadas al inmueble (2): " + inmueble.getTitulo());
         //for (Reserva reserva : inmueble.getReservas()) {System.out.println("Eliminando reserva: " + reserva);reserva.getParticular().getReservas().remove(reserva);}
         inmueble.getReservas().clear();
-        System.out.println("Reservas eliminadas correctamente.");
+        System.out.println("Las reservas se han eliminado correctamente.");
     }
 
     public static void eliminarInmueble(Inmueble inmueble) {

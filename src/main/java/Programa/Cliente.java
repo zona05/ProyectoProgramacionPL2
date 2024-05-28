@@ -8,14 +8,14 @@ public class Cliente implements Serializable {
     private String dni;
     private String nombre;
     private String correo;
-    private String passw;
+    private String contrasena;
     private String telefono;
     
-    public Cliente(String dni, String nombre, String correo, String passw, String telefono) {
+    public Cliente(String dni, String nombre, String correo, String contrasena, String telefono) {
         this.dni = dni;
         this.nombre = nombre;
         this.correo = correo;
-        this.passw = passw;
+        this.contrasena = contrasena;
         this.telefono = telefono;
     }
 
@@ -39,21 +39,21 @@ public class Cliente implements Serializable {
     }
 
     /**
-     * Get the value of passw
+     * Get the value of contrasena
      *
-     * @return the value of passw
+     * @return the value of contrasena
      */
-    public String getpassw() {
-        return passw;
+    public String getcontrasena() {
+        return contrasena;
     }
 
     /**
-     * Set the value of passw
+     * Set the value of contrasena
      *
-     * @param passw new value of passw
+     * @param contrasena new value of contrasena
      */
-    public void setpassw(String passw) {
-        this.passw = passw;
+    public void setcontrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     /**
@@ -114,7 +114,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "dni:" + dni + ", nombre:" + nombre + ", correo:" + correo + ", passw:" + passw + ", telefono:" + telefono;
+        return "dni:" + dni + ", nombre:" + nombre + ", correo:" + correo + ", contrasena:" + contrasena + ", telefono:" + telefono;
     }
 
 }

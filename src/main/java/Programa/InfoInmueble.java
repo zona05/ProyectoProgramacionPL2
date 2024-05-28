@@ -3,67 +3,67 @@ package Programa;
 import java.io.Serializable;
 
 /**
- * La clase DatosInmueble representa los datos básicos de un inmueble, incluyendo
- * la cantidad de huéspedes que puede alojar, el número de habitaciones, camas y baños.
+ * La clase infoinmueble representa los datos básicos de un inmueble, incluyendo
+ * la cantidad de huéspedes que puede alojar, el número de habitaciones, numcamas y numtoilet.
  */
 public class InfoInmueble implements Serializable {
     
     private int maxHuespedes;
     private int habitaciones;
-    private int camas;
-    private int baños;
+    private int numcamas;
+    private int numtoilet;
 
     /**
-     * Constructor de la clase DatosInmueble.
+     * Constructor de la clase infoinmueble.
      *
      * @param maxHuespedes la cantidad máxima de huéspedes que pueden alojarse en el inmueble
      * @param habitaciones el número de habitaciones en el inmueble
-     * @param camas el número de camas en el inmueble
-     * @param baños el número de baños en el inmueble
+     * @param numcamas el número de numcamas en el inmueble
+     * @param numtoilet el número de numtoilet en el inmueble
      */
-    public InfoInmueble(int maxHuespedes, int habitaciones, int camas, int baños) {
+    public InfoInmueble(int maxHuespedes, int habitaciones, int numcamas, int numtoilet) {
         this.maxHuespedes = maxHuespedes;
         this.habitaciones = habitaciones;
-        this.camas = camas;
-        this.baños = baños;
+        this.numcamas = numcamas;
+        this.numtoilet = numtoilet;
     }
     
     // Getters y Setters
 
     /**
-     * Obtiene el valor de baños.
+     * Obtiene el valor de numtoilet.
      *
-     * @return el valor de baños
+     * @return el valor de numtoilet
      */
-    public int getBaños() {
-        return baños;
+    public int getnumtoilet() {
+        return numtoilet;
     }
 
     /**
-     * Establece el valor de baños.
+     * Establece el valor de numtoilet.
      *
-     * @param baños el nuevo valor de baños
+     * @param numtoilet el nuevo valor de numtoilet
      */
-    public void setBaños(int baños) {
-        this.baños = baños;
+    public void setnumtoilet(int numtoilet) {
+        this.numtoilet = numtoilet;
     }
 
     /**
-     * Obtiene el valor de camas.
+     * Obtiene el valor de numcamas.
      *
-     * @return el valor de camas
+     * @return el valor de numcamas
      */
-    public int getCamas() {
-        return camas;
+    public int getnumcamas() {
+        return numcamas;
     }
 
     /**
-     * Establece el valor de camas.
+     * Establece el valor de numcamas.
      *
-     * @param camas el nuevo valor de camas
+     * @param numcamas el nuevo valor de numcamas
      */
-    public void setCamas(int camas) {
-        this.camas = camas;
+    public void setnumcamas(int numcamas) {
+        this.numcamas = numcamas;
     }
 
     /**
@@ -109,6 +109,6 @@ public class InfoInmueble implements Serializable {
      */
     @Override
     public String toString() {
-        return "Como máximo " + maxHuespedes + " huéspedes se pueden alojar en este inmueble. El inmueble tiene " + habitaciones + " habitaciones, " + camas + " camas, y " + baños + " baños.";
+        return "Como máximo " + maxHuespedes + " huéspedes se pueden alojar en este inmueble. El inmueble tiene " + habitaciones + " habitaciones, " + numcamas + " numcamas, y " + numtoilet + " numtoilet.";
     }
 }

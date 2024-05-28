@@ -126,11 +126,11 @@ public class Reserva implements Serializable {
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         // Escribir la información de la reserva en el archivo
-        salida.println("-------------------------------- Reserva --------------------------------");
-        salida.println("\n");
-        salida.println("DNI: " + this.particular.getDni());
-        salida.println("\n");
+        salida.println("-+-+-+-+-+-+-+-+-+-+-+-+- Reserva -+-+-+-+-+-+-+-+-+-+-+-+-");
+        salida.println("\n");       
         salida.println("Nombre: " + this.particular.getNombre());
+        salida.println("\n");       
+        salida.println("DNI: " + this.particular.getDni());
         salida.println("\n");
         salida.println("Fecha en que se hizo la reserva: " + fechaReserva.format(formatoCorto));
         salida.println("\n");
@@ -144,9 +144,9 @@ public class Reserva implements Serializable {
         salida.println("\n");
         salida.println("Fecha de salida: " + fechaFin.format(formatoCorto));
         salida.println("\n");
-        salida.println("Precio: " + calcularPrecioTotal());
+        salida.println("Precio final: " + calcularPrecioTotal());
         salida.println("\n");
-        salida.println("-------------------------------------------------------------------------------");
+        salida.println("-+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+----------------");
         salida.close();
     }
 

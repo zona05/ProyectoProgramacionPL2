@@ -102,7 +102,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         dniTextField.setText(objcli.getDni());
         nameTextField.setText(objcli.getNombre());
         emailTextField.setText(objcli.getCorreo());
-        passTextField.setText(objcli.getpassw());
+        passTextField.setText(objcli.getcontrasena());
         tlfTextField.setText(objcli.getTelefono());
         if (tipo.equals("Anfitrion")) {
             typeLabel.setText(tipo);
@@ -122,7 +122,6 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         barraarriba1 = new javax.swing.JPanel();
-        logoButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
         returnButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -149,34 +148,17 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 236, 217));
 
-        barraarriba1.setBackground(new java.awt.Color(255, 236, 217));
+        barraarriba1.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoButton.setBackground(new java.awt.Color(255, 153, 153));
-        logoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/airbnb logo - 100x100.png"))); // NOI18N
-        logoButton.setBorderPainted(false);
-        logoButton.setContentAreaFilled(false);
-        logoButton.setDefaultCapable(false);
-        logoButton.setFocusPainted(false);
-        logoButton.setFocusable(false);
-        logoButton.setRequestFocusEnabled(false);
-        logoButton.setRolloverEnabled(false);
-        logoButton.setVerifyInputWhenFocusTarget(false);
-        logoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoButtonActionPerformed(evt);
-            }
-        });
-        barraarriba1.add(logoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 5, 71, 75));
-
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         logoLabel.setForeground(new java.awt.Color(255, 90, 95));
-        logoLabel.setText("JavaBNB");
-        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 36, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
-        returnButton.setBackground(new java.awt.Color(255, 153, 102));
-        returnButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        returnButton.setBackground(new java.awt.Color(255, 102, 102));
+        returnButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Volver");
         returnButton.setBorderPainted(false);
@@ -197,32 +179,47 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(325, 400));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        dniLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         dniLabel.setText("DNI:");
         jPanel2.add(dniLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 20));
 
+        nameLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         nameLabel.setText("Nombre:");
         jPanel2.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        dniTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(dniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 208, -1));
+
+        nameTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 208, -1));
 
-        typeLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        typeLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
         typeLabel.setText("var1");
         jPanel2.add(typeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 20, 120, -1));
 
+        emailLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         emailLabel.setText("Correo:");
         jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 20));
+
+        emailTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 208, -1));
 
+        passLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         passLabel.setText("Contraseña:");
         jPanel2.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
+
+        passTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(passTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 208, -1));
 
+        tlfLabel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         tlfLabel.setText("Telefono:");
         jPanel2.add(tlfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+
+        tlfTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel2.add(tlfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 208, -1));
 
         deleteUserButton.setBackground(new java.awt.Color(255, 153, 102));
-        deleteUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteUserButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         deleteUserButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteUserButton.setText("Eliminar usuario");
         deleteUserButton.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +230,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         jPanel2.add(deleteUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
 
         editUserButton.setBackground(new java.awt.Color(255, 153, 102));
-        editUserButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editUserButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         editUserButton.setForeground(new java.awt.Color(255, 255, 255));
         editUserButton.setText("Editar usuario");
         editUserButton.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +241,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         jPanel2.add(editUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         previousButton.setBackground(new java.awt.Color(255, 153, 102));
-        previousButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        previousButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         previousButton.setForeground(new java.awt.Color(255, 255, 255));
         previousButton.setText("Anterior");
         previousButton.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +251,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         });
 
         nextButton.setBackground(new java.awt.Color(255, 153, 102));
-        nextButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        nextButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         nextButton.setForeground(new java.awt.Color(255, 255, 255));
         nextButton.setText("Siguiente");
         nextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -263,10 +260,10 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
             }
         });
 
-        errorNextLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        errorNextLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         errorNextLabel.setText("No hay otro usuario");
 
-        errorPreviousLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        errorPreviousLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         errorPreviousLabel.setText("No hay otro usuario");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -330,10 +327,6 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen");
@@ -436,7 +429,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
             if (datosValidos) {
                 objcli.setCorreo(email);
                 objcli.setTelefono(telefono);
-                objcli.setpassw(password);
+                objcli.setcontrasena(password);
 
                 editUserButton.setText("Editar datos");
 
@@ -484,7 +477,6 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JButton logoButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;

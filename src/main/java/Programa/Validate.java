@@ -92,13 +92,13 @@ public class Validate {
     /**
      * Valida que la contraseña contenga al menos 8 caracteres, una letra minúscula, una letra mayúscula y un dígito.
      *
-     * @param password la contraseña a validar
+     * @param contrasenaord la contraseña a validar
      * @return true si la contraseña es válida, false en caso contrario
      */
-    public static boolean validarContraseña(String password) {
+    public static boolean validarContraseña(String contrasenaord) {
         boolean hasUpper = false, hasLower = false, hasDigit = false;
 
-        for (char c : password.toCharArray()) {
+        for (char c : contrasenaord.toCharArray()) {
             if (Character.isLowerCase(c)) {
                 hasLower = true;
             } else if (Character.isUpperCase(c)) {
@@ -108,7 +108,7 @@ public class Validate {
             }
         }
 
-        return password.length() >= 8 && hasLower && hasUpper && hasDigit;
+        return contrasenaord.length() >= 8 && hasLower && hasUpper && hasDigit;
     }
 
     /**
@@ -126,7 +126,7 @@ public class Validate {
             return false;
         }
         if (0 > tarjeta.length() || tarjeta.length() > 16) {
-            System.out.println("Tarjeta no es válida");
+            System.out.println("Tarjeta no válida");
             return false;
         } else if (año < LocalDate.now().getYear()) {
             System.out.println("Año no válido");
@@ -157,7 +157,7 @@ public class Validate {
      * @return true si el código es válido, false en caso contrario
      */
     public static boolean validarVipPromocode(String promocode) {
-        return "JAVABNB2024".equals(promocode.toUpperCase());
+        return "wgParaPahsiv".equals(promocode.toUpperCase());
     }
 
     /**
@@ -167,7 +167,7 @@ public class Validate {
      * @return true si el código es válido o está vacío, false en caso contrario
      */
     public static boolean validarPromocode(String promocode) {
-        return "JAVABNB2024".equals(promocode.toUpperCase()) || promocode.isEmpty();
+        return "wgParaPahsiv".equals(promocode.toUpperCase()) || promocode.isEmpty();
     }
 
     /**
@@ -182,13 +182,13 @@ public class Validate {
         if (!MainBNB.getClientes().isEmpty()) {
             for (Cliente cliente : MainBNB.getClientes()) {
                 if (cliente.getCorreo().equals(correo)) {
-                    System.out.println("Este correo ya existe");
+                    System.out.println("Correo ya registrado");
                     return true;
                 } else if (cliente.getDni().equals(dni)) {
-                    System.out.println("Este DNI ya existe");
+                    System.out.println("DNI ya registrado");
                     return true;
                 } else if (cliente.getTelefono().equals(telefono)) {
-                    System.out.println("Este teléfono ya existe");
+                    System.out.println("Telefono");
                     return true;
                 }
             }

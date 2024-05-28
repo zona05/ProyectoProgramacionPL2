@@ -145,7 +145,7 @@ public class AddInmueble extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 236, 217));
 
-        barraarriba.setBackground(new java.awt.Color(255, 236, 217));
+        barraarriba.setBackground(new java.awt.Color(255, 153, 102));
         barraarriba.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -168,10 +168,10 @@ public class AddInmueble extends javax.swing.JPanel {
 
         logoLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         logoLabel.setForeground(new java.awt.Color(255, 90, 95));
-        logoLabel.setText("JavaBNB");
-        barraarriba.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
+        barraarriba.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
-        mainscr.setBackground(new java.awt.Color(255, 153, 102));
+        mainscr.setBackground(new java.awt.Color(255, 102, 102));
         mainscr.setForeground(new java.awt.Color(255, 255, 255));
         mainscr.setText("Volver");
         mainscr.setBorderPainted(false);
@@ -186,7 +186,7 @@ public class AddInmueble extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 236, 217));
 
-        jLabel3.setFont(new java.awt.Font("Serif", 0, 48)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 48)); // NOI18N
         jLabel3.setText("Añada un inmueble");
 
         jLabel1.setFont(new java.awt.Font("Serif", 2, 18)); // NOI18N
@@ -198,34 +198,34 @@ public class AddInmueble extends javax.swing.JPanel {
         data.setPreferredSize(new java.awt.Dimension(600, 520));
         data.setRequestFocusEnabled(false);
 
-        titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         titleLabel.setText("Título:");
 
-        typeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        typeLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         typeLabel.setText("Tipo:");
 
-        descriptionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        descriptionLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         descriptionLabel.setText("Descripción:");
 
-        photoLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        photoLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         photoLabel.setText("Fotografía:");
 
-        priceLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        priceLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         priceLabel.setText("Precio por noche:");
 
-        guestLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        guestLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         guestLabel.setText("Máximo número de huéspedes:");
 
-        bedroomLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bedroomLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         bedroomLabel.setText("Número de habitaciones:");
 
-        bedLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bedLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         bedLabel.setText("Número de camas:");
 
-        bathLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bathLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         bathLabel.setText("Número  de baños:");
 
-        servicesLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        servicesLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         servicesLabel.setText("Servicios:");
 
         typeComboBox.setBackground(new java.awt.Color(255, 153, 102));
@@ -239,6 +239,7 @@ public class AddInmueble extends javax.swing.JPanel {
         jScrollPane2.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane2.setPreferredSize(new java.awt.Dimension(300, 50));
 
+        titleTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         titleTextField.setMinimumSize(new java.awt.Dimension(300, 50));
         titleTextField.setPreferredSize(new java.awt.Dimension(300, 60));
         jScrollPane2.setViewportView(titleTextField);
@@ -246,6 +247,7 @@ public class AddInmueble extends javax.swing.JPanel {
         jScrollPane3.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane3.setPreferredSize(new java.awt.Dimension(300, 50));
 
+        descriptionTextPanel.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         descriptionTextPanel.setMinimumSize(new java.awt.Dimension(300, 50));
         descriptionTextPanel.setPreferredSize(new java.awt.Dimension(300, 60));
         jScrollPane3.setViewportView(descriptionTextPanel);
@@ -253,11 +255,13 @@ public class AddInmueble extends javax.swing.JPanel {
         jScrollPane4.setMinimumSize(new java.awt.Dimension(300, 50));
         jScrollPane4.setPreferredSize(new java.awt.Dimension(300, 50));
 
+        servicesTextPane.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         servicesTextPane.setMinimumSize(new java.awt.Dimension(300, 50));
         servicesTextPane.setPreferredSize(new java.awt.Dimension(300, 60));
         jScrollPane4.setViewportView(servicesTextPane);
 
         photoButton.setBackground(new java.awt.Color(255, 153, 102));
+        photoButton.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         photoButton.setText("Añadir fotografía");
         photoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,36 +269,40 @@ public class AddInmueble extends javax.swing.JPanel {
             }
         });
 
-        numberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        numberLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         numberLabel.setText("Número:");
 
-        streetLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        streetLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         streetLabel.setText("Calle:");
 
+        streetTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         streetTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 streetTextFieldActionPerformed(evt);
             }
         });
 
+        numberTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         numberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberTextFieldActionPerformed(evt);
             }
         });
 
-        cityLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cityLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         cityLabel.setText("Ciudad:");
 
-        cpLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cpLabel.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         cpLabel.setText("Código Postal:");
 
+        cityTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         cityTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cityTextFieldActionPerformed(evt);
             }
         });
 
+        cpTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         cpTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpTextFieldActionPerformed(evt);
@@ -302,6 +310,7 @@ public class AddInmueble extends javax.swing.JPanel {
         });
 
         createBuildingButton.setBackground(new java.awt.Color(255, 153, 102));
+        createBuildingButton.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         createBuildingButton.setText("Crear inmueble");
         createBuildingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,45 +318,50 @@ public class AddInmueble extends javax.swing.JPanel {
             }
         });
 
-        titleError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        titleError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         titleError.setText("Titulo no válido");
 
-        priceError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        priceError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         priceError.setText("Tiene que ser superior a 0");
 
-        descriptionError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        descriptionError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         descriptionError.setText("Descripción no válida");
 
-        bedroomError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        bedroomError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         bedroomError.setText("Tiene que ser superior a 0");
 
-        guestError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        guestError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         guestError.setText("Tiene que ser superior a 0");
 
-        bathError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        bathError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         bathError.setText("Tiene que ser superior a 0");
 
-        bedError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        bedError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         bedError.setText("Tiene que ser superior a 0");
 
-        serviceError.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        serviceError.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         serviceError.setText("No es valido");
 
+        guestSpinner.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         guestSpinner.setMinimumSize(new java.awt.Dimension(113, 27));
         guestSpinner.setPreferredSize(new java.awt.Dimension(113, 27));
 
+        bedroomSpinner.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         bedroomSpinner.setMinimumSize(new java.awt.Dimension(113, 27));
         bedroomSpinner.setPreferredSize(new java.awt.Dimension(113, 27));
 
+        bedSpinner.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         bedSpinner.setMinimumSize(new java.awt.Dimension(113, 27));
         bedSpinner.setPreferredSize(new java.awt.Dimension(113, 27));
 
+        bathSpinner.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         bathSpinner.setMinimumSize(new java.awt.Dimension(113, 27));
         bathSpinner.setPreferredSize(new java.awt.Dimension(113, 27));
 
-        bathError1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        bathError1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         bathError1.setText("Tiene que añadir una fotografía");
 
+        priceTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         priceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceTextFieldActionPerformed(evt);
@@ -441,7 +455,7 @@ public class AddInmueble extends javax.swing.JPanel {
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(descriptionError))))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
             .addGroup(dataLayout.createSequentialGroup()
                 .addGap(152, 152, 152)
                 .addComponent(createBuildingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -462,7 +476,7 @@ public class AddInmueble extends javax.swing.JPanel {
                         .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(titleError, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                         .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)))
                 .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,7 +489,7 @@ public class AddInmueble extends javax.swing.JPanel {
                     .addComponent(cityLabel)
                     .addComponent(cpLabel)
                     .addComponent(cpTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numberLabel)
                     .addComponent(numberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,18 +543,17 @@ public class AddInmueble extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(334, 334, 334)
+                .addComponent(jLabel1)
+                .addContainerGap(543, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 101, Short.MAX_VALUE)
                 .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(189, 189, 189))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -559,9 +572,10 @@ public class AddInmueble extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(barraarriba, javax.swing.GroupLayout.DEFAULT_SIZE, 1619, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(barraarriba, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(671, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -741,7 +755,7 @@ public class AddInmueble extends javax.swing.JPanel {
             InfoInmueble datos = new InfoInmueble(huespedes, habitaciones, camas, baños);
             Direccion direccion = new Direccion(calle, numero, cp, ciudad);
             Inmueble inmueble = new Inmueble(titulo, descripcion, direccion, datos, tipo, precio, fotografia, servicios, anfitrion);
-            boolean inmuebleValido = MainBNB.añadirInmueble(inmueble);
+            boolean inmuebleValido = MainBNB.agregarinmueble(inmueble);
             if (inmuebleValido) {
                 JOptionPane.showMessageDialog(this, "El inmueble se ha creado correctamente, se ha añadido a la lista de inmuebles.", "Inmueble creado", JOptionPane.INFORMATION_MESSAGE);
             } else {

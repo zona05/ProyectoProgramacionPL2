@@ -16,19 +16,20 @@ public class Credito implements Serializable {
     private String cvv;
     private int dia;
     private int mes;
-    private int anio;
+    private int anno;
     private double saldo;
 
     //Constructor
-    public Credito(String titular, String numeroTarjeta, int dia, int mes, int anio, LocalDate fechaCaducidad, String cvv, double saldo) {
+    public Credito(String titular, String numeroTarjeta, int dia, int mes, int anno, LocalDate fechaCaducidad, String cvv, double saldo) {
         this.titular = titular;
         this.numeroTarjeta = numeroTarjeta;
-        this.fechaCaducidad = fechaCaducidad;
         this.saldo = saldo;
+        this.cvv = cvv;
         this.dia = dia;
         this.mes = mes;
-        this.anio = anio;
-        this.cvv = cvv;
+        this.anno = anno;
+        this.fechaCaducidad = fechaCaducidad;
+        
     }
 
     //Getters & Setters
@@ -58,8 +59,8 @@ public class Credito implements Serializable {
         this.fechaCaducidad = fechaCaducidad;
     }
 
-    public void setFechaCaducidad(int dia, int mes, int anio) {
-        this.fechaCaducidad = LocalDate.of(anio, mes, dia);
+    public void setFechaCaducidad(int dia, int mes, int anno) {
+        this.fechaCaducidad = LocalDate.of(anno, mes, dia);
     }
 
     public void incrementarSaldo(double cantidad) {
@@ -126,17 +127,17 @@ public class Credito implements Serializable {
         this.mes = mes;
     }
 
-    public int getAnio() {
-        return anio;
+    public int getanno() {
+        return anno;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
+    public void setanno(int anno) {
+        this.anno = anno;
     }
 
     @Override
     public String toString() {
-        return ", Tarjeta{" + "número de la tarjeta:" + numeroTarjeta + ", fecha de caducidad:" + fechaCaducidad + ", cvv:" + cvv + ", saldo:" + saldo + '}';
+        return " Tarjeta" + "número de la tarjeta:" + numeroTarjeta + ", fecha de caducidad:" + fechaCaducidad + ", cvv:" + cvv + ", saldo:" + saldo + '}';
     }
 
 }
