@@ -44,14 +44,14 @@ public class PantallaAdmin extends javax.swing.JPanel {
         barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setBackground(new java.awt.Color(255, 102, 102));
-        jButton3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 14)); // NOI18N
         jButton3.setText("Cerrar sesión");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        barraarriba.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 120, 50));
+        barraarriba.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 150, 50));
 
         titleLabel.setFont(new java.awt.Font("Serif", 3, 24)); // NOI18N
         titleLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N

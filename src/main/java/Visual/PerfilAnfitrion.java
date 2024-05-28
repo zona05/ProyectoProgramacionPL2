@@ -85,8 +85,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         uppermenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signOutButton.setBackground(new java.awt.Color(255, 90, 95));
-        signOutButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        signOutButton.setForeground(new java.awt.Color(255, 255, 255));
+        signOutButton.setFont(new java.awt.Font("Noto Sans SemiBold", 1, 14)); // NOI18N
         signOutButton.setText("Cerrar sesion");
         signOutButton.setBorderPainted(false);
         signOutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -96,11 +95,10 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                 signOutButtonActionPerformed(evt);
             }
         });
-        uppermenu.add(signOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 17, 109, 40));
+        uppermenu.add(signOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 130, 40));
 
         returnButton.setBackground(new java.awt.Color(255, 90, 95));
-        returnButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        returnButton.setForeground(new java.awt.Color(255, 255, 255));
+        returnButton.setFont(new java.awt.Font("Noto Sans SemiBold", 1, 18)); // NOI18N
         returnButton.setText("Volver");
         returnButton.setBorderPainted(false);
         returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -110,7 +108,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                 returnButtonActionPerformed(evt);
             }
         });
-        uppermenu.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(915, 17, 88, 39));
+        uppermenu.add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, 100, 40));
 
         appname1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         appname1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logopeque.png"))); // NOI18N
@@ -178,12 +176,12 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         requirementsLabel.setText("Al menos una mayúscula, minúcula, números y de longitud 8");
         data.add(requirementsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
 
-        hostlabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        hostlabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
         hostlabel.setForeground(new java.awt.Color(102, 102, 102));
         hostlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hostlabel.setText("Anfitrión");
 
-        username.setFont(new java.awt.Font("Serif", 0, 30)); // NOI18N
+        username.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 30)); // NOI18N
         username.setForeground(new java.awt.Color(255, 90, 95));
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("OOOOOOO");

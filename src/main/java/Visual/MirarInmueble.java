@@ -283,6 +283,7 @@ public class MirarInmueble extends javax.swing.JPanel {
         barraarriba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         returnButton.setBackground(new java.awt.Color(255, 102, 102));
+        returnButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         returnButton.setText("Volver");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -368,11 +369,9 @@ public class MirarInmueble extends javax.swing.JPanel {
         });
 
         startDateLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        startDateLabel.setForeground(new java.awt.Color(255, 102, 102));
         startDateLabel.setText("Fecha de entrada:");
 
         endDateLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        endDateLabel.setForeground(new java.awt.Color(255, 102, 102));
         endDateLabel.setText("Fecha de salida:");
 
         endDateFormattedField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));

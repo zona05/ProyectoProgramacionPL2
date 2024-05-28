@@ -288,7 +288,7 @@ public class Registro extends javax.swing.JPanel {
         jPanel1.add(CCLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
         errorLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
-        errorLabel.setText("Seleccione algo, por favor");
+        errorLabel.setText("Seleccione un item");
         errorLabel.setEnabled(false);
         errorLabel.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -318,7 +318,7 @@ public class Registro extends javax.swing.JPanel {
         jPanel1.add(errorLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, -1, -1));
 
         errorLabel8.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
-        errorLabel8.setText("Este código promocional no existe");
+        errorLabel8.setText("No existe el código promocional");
         errorLabel8.setEnabled(false);
         errorLabel8.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -328,7 +328,7 @@ public class Registro extends javax.swing.JPanel {
         jPanel1.add(errorLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, -1, -1));
 
         errorLabel5.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
-        errorLabel5.setText("Formato no válido");
+        errorLabel5.setText("Telefono no válido");
         errorLabel5.setEnabled(false);
         errorLabel5.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -338,7 +338,7 @@ public class Registro extends javax.swing.JPanel {
         jPanel1.add(errorLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
         errorLabel6.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
-        errorLabel6.setText("Formato no válido");
+        errorLabel6.setText("Correo no válido");
         errorLabel6.setEnabled(false);
         errorLabel6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -359,7 +359,7 @@ public class Registro extends javax.swing.JPanel {
 
         requirementsLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         requirementsLabel.setForeground(new java.awt.Color(102, 102, 102));
-        requirementsLabel.setText("Al menos una mayúscula, minúcula, números y de longitud 8");
+        requirementsLabel.setText("Al menos una mayúscula, minúscula, algún número y longitud 8");
         jPanel1.add(requirementsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
         dayTextField.setBackground(new java.awt.Color(255, 236, 217));
@@ -498,7 +498,7 @@ public class Registro extends javax.swing.JPanel {
         jPanel1.add(userTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 418, 27));
 
         errorLabel4.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
-        errorLabel4.setText("Formato no válido");
+        errorLabel4.setText("Nombre no válido");
         errorLabel4.setEnabled(false);
         errorLabel4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {

@@ -234,7 +234,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
 
         jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 90));
 
-        buscaalojamiento2.setBackground(new java.awt.Color(214, 175, 136));
+        buscaalojamiento2.setBackground(new java.awt.Color(255, 250, 248));
         buscaalojamiento2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buscaalojamiento2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -282,7 +282,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         jLabel3.setText("Fecha de salida");
         buscaalojamiento2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
-        searchButton.setBackground(new java.awt.Color(255, 102, 102));
+        searchButton.setBackground(new java.awt.Color(255, 153, 102));
         searchButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         searchButton.setText("Buscar");
         searchButton.setPreferredSize(new java.awt.Dimension(129, 36));
@@ -293,7 +293,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         });
         buscaalojamiento2.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 143, -1));
 
-        showAllBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
+        showAllBuildingsButton.setBackground(new java.awt.Color(255, 153, 102));
         showAllBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         showAllBuildingsButton.setText("Mostrar todos los inmuebles");
         showAllBuildingsButton.setMaximumSize(new java.awt.Dimension(143, 58));

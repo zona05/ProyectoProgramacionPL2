@@ -271,8 +271,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         uppermenu.add(photoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 70));
 
         mainscr.setBackground(new java.awt.Color(255, 102, 102));
-        mainscr.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mainscr.setForeground(new java.awt.Color(255, 255, 255));
+        mainscr.setFont(new java.awt.Font("Noto Sans SemiBold", 1, 18)); // NOI18N
         mainscr.setText("Volver");
         mainscr.setBorderPainted(false);
         mainscr.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -285,18 +284,17 @@ public class PerfilCliente extends javax.swing.JPanel {
         uppermenu.add(mainscr, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 88, 39));
 
         cerrarsesion.setBackground(new java.awt.Color(255, 102, 102));
-        cerrarsesion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cerrarsesion.setForeground(new java.awt.Color(255, 255, 255));
+        cerrarsesion.setFont(new java.awt.Font("Noto Sans SemiBold", 1, 12)); // NOI18N
         cerrarsesion.setText("Cerrar sesión");
         cerrarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cerrarsesionActionPerformed(evt);
             }
         });
-        uppermenu.add(cerrarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 106, 39));
+        uppermenu.add(cerrarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 20, 120, 39));
 
         addMoneyButton.setBackground(new java.awt.Color(255, 102, 102));
-        addMoneyButton.setForeground(new java.awt.Color(255, 255, 255));
+        addMoneyButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         addMoneyButton.setText("Añadir saldo");
         addMoneyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,12 +303,12 @@ public class PerfilCliente extends javax.swing.JPanel {
         });
         uppermenu.add(addMoneyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 118, 39));
 
-        ParLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        ParLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
         ParLabel.setForeground(new java.awt.Color(102, 102, 102));
         ParLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ParLabel.setText("Cliente Particular");
 
-        username.setFont(new java.awt.Font("Serif", 0, 30)); // NOI18N
+        username.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 30)); // NOI18N
         username.setForeground(new java.awt.Color(255, 102, 102));
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("OOOOOOO");
