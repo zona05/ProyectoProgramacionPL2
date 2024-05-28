@@ -19,7 +19,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
 
     private ArrayList<Inmueble> buildings; // Referencia al ArrayList de inmuebles de la clase JavaBNB
     private ListIterator<Inmueble> li; // Iterador para recorrer el ArrayList en ambas direcciones
-    private Inmueble objInm; // Referencia a un objeto de tipo inmueble del ArrayList
+    private Inmueble objInm; // Referencia a un objeto de types inmueble del ArrayList
 
     /**
      * Constructor de AdminCheckBuildings que inicializa los componentes y carga
@@ -49,7 +49,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
     /**
      * Actualiza la vista y los datos de los inmuebles.
      */
-    public void actualizar() {
+    public void update() {
         errorNextLabel.setVisible(false);
         errorPreviousLabel.setVisible(false);
         consultarTodo();
@@ -71,7 +71,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
                     nextButton.setEnabled(false);
                     previousButton.setEnabled(false);
                     deleteBuildingButton.setEnabled(false);
-                    limpiarCampos();
+                    limpiezaTextos();
                     return;
                 } else {
                     nextButton.setEnabled(true);
@@ -94,7 +94,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
     /**
      * Limpia los campos de texto en el panel de administración.
      */
-    private void limpiarCampos() {
+    private void limpiezaTextos() {
         typeLabel.setText("");
         titleTextPanel.setText("");
         descriptionTextPanel.setText("");
@@ -118,7 +118,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
      * @param inmueble el inmueble cuyos detalles se van a mostrar
      */
     private void presenta(Inmueble inmueble) {
-        typeLabel.setText(inmueble.getTipo());
+        typeLabel.setText(inmueble.gettypes());
         titleTextPanel.setText(inmueble.getTitulo());
         descriptionTextPanel.setText(inmueble.getDescripcion());
         streetTextField.setText(inmueble.getDireccion().getCalle());
@@ -242,7 +242,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLabel.setText("Título:");
-        jPanel2.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        jPanel2.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 190, 40));
 
         typeLabel.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         typeLabel.setText("var1");
@@ -351,7 +351,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
         markLabel.setText("Calificación:");
         jPanel2.add(markLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, -1, -1));
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 152, 580, 511));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 122, 580, 510));
 
         previousButton.setBackground(new java.awt.Color(255, 153, 153));
         previousButton.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -427,7 +427,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
                     presenta(objInm);
                 }
             } else {
-                limpiarCampos();
+                limpiezaTextos();
             }
         }
     }//GEN-LAST:event_deleteBuildingButtonActionPerformed
@@ -480,7 +480,7 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
             String numero = numberTextField.getText();
             String ciudad = cityTextField.getText();
             String cp = cpTextField.getText();
-            String tipo = typeLabel.getText();
+            String types = typeLabel.getText();
             double precio = Double.parseDouble(priceTextField.getText());
             int huespedes = Integer.parseInt(guestTextField.getText());
             int habitaciones = Integer.parseInt(roomTextField.getText());
@@ -592,14 +592,14 @@ public class ComprobarInmuebleAdmin extends javax.swing.JPanel {
             } else {
             }
 
-            if (!tipo.equals("Casa") && !tipo.equals("Apartamento")) {
-                JOptionPane.showMessageDialog(this, "El tipo solo puede ser 'Casa' o 'Apartamento'.", "Tipo inválido", JOptionPane.WARNING_MESSAGE);
+            if (!types.equals("Casa") && !types.equals("Apartamento")) {
+                JOptionPane.showMessageDialog(this, "El types solo puede ser 'Casa' o 'Apartamento'.", "types inválido", JOptionPane.WARNING_MESSAGE);
                 valido = false;
             }
 
             if (valido) {
                 objInm.setTitulo(titulo);
-                objInm.setTipo(tipo);
+                objInm.settypes(types);
                 objInm.setDescripcion(descripcion);
                 objInm.getDireccion().setCalle(calle);
                 objInm.getDireccion().setCiudad(ciudad);
