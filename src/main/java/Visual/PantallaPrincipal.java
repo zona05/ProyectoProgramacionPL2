@@ -8,10 +8,6 @@ import Programa.Host;
 import Programa.Inmueble;
 import Programa.MainBNB;
 import Programa.Inicio;
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
@@ -27,14 +23,17 @@ public class PantallaPrincipal extends javax.swing.JPanel {
     int estado;
 
     /**
-     * Creates new form MainScreen
+     * Constructor de la clase PantallaPrincipal.
      */
     public PantallaPrincipal() {
         initComponents();
         buildingsLabel.setVisible(false);
     }
 
-    public void actualizar() {
+    /**
+     * Actualiza la interfaz de usuario.
+     */
+    public void update() {
         buildings = MainBNB.getInmuebles();
         allBuildings = MainBNB.getInmuebles();
 
@@ -51,35 +50,39 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Inserta todos los edificios en la interfaz.
+     */
     public void insertAllBuildings() {
         buildingsLabel.setVisible(true);
-        deleteBuildings(); // Borra cualquier widget de edificio existente antes de insertar nuevos si es posible
+        deleteBuildings(); // Elimina cualquier widget de edificio existente antes de insertar nuevos si es posible
         if (allBuildings == null | allBuildings.isEmpty()) {
-            System.err.println("La lista de edificios está vacía. No se pueden insertar inmuebles.");
+            System.err.println("No existen inmuebles disponibles. No se pueden insertar inmuebles.");
             return;
         }
-        System.out.println("La lista de edificios no está vacía:");
+        System.out.println("Existen inmuebles disponibles:");
 
         int fila = 0;
-        int x = 50; //valor de prueba
+        int x = 30; //valor de prueba
         for (Inmueble inmueble : allBuildings) {
-            if (x >= 800) { //1920=tamaño de la ventana
-                fila += 400;//el tamaño de la ventana  del widget= [295, 400] 
-                x = 50;
+            if (x >= 480) { //1920=tamaño de la ventana
+                fila += 240;//el tamaño de la ventana  del widget
+                x = 30;
             }
             ImagenInmueble iconoinm = new ImagenInmueble();
             iconoinm.init(inmueble);
-            //AbsoluteConstraints constr = new org.netbeans.lib.awtextra.AbsoluteConstraints(295*x, fila, -1, -1);  //-1 en altura y anchura para que nos de la predeterminada del widget añadido
             buildingsicon.add(iconoinm);
-            buildingsContainer.add(iconoinm, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, fila, -1, -1));  //método addLayoutComponent(java.awt.Component comp, java.lang.Object constr);  Adds the specified component to the layout, using the specified constraint object.
-            //System.out.println(inmueble);
-            x += 350; //valor de prueba
+            buildingsContainer.add(iconoinm, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, fila, -1, -1));  
+            x += 210; //valor de prueba
         }
         buildingsContainer.revalidate(); // Actualiza el contenedor para mostrar los cambios
         buildingsContainer.repaint();   // Repinta el contenedor para asegurar que los cambios sean visibles
         buildings = allBuildings;
     }
 
+    /**
+     * Inserta los edificios en la interfaz.
+     */
     public void insertBuildings() {
         buildingsLabel.setVisible(true);
         if (buildings == null | buildings.isEmpty()) {
@@ -87,28 +90,29 @@ public class PantallaPrincipal extends javax.swing.JPanel {
             return;
         }
         System.out.println("La lista de edificios no está vacía:");
-        deleteBuildings(); // Borra cualquier widget de edificio existente antes de insertar nuevos
+        deleteBuildings(); // Elimina cualquier widget de edificio existente antes de insertar nuevos
 
         int fila = 0;
-        //tamaño ventana widget= [295, 400] 
-        int x = 50; //valor de prueba
+        //tamaño ventana widget
+        int x = 30; //valor de prueba
         for (Inmueble inmueble : buildings) {
-            if (x >= 800) { //1920=tamaño de la ventana
-                fila += 400;
-                x = 50;
+            if (x >= 480) { //1920=tamaño de la ventana
+                fila += 240;
+                x = 30;
             }
             ImagenInmueble iconoinm = new ImagenInmueble();
             iconoinm.init(inmueble);
-            //AbsoluteConstraints constr = new org.netbeans.lib.awtextra.AbsoluteConstraints(295*x, fila, -1, -1);  //-1 en altura y anchura para que nos de la predeterminada del widget añadido
             buildingsicon.add(iconoinm);
-            buildingsContainer.add(iconoinm, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, fila, -1, -1));  //método addLayoutComponent(java.awt.Component comp, java.lang.Object constr);  Adds the specified component to the layout, using the specified constraint object.
-            //System.out.println(inmueble);
-            x += 350; //valor de prueba
+            buildingsContainer.add(iconoinm, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, fila, -1, -1)); 
+            x += 210; //valor de prueba
         }
         buildingsContainer.revalidate(); // Actualiza el contenedor para mostrar los cambios
         buildingsContainer.repaint();   // Repinta el contenedor para asegurar que los cambios sean visibles
     }
 
+    /**
+     * Elimina los edificios de la interfaz.
+     */
     public void deleteBuildings() {
         for (ImagenInmueble ii : buildingsicon) {
             this.buildingsContainer.remove(ii);
@@ -118,6 +122,12 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         buildingsContainer.repaint();   // Repinta el contenedor para asegurar que los cambios sean visibles
     }
 
+    /**
+     * Convierte un objeto a LocalDate.
+     *
+     * @param dateObject Objeto de fecha.
+     * @return Fecha convertida a LocalDate.
+     */
     public LocalDate convertToLocalDate(Object dateObject) {
         if (dateObject instanceof Date) {
             return ((Date) dateObject).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -125,6 +135,8 @@ public class PantallaPrincipal extends javax.swing.JPanel {
             return null;
         }
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -188,7 +200,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 hostProfileActionPerformed(evt);
             }
         });
-        barraarriba.add(hostProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1144, 10, 100, 50));
+        barraarriba.add(hostProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 10, 100, 50));
 
         addBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
         addBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -198,7 +210,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 addBuildingsButtonActionPerformed(evt);
             }
         });
-        barraarriba.add(addBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 130, 40));
+        barraarriba.add(addBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 130, 40));
 
         myBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
         myBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -208,7 +220,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 myBuildingsButtonActionPerformed(evt);
             }
         });
-        barraarriba.add(myBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 20, 120, 40));
+        barraarriba.add(myBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 120, 40));
 
         misReservasButton.setBackground(new java.awt.Color(255, 102, 102));
         misReservasButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -218,9 +230,9 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 misReservasButtonActionPerformed(evt);
             }
         });
-        barraarriba.add(misReservasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 110, 40));
+        barraarriba.add(misReservasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 110, 40));
 
-        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 70));
+        jPanel1.add(barraarriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 70));
 
         buscaalojamiento2.setBackground(new java.awt.Color(214, 175, 136));
         buscaalojamiento2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -229,7 +241,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Destino:");
-        buscaalojamiento2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 252, -1));
+        buscaalojamiento2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 90, 260, -1));
 
         cityTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         cityTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +249,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 cityTextFieldActionPerformed(evt);
             }
         });
-        buscaalojamiento2.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 270, -1));
+        buscaalojamiento2.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 260, -1));
 
         jLabel2.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         jLabel2.setText("Fecha de llegada");
@@ -255,7 +267,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 startDateTextFieldPropertyChange(evt);
             }
         });
-        buscaalojamiento2.add(startDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 108, -1));
+        buscaalojamiento2.add(startDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 108, -1));
 
         endDateTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         endDateTextField.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
@@ -264,11 +276,11 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 endDateTextFieldActionPerformed(evt);
             }
         });
-        buscaalojamiento2.add(endDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 108, -1));
+        buscaalojamiento2.add(endDateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 108, -1));
 
         jLabel3.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         jLabel3.setText("Fecha de salida");
-        buscaalojamiento2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+        buscaalojamiento2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         searchButton.setBackground(new java.awt.Color(255, 102, 102));
         searchButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -279,7 +291,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 searchButtonActionPerformed(evt);
             }
         });
-        buscaalojamiento2.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 143, -1));
+        buscaalojamiento2.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 143, -1));
 
         showAllBuildingsButton.setBackground(new java.awt.Color(255, 102, 102));
         showAllBuildingsButton.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -292,24 +304,24 @@ public class PantallaPrincipal extends javax.swing.JPanel {
                 showAllBuildingsButtonActionPerformed(evt);
             }
         });
-        buscaalojamiento2.add(showAllBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 212, 40));
+        buscaalojamiento2.add(showAllBuildingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 212, 40));
 
         jLabel6.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("dd/MM/yyyy");
-        buscaalojamiento2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
+        buscaalojamiento2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         textbuscaaloj2.setEditable(false);
         textbuscaaloj2.setBackground(new java.awt.Color(214, 175, 136));
         textbuscaaloj2.setColumns(20);
-        textbuscaaloj2.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 24)); // NOI18N
+        textbuscaaloj2.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 18)); // NOI18N
         textbuscaaloj2.setRows(5);
         textbuscaaloj2.setText(" Busque el mejor inmueble\n      para sus vacaciones");
         textbuscaaloj2.setAutoscrolls(false);
         textbuscaaloj2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        buscaalojamiento2.add(textbuscaaloj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 330, 81));
+        buscaalojamiento2.add(textbuscaaloj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 81));
 
-        jPanel1.add(buscaalojamiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 354, 410));
+        jPanel1.add(buscaalojamiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 280, 410));
 
         barraabajo.setBackground(new java.awt.Color(255, 153, 102));
         barraabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -328,7 +340,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         });
         barraabajo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, 20));
 
-        jPanel1.add(barraabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 664, 1260, 40));
+        jPanel1.add(barraabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 664, 1120, 40));
 
         buildingsContainer.setBackground(new java.awt.Color(255, 236, 217));
         buildingsContainer.setMinimumSize(new java.awt.Dimension(1242, 416));
@@ -337,7 +349,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
 
         filterComboBox.setBackground(new java.awt.Color(255, 153, 102));
         filterComboBox.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
-        filterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por:", "Precio 🡡", "Precio 🡣", "Chalés", "Apartamentos", "Calificación 🡡", "Calificación 🡣" }));
+        filterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por:", "Precio Mayor", "Precio Menor", "Chales", "Apartamentos", "Calificacion Mayor", "Calificacion Menor" }));
         filterComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filterComboBoxActionPerformed(evt);
@@ -355,14 +367,14 @@ public class PantallaPrincipal extends javax.swing.JPanel {
         });
         buildingsContainer.add(applyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 40));
 
-        jPanel1.add(buildingsContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 780, 480));
+        jPanel1.add(buildingsContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 780, 510));
 
         buildingsLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 3, 48)); // NOI18N
         buildingsLabel.setForeground(new java.awt.Color(255, 153, 102));
         buildingsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buildingsLabel.setText("Inmuebles Disponibles");
         buildingsLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(buildingsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 590, -1));
+        jPanel1.add(buildingsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 590, -1));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -370,9 +382,9 @@ public class PantallaPrincipal extends javax.swing.JPanel {
     private void hostProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostProfileActionPerformed
         deleteBuildings();
         if (Inicio.esAnfitrion) {
-            Aplicacion.loadHostProfile();
+            Aplicacion.cargaPerfilAnfitrion();
         } else {
-            Aplicacion.loadClientProfile();
+            Aplicacion.cargaPerfilCliente();
         }
     }//GEN-LAST:event_hostProfileActionPerformed
 
@@ -383,7 +395,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
 
     private void myBuildingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myBuildingsButtonActionPerformed
         deleteBuildings();
-        Aplicacion.loadHostCheckBuildings();
+        Aplicacion.cargaComprobarInmuebleAnfitrion();
         if (Inicio.user != null) {
             ArrayList<Inmueble> inmueblesAnfitrion = MainBNB.filtrarInmueblesPorAnfitrion((Host) Inicio.user);
             for (Inmueble inmueble : inmueblesAnfitrion) {
@@ -395,7 +407,7 @@ public class PantallaPrincipal extends javax.swing.JPanel {
 
     private void misReservasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_misReservasButtonActionPerformed
         deleteBuildings();
-        Aplicacion.loadGuestCheckReserves();
+        Aplicacion.cargaComprobarReservaInvitado();
     }//GEN-LAST:event_misReservasButtonActionPerformed
 
     private void endDateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endDateTextFieldActionPerformed
@@ -411,45 +423,49 @@ public class PantallaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_startDateTextFieldPropertyChange
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // Establece el ítem seleccionado en el ComboBox de filtro
         filterComboBox.setSelectedItem("Filtrar por:");
+// Establece el estado actual
         this.estado = 1;
-        // Obtener los valores de los campos de texto y eliminar espacios en blanco de inicio y final
+// Obtiene los valores de los campos de texto y elimina los espacios en blanco al principio y al final
         String ciudad = cityTextField.getText().trim();
-        // Variables para almacenar las fechas convertidas a LocalDate
+// Variables para almacenar las fechas convertidas a LocalDate
         LocalDate fechaEntrada = null;
         LocalDate fechaSalida = null;
 
-        // Verificar si los campos de fecha no están vacíos antes de intentar convertir
-        String fechaEntradaTexto = startDateTextField.getText().trim();
-        String fechaSalidaTexto = endDateTextField.getText().trim();
+// Verifica si los campos de fecha no están vacíos antes de intentar convertir
+        String fechaEntradaText = startDateTextField.getText().trim();
+        String fechaSalidaText = endDateTextField.getText().trim();
 
-        if (!fechaEntradaTexto.isEmpty()) {
+        if (!fechaEntradaText.isEmpty()) {
             try {
-                fechaEntrada = convertToLocalDate(fechaEntradaTexto);
+                fechaEntrada = convertToLocalDate(fechaEntradaText);
             } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(this, "Por favor, introduce la fecha de inicio en el formato DD/MM/YYYY", "Formato de fecha inválido", JOptionPane.ERROR_MESSAGE);
+                // Muestra un mensaje de error si el formato de fecha es inválido
+                JOptionPane.showMessageDialog(this, "El formato de la fecha debe ser DD/MM/YYYY", "Formato de fecha inválido", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
 
-        if (!fechaSalidaTexto.isEmpty()) {
+        if (!fechaSalidaText.isEmpty()) {
             try {
-                fechaSalida = convertToLocalDate(fechaSalidaTexto);
+                fechaSalida = convertToLocalDate(fechaSalidaText);
             } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(this, "Por favor, introduce la fecha final en el formato DD/MM/YYYY", "Formato de fecha inválido", JOptionPane.ERROR_MESSAGE);
+                // Muestra un mensaje de error si el formato de fecha es inválido
+                JOptionPane.showMessageDialog(this, "El formato de la fecha debe ser DD/MM/YYYY", "Formato de fecha inválido", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
 
-        // Filtrar los inmuebles en función de los criterios introducidos
+// Filtra los inmuebles según los criterios introducidos
         ArrayList<Inmueble> inmueblesFiltrados = MainBNB.buscarInmuebles(ciudad, fechaEntrada, fechaSalida);
 
-        // Actualizar la lista de buildings con los inmuebles filtrados
+// Actualiza la lista de edificios con los inmuebles filtrados
         buildings = inmueblesFiltrados;
-        //preBuildings = inmueblesFiltrados;
 
-        // Llama al método para insertar los inmuebles en el panel
+// Llama al método para insertar los inmuebles en el panel
         insertBuildings();
+
 
     }//GEN-LAST:event_searchButtonActionPerformed
 
@@ -470,48 +486,54 @@ public class PantallaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_filterComboBoxActionPerformed
 
     private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyButtonActionPerformed
+        // Imprime el estado actual
         System.out.println(estado);
 
+// Elimina todos los edificios del panel
         deleteBuildings();
+
+// Obtiene la opción seleccionada en el ComboBox de filtro
         String selectedOption = (String) filterComboBox.getSelectedItem();
 
         ArrayList<Inmueble> inmueblesFiltrados;
 
+// Determina qué lista de inmuebles usar según el estado actual
         if (estado == 0) {
-            inmueblesFiltrados = new ArrayList<>(allBuildings); // Usar todos los inmuebles disponibles
+            inmueblesFiltrados = new ArrayList<>(allBuildings); // Usa todos los inmuebles disponibles
         } else {
-            inmueblesFiltrados = new ArrayList<>(buildings); // Usar los inmuebles filtrados por la búsqueda
+            inmueblesFiltrados = new ArrayList<>(buildings); // Usa los inmuebles filtrados por la búsqueda
         }
 
-        // Llama al método de filtrado correspondiente según la opción seleccionada
+// Llama al método de filtrado correspondiente según la opción seleccionada
         switch (selectedOption) {
-            case "Precio mayor a menor":
-            MainBNB.ordenarPorPrecioDescCF(inmueblesFiltrados);
-            break;
-            case "Precio menor a mayor":
-            MainBNB.ordenarPorPrecioAscCF(inmueblesFiltrados);
-            break;
-            case "Casas":
-            // Filtra los inmuebles disponibles por tipo "Casa"
-            inmueblesFiltrados = MainBNB.filtrarCasas(inmueblesFiltrados);
-            break;
+            case "Precio Mayor":
+                MainBNB.ordenarPorPrecioDescCF(inmueblesFiltrados);
+                break;
+            case "Precio Menor":
+                MainBNB.ordenarPorPrecioAscCF(inmueblesFiltrados);
+                break;
+            case "Chales":
+                // Filtra los inmuebles disponibles por tipo "Casa"
+                inmueblesFiltrados = MainBNB.filtrarCasas(inmueblesFiltrados);
+                break;
             case "Apartamentos":
-            // Filtra los inmuebles disponibles por tipo "Apartamento"
-            inmueblesFiltrados = MainBNB.filtrarApartamentos(inmueblesFiltrados);
-            break;
-            case "Calificación de mayor a menor":
-            MainBNB.ordenarPorCalificacionDescCF(inmueblesFiltrados);
-            break;
-            case "Calificación de menor a mayor":
-            MainBNB.ordenarPorCalificacionAscCF(inmueblesFiltrados);
-            break;
+                // Filtra los inmuebles disponibles por tipo "Apartamento"
+                inmueblesFiltrados = MainBNB.filtrarApartamentos(inmueblesFiltrados);
+                break;
+            case "Calificación Mayor":
+                MainBNB.ordenarPorCalificacionDescCF(inmueblesFiltrados);
+                break;
+            case "Calificación Menor":
+                MainBNB.ordenarPorCalificacionAscCF(inmueblesFiltrados);
+                break;
         }
 
-        // Actualiza la lista de buildings con los inmuebles filtrados y ordenados
+// Actualiza la lista de edificios con los inmuebles filtrados y ordenados
         buildings = inmueblesFiltrados;
 
-        // Llama al método para insertar los inmuebles en el panel
+// Llama al método para insertar los inmuebles en el panel
         insertBuildings();
+
 
     }//GEN-LAST:event_applyButtonActionPerformed
 

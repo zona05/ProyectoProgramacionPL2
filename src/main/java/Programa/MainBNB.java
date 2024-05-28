@@ -84,9 +84,9 @@ public class MainBNB implements Serializable {
         }
     }
 
-    public static void ordenarPorTipoSF() {
+    public static void ordenarPortypesSF() {
         if (inmuebles != null) {
-            inmuebles.sort(Comparator.comparing(Inmueble::getTipo));
+            inmuebles.sort(Comparator.comparing(Inmueble::gettypes));
         }
     }
 
@@ -114,16 +114,16 @@ public class MainBNB implements Serializable {
         }
     }
 
-    public static void ordenarPorTipoCF(ArrayList<Inmueble> inmueblesDisponiblesEnCiudad) {
+    public static void ordenarPortypesCF(ArrayList<Inmueble> inmueblesDisponiblesEnCiudad) {
         if (inmueblesDisponiblesEnCiudad != null) {
-            inmueblesDisponiblesEnCiudad.sort(Comparator.comparing(Inmueble::getTipo));
+            inmueblesDisponiblesEnCiudad.sort(Comparator.comparing(Inmueble::gettypes));
         }
     }
 
     public static ArrayList<Inmueble> filtrarCasas(ArrayList<Inmueble> inmueblesDisponibles) {
         ArrayList<Inmueble> casas = new ArrayList<>();
         for (Inmueble inmueble : inmueblesDisponibles) {
-            if (inmueble.getTipo().equalsIgnoreCase("Casa")) {
+            if (inmueble.gettypes().equalsIgnoreCase("Casa")) {
                 casas.add(inmueble);
             }
         }
@@ -133,7 +133,7 @@ public class MainBNB implements Serializable {
     public static ArrayList<Inmueble> filtrarApartamentos(ArrayList<Inmueble> inmueblesDisponibles) {
         ArrayList<Inmueble> apartamentos = new ArrayList<>();
         for (Inmueble inmueble : inmueblesDisponibles) {
-            if (inmueble.getTipo().equalsIgnoreCase("Apartamento")) {
+            if (inmueble.gettypes().equalsIgnoreCase("Apartamento")) {
                 apartamentos.add(inmueble);
             }
         }

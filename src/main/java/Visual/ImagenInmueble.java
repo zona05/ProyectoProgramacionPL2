@@ -27,7 +27,7 @@ public class ImagenInmueble extends javax.swing.JPanel {
         this.i = i;
         nombre.setText(this.i.getTitulo());
         precio.setText(String.valueOf(this.i.getPrecioNoche()) + "€/noche");
-        fotoboton.setIcon(resizeIMG(this.i.getFotografia()));
+        fotoboton.setIcon(resizeIMG(this.i.getfoto()));
         calificacionlabel.setText("Calificación: " + Double.toString(i.getCalificacion()));
         ciudadlabel.setText("Ciudad: "+this.i.getDireccion().getCiudad());
 
@@ -148,7 +148,7 @@ public class ImagenInmueble extends javax.swing.JPanel {
     }//GEN-LAST:event_fotobotonMouseClicked
 
     private void fotobotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fotobotonActionPerformed
-        Aplicacion.loadBuildingView(this.i);
+        Aplicacion.cargaMirarInmueble(this.i);
         Aplicacion.mainscreen.deleteBuildings();
     }//GEN-LAST:event_fotobotonActionPerformed
 

@@ -3,7 +3,7 @@ package Programa;
 import java.time.LocalDate;
 
 /**
- * La clase Validacion contiene métodos estáticos para validar diferentes tipos de datos.
+ * La clase Validacion contiene métodos estáticos para validar diferentes typess de datos.
  */
 public class Validate {
 

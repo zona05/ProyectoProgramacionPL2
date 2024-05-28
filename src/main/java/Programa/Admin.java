@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 
-public class Admin {   //antes:   public record Administrador(String correo, String clave) {
+public class Admin {   //antes:   public record Administrador(String correo, String passw) {
 
     /**
      * Métodos para consultar los usuarios.

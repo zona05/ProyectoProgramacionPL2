@@ -115,15 +115,15 @@ public class PantallaAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void checkBuildingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBuildingsButtonActionPerformed
-        Aplicacion.loadAdminCheckBuildings();
+        Aplicacion.cargaComprobarInmuebleAdmin();
     }//GEN-LAST:event_checkBuildingsButtonActionPerformed
 
     private void checkUsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkUsersButtonActionPerformed
-        Aplicacion.loadAdminConsultarUser();
+        Aplicacion.cargaComprobarUsuarioAdmin();
     }//GEN-LAST:event_checkUsersButtonActionPerformed
 
     private void checkBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBookingsButtonActionPerformed
-        Aplicacion.loadAdminConsultarReservas();
+        Aplicacion.cargaComprobarReservaAdmin();
     }//GEN-LAST:event_checkBookingsButtonActionPerformed
 
 

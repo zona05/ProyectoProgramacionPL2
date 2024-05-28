@@ -10,7 +10,6 @@ import Programa.Direccion;
 import Programa.Inmueble;
 import Programa.MainBNB;
 import Programa.Inicio;
-import Programa.Validate;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -21,10 +20,10 @@ import java.nio.file.StandardCopyOption;
 
 public class AddInmueble extends javax.swing.JPanel {
 
-    String fotografia = "";
+    String foto = "";
 
     /**
-     * Creates new form AdminConsultarUsuarios
+     * Constructor para la clase AddInmueble. Inicializa los componentes y oculta los mensajes de error.
      */
     public AddInmueble() {
         initComponents();
@@ -39,47 +38,60 @@ public class AddInmueble extends javax.swing.JPanel {
         bathError1.setVisible(false);
     }
 
-    public File openImage() {
+    /**
+     * Abre un cuadro de diálogo para seleccionar una imagen.
+     * @return El archivo de imagen seleccionado o null si no se seleccionó ninguno.
+     */
+    public File abrirImagen() {
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Selecciona una imagen");
-        fileChooser.setAcceptAllFileFilterUsed(false); // Deshabilitar la opción "Todos los archivos"
-        fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image files", "jpg", "jpeg", "png", "gif", "bmp"));
+        fileChooser.setDialogTitle("Seleccione la imagen:");
+        fileChooser.setAcceptAllFileFilterUsed(false); // Desactivar la opción "Todos los archivos"
+        fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg", "png", "gif", "bmp"));
 
-        int result = fileChooser.showOpenDialog(null); // Mostrar el diálogo de seleccion y capturar la respuesta
+        int result = fileChooser.showOpenDialog(null); // Muestra el diálogo y obtiene la respuesta del usuario
 
-        // Procesar la respuesta
+        // Procesa la respuesta del usuario
         if (result == JFileChooser.APPROVE_OPTION) {
-            return fileChooser.getSelectedFile();
+            return fileChooser.getSelectedFile(); // Devuelve el archivo seleccionado
         }
-        return null; // No file was selected or the user cancelled
+        return null; // Devuelve null si no se seleccionó ningún archivo o si el usuario canceló
     }
 
-    public String saveImage(File archivofoto) {
-        String directoriodestino = "./src/main/resources/fotosinmuebles"; // Directorio de destino fijo
+    /**
+     * Guarda la imagen seleccionada en el directorio de destino.
+     * @param archivofoto El archivo de imagen a guardar.
+     * @return La ruta donde se guardó la imagen o null si hubo un error.
+     */
+    public String guardadoImagen(File archivofoto) {
+        String directoriodestino = "./src/main/resources/fotosinmuebles"; // Directorio donde se guardará la imagen
         Path pathdestino = Paths.get(directoriodestino, archivofoto.getName());
 
         try {
-            // Asegúrate de que el directorio exista
+            // Crea el directorio si no existe
             if (!Files.exists(Paths.get(directoriodestino))) {
                 Files.createDirectories(Paths.get(directoriodestino));
             }
 
-            // Copia el archivo al directorio especificado
+            // Copia el archivo al directorio de destino
             Files.copy(archivofoto.toPath(), pathdestino, StandardCopyOption.REPLACE_EXISTING);
             System.out.println("Imagen guardada en: " + pathdestino);
-            return pathdestino.toString(); // Devuelve la ruta de la imagen como String
+            return pathdestino.toString(); // Devuelve la ruta de la imagen guardada
         } catch (IOException ex) {
             System.out.println("Error al guardar la imagen: " + ex.getMessage());
-            return null; // Devuelve null si hay un error
+            return null; // Devuelve null en caso de error
         }
     }
 
-    public void loadImage() {
-        File fotoFile = openImage();
+    /**
+     * Carga una imagen seleccionada por el usuario y la guarda en el directorio especificado.
+     */
+    public void cargaImagen() {
+        File fotoFile = abrirImagen(); // Abre el diálogo para seleccionar la imagen
         if (fotoFile != null) {
-            fotografia = saveImage(fotoFile);
+            foto = guardadoImagen(fotoFile); // Guarda la imagen seleccionada
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -204,7 +216,7 @@ public class AddInmueble extends javax.swing.JPanel {
         titleLabel.setText("Título:");
 
         typeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        typeLabel.setText("Tipo:");
+        typeLabel.setText("types:");
 
         descriptionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         descriptionLabel.setText("Descripción:");
@@ -571,15 +583,15 @@ public class AddInmueble extends javax.swing.JPanel {
 
     private void mainscrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainscrActionPerformed
         // Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla mainscreenhost");
-        Aplicacion.loadMainScreen();
+        Aplicacion.cargaPantallaPrincipal();
     }//GEN-LAST:event_mainscrActionPerformed
 
     private void photoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_photoButtonActionPerformed
-        File f = openImage();
+        File f = abrirImagen();
         if (f != null) {
-            fotografia = saveImage(f);
+            foto = guardadoImagen(f);
         } else {
-            System.out.println("no existe la ruta");
+            System.out.println("Esta ruta no existe");
         }
     }//GEN-LAST:event_photoButtonActionPerformed
 
@@ -600,94 +612,102 @@ public class AddInmueble extends javax.swing.JPanel {
     }//GEN-LAST:event_cpTextFieldActionPerformed
 
     private void createBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBuildingButtonActionPerformed
+        // Obtén el anfitrión actual del sistema
         Host anfitrion = (Host) Inicio.devolverCliente();
         if (anfitrion == null) {
-            JOptionPane.showMessageDialog(this, "Error: el usuario actual no es un anfitrión válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            // Muestra un mensaje de error si el usuario actual no es un anfitrión válido
+            JOptionPane.showMessageDialog(this, "Error: el usuario no es un anfitrión válido", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        String titulo = titleTextField.getText();
-        String descripcion = descriptionTextPanel.getText();
-        String calle = streetTextField.getText();
-        String numero = numberTextField.getText();
-        String ciudad = cityTextField.getText();
-        String cp = cpTextField.getText();
-        String tipo = (String) typeComboBox.getSelectedItem();
+        // Recoge la información introducida por el usuario
+        String calles = streetTextField.getText();
+        String numeros = numberTextField.getText();
+        String titulos = titleTextField.getText();
+        String descripciones = descriptionTextPanel.getText();
+        String ciudades = cityTextField.getText();
+        String cps = cpTextField.getText();
+        String types = (String) typeComboBox.getSelectedItem();
         double precio = 0;
         int huespedes = (int) guestSpinner.getValue();
         int habitaciones = (int) bedroomSpinner.getValue();
         int camas = (int) bedSpinner.getValue();
-        int baños = (int) bathSpinner.getValue();
+        int banos = (int) bathSpinner.getValue();
         String servicios = servicesTextPane.getText();
-        boolean valido = true;
+        boolean validos = true;
 
         // Validar título
-        if (titulo.isEmpty()) {
+        if (titulos.isEmpty()) {
             titleError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             titleError.setVisible(false);
         }
 
         // Validar fotografía
-        if (fotografia == null || fotografia.isEmpty()) {
-            loadImage();
-            if (fotografia == null || fotografia.isEmpty()) {
+        if (foto == null || foto.isEmpty()) {
+            // Solicita cargar una imagen si no hay ninguna seleccionada
+            cargaImagen();
+            if (foto == null || foto.isEmpty()) {
                 bathError1.setVisible(true);
-                valido = false;
+                validos = false;
             } else {
                 bathError1.setVisible(false);
             }
         }
 
         // Validar descripción
-        if (descripcion.isEmpty()) {
+        if (descripciones.isEmpty()) {
             descriptionError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             descriptionError.setVisible(false);
         }
 
         // Validar calle
-        if (calle.isEmpty() || calle.matches(".*\\d.*")) {
-            JOptionPane.showMessageDialog(this, "La calle no puede estar vacía ni contener números.", "Error en la calle", JOptionPane.WARNING_MESSAGE);
-            valido = false;
+        if (calles.isEmpty() || calles.matches(".*\\d.*")) {
+            // La calle no puede estar vacía ni contener números
+            JOptionPane.showMessageDialog(this, "La calle debe ser rellenada y no puede contener números.", "Error en la calle", JOptionPane.WARNING_MESSAGE);
+            validos = false;
         }
 
-        // Validar número
+        // Validar número de inmueble
         int numeroInt = 0;
-        if (numero.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "La casilla del número del inmueble es necesaria", "Falta el número", JOptionPane.WARNING_MESSAGE);
-            valido = false;
+        if (numeros.isEmpty()) {
+            // El número del inmueble es obligatorio
+            JOptionPane.showMessageDialog(this, "El número del inmueble es necesario", "Falta el número", JOptionPane.WARNING_MESSAGE);
+            validos = false;
         } else {
             try {
-                numeroInt = Integer.parseInt(numero);
+                numeroInt = Integer.parseInt(numeros);
                 if (numeroInt <= 0) {
                     throw new NumberFormatException();
                 }
             } catch (NumberFormatException e) {
-                valido = false;
-                JOptionPane.showMessageDialog(this, "El número del inmueble debe ser un número entero mayor que 0.", "Error de número", JOptionPane.WARNING_MESSAGE);
+                validos = false;
+                JOptionPane.showMessageDialog(this, "El número ha de ser un entero mayor que 0.", "Error de número", JOptionPane.WARNING_MESSAGE);
             }
         }
 
         // Validar ciudad
-        if (ciudad.isEmpty() || ciudad.matches(".*\\d.*")) {
-            JOptionPane.showMessageDialog(this, "La ciudad no puede estar vacía ni contener números.", "Error en la ciudad", JOptionPane.WARNING_MESSAGE);
-            valido = false;
+        if (ciudades.isEmpty() || ciudades.matches(".*\\d.*")) {
+            // La ciudad no puede estar vacía ni contener números
+            JOptionPane.showMessageDialog(this, "La ciudad debe ser rellenada y no puede contener números.", "Error en la ciudad", JOptionPane.WARNING_MESSAGE);
+            validos = false;
         }
 
         // Validar código postal
         int cpInt = 0;
-        if (cp.isEmpty() || cp.length() != 5) {
-            JOptionPane.showMessageDialog(this, "El código postal debe tener 5 caracteres exactamente.", "Error del código postal", JOptionPane.WARNING_MESSAGE);
-            valido = false;
+        if (cps.isEmpty() || cps.length() != 5) {
+            // El código postal debe tener exactamente 5 caracteres
+            JOptionPane.showMessageDialog(this, "El código postal ha de tener 5 caracteres.", "Error del código postal", JOptionPane.WARNING_MESSAGE);
+            validos = false;
         } else {
             try {
-                cpInt = Integer.parseInt(cp);
+                cpInt = Integer.parseInt(cps);
             } catch (NumberFormatException e) {
-                valido = false;
-                JOptionPane.showMessageDialog(this, "El código postal debe ser un número entero.", "Error del código postal", JOptionPane.WARNING_MESSAGE);
+                validos = false;
+                JOptionPane.showMessageDialog(this, "El código postal ha de ser un número entero.", "Error del código postal", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -695,48 +715,48 @@ public class AddInmueble extends javax.swing.JPanel {
         try {
             String priceText = priceTextField.getText().trim();
             if (priceText.isEmpty() || !priceText.matches("\\d+(\\.\\d{1,2})?")) {
-                throw new NumberFormatException("El precio debe ser un número válido con hasta dos decimales.");
+                throw new NumberFormatException("El precio ha de ser un número válido.");
             }
             precio = Double.parseDouble(priceText);
             if (precio <= 0) {
-                throw new NumberFormatException("El precio debe ser mayor que 0.");
+                throw new NumberFormatException("El precio ha de ser mayor que 0.");
             }
             priceError.setVisible(false);
         } catch (NumberFormatException e) {
             priceError.setVisible(true);
-            valido = false;
-            JOptionPane.showMessageDialog(this, "Introduce un precio válido mayor que 0. \nRecuerda usar un punto para los decimales (ej. 233.35).", "Error del precio", JOptionPane.WARNING_MESSAGE);
+            validos = false;
+            JOptionPane.showMessageDialog(this, "Introduzca un precio válido mayor que 0. \nRecuerde el uso del punto en decimales (ej. 180.55).", "Error del precio", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Validar huéspedes
+        // Validar número de huéspedes
         if (huespedes <= 0) {
             guestError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             guestError.setVisible(false);
         }
 
-        // Validar habitaciones
+        // Validar número de habitaciones
         if (habitaciones <= 0) {
             bedroomError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             bedroomError.setVisible(false);
         }
 
-        // Validar camas
+        // Validar número de camas
         if (camas <= 0) {
             bedError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             bedError.setVisible(false);
         }
 
-        // Validar baños
-        if (baños <= 0) {
+        // Validar número de baños
+        if (banos <= 0) {
             bathError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             bathError.setVisible(false);
         }
@@ -744,22 +764,33 @@ public class AddInmueble extends javax.swing.JPanel {
         // Validar servicios
         if (servicios.isEmpty()) {
             serviceError.setVisible(true);
-            valido = false;
+            validos = false;
         } else {
             serviceError.setVisible(false);
         }
 
-        if (valido) {
-            InfoInmueble datos = new InfoInmueble(huespedes, habitaciones, camas, baños);
-            Direccion direccion = new Direccion(calle, numero, cp, ciudad);
-            Inmueble inmueble = new Inmueble(titulo, descripcion, direccion, datos, tipo, precio, fotografia, servicios, anfitrion);
+        // Si todos los datos son válidos, procede a crear el inmueble
+        if (validos) {
+            // Crea un objeto InfoInmueble con los datos de huéspedes, habitaciones, camas y baños
+            InfoInmueble datos = new InfoInmueble(huespedes, habitaciones, camas, banos);
+
+            // Crea un objeto Direccion con los datos de la dirección del inmueble
+            Direccion direccion = new Direccion(calles, numeros, cps, ciudades);
+
+            // Crea un objeto Inmueble con todos los datos recopilados
+            Inmueble inmueble = new Inmueble(titulos, descripciones, direccion, datos, types, precio, foto, servicios, anfitrion);
+
+            // Intenta añadir el inmueble a la base de datos
             boolean inmuebleValido = MainBNB.añadirInmueble(inmueble);
             if (inmuebleValido) {
-                JOptionPane.showMessageDialog(this, "El inmueble se ha creado correctamente, se ha añadido a la lista de inmuebles.", "Inmueble creado", JOptionPane.INFORMATION_MESSAGE);
+                // Muestra un mensaje de éxito si el inmueble se ha añadido correctamente
+                JOptionPane.showMessageDialog(this, "Este inmueble ha sido creado, ahora está añadido en la lista de inmuebles.", "Inmueble creado", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(this, "El inmueble ya existe, no aceptamos inmuebles duplicados.", "Inmueble ya existente", JOptionPane.WARNING_MESSAGE);
+                // Muestra un mensaje de advertencia si el inmueble ya existe
+                JOptionPane.showMessageDialog(this, "Este inmueble ya existe, no se admiten inmuebles repetidos.", "Inmueble ya existente", JOptionPane.WARNING_MESSAGE);
             }
         }
+
     }//GEN-LAST:event_createBuildingButtonActionPerformed
 
     private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed

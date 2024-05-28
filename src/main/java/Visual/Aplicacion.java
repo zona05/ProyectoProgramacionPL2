@@ -8,13 +8,12 @@ import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 /**
- * Clase principal que representa la aplicación de usuario.
+ * Clase que maneja eventos de ventana, especialmente el cierre de la ventana.
  */
 class WindowEventHandler extends WindowAdapter {
 
     /**
-     * Método que se ejecuta cuando se cierra la ventana. Guarda los datos
-     * utilizando la clase JavaBNB.
+     * Método que se ejecuta cuando se cierra la ventana. Guarda los datos utilizando MainBNB.
      *
      * @param evt Evento de ventana.
      */
@@ -29,9 +28,9 @@ class WindowEventHandler extends WindowAdapter {
  */
 public class Aplicacion {
 
-    // Se define un CardLayout para gestionar los diferentes paneles de la aplicación.
+    // CardLayout para gestionar los diferentes paneles de la aplicación.
     static CardLayout cardLayout = new CardLayout();
-    // JPanel que actúa como contenedor de los paneles que forman la aplicación.
+    // JPanel que contiene los diferentes paneles de la aplicación.
     static JPanel cards = new JPanel(cardLayout);
     // JFrame principal de la aplicación.
     static JFrame frame = new JFrame();
@@ -53,19 +52,20 @@ public class Aplicacion {
     static PantallaPrincipal mainscreen = new PantallaPrincipal();
     static ComprobarReservaAnfitrion hostcheckreserves = new ComprobarReservaAnfitrion();
 
-    public static Inicio sesion = null;  // Iniciamos sesión como null
+    // Iniciamos la sesión como null
+    public static Inicio sesion = null;
 
     /**
      * Método principal que inicia la aplicación.
      *
-     * @param args Argumentos de la línea de comandos (no se utilizan en este
-     * caso).
+     * @param args Argumentos de la línea de comandos (no se utilizan en este caso).
      */
     public static void main(String[] args) {
+        // Inicializa y carga los datos de MainBNB.
         MainBNB.inicializadorJavaBNB();
         MainBNB.cargarDatos();
 
-        // Establecer el tamaño mínimo de la ventana.
+        // Configura las dimensiones del JFrame.
         frame.setMinimumSize(Toolkit.getDefaultToolkit().getScreenSize());
         frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -75,7 +75,7 @@ public class Aplicacion {
         JScrollPane scrollPane = new JScrollPane(cards);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-        // Agregar los paneles que no tienen "load" a cards.
+        // Agregar los paneles iniciales al CardLayout.
         cards.add(login, "Pantalla login");
         cards.add(register, "Pantalla register");
         cards.add(privacypolicy, "Pantalla privacypolicy");
@@ -83,9 +83,8 @@ public class Aplicacion {
         cards.add(addbuildings, "Pantalla addbuildings");
         cards.add(hostcheckreserves, "Pantalla hostcheckreserves");
 
-        // Establecer el contenido del JFrame como el JScrollPane.
+        // Configurar el JFrame.
         frame.setContentPane(scrollPane);
-        // Configurar el comportamiento de cierre del JFrame.
         frame.addWindowListener(new WindowEventHandler());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -96,103 +95,103 @@ public class Aplicacion {
     }
 
     // Métodos para cargar diferentes paneles en la aplicación.
+
     /**
      * Carga el perfil del anfitrión.
      */
-    public static void loadHostProfile() {
+    public static void cargaPerfilAnfitrion() {
         cards.add(hostprofile, "Pantalla hostprofile");
-        hostprofile.actualizar();
+        hostprofile.update();
         cardLayout.show(cards, "Pantalla hostprofile");
     }
 
     /**
      * Carga el perfil del cliente.
      */
-    public static void loadClientProfile() {
+    public static void cargaPerfilCliente() {
         cards.add(clientprofile, "Pantalla clientprofile");
-        clientprofile.actualizar();
+        clientprofile.update();
         cardLayout.show(cards, "Pantalla clientprofile");
     }
 
     /**
      * Carga la pantalla de consulta de usuarios administradores.
      */
-    public static void loadAdminConsultarUser() {
+    public static void cargaComprobarUsuarioAdmin() {
         cards.add(adminconsultaruser, "Pantalla adminconsultaruser");
-        adminconsultaruser.actualizar();
+        adminconsultaruser.update();
         cardLayout.show(cards, "Pantalla adminconsultaruser");
     }
 
     /**
      * Carga la pantalla de consulta de reservas administrativas.
      */
-    public static void loadAdminConsultarReservas() {
+    public static void cargaComprobarReservaAdmin() {
         cards.add(adminconsultarreservas, "Pantalla adminconsultarreservas");
-        adminconsultarreservas.actualizar();
+        adminconsultarreservas.update();
         cardLayout.show(cards, "Pantalla adminconsultarreservas");
     }
 
     /**
      * Carga la pantalla de consulta de reservas de invitados.
      */
-    public static void loadGuestCheckReserves() {
+    public static void cargaComprobarReservaInvitado() {
         cards.add(guestcheckreserves, "Pantalla guestcheckreserves");
-        guestcheckreserves.actualizar();
+        guestcheckreserves.update();
         cardLayout.show(cards, "Pantalla guestcheckreserves");
     }
 
     /**
      * Carga la pantalla de consulta de edificios administrativos.
      */
-    public static void loadAdminCheckBuildings() {
+    public static void cargaComprobarInmuebleAdmin() {
         cards.add(admincheckbuildings, "Pantalla admincheckbuildings");
-        admincheckbuildings.actualizar();
+        admincheckbuildings.update();
         cardLayout.show(cards, "Pantalla admincheckbuildings");
     }
 
     /**
      * Carga la pantalla de consulta de edificios de anfitriones.
      */
-    public static void loadHostCheckBuildings() {
+    public static void cargaComprobarInmuebleAnfitrion() {
         cards.add(hostcheckbuildings, "Pantalla hostcheckbuildings");
-        hostcheckbuildings.actualizar();
+        hostcheckbuildings.update();
         cardLayout.show(cards, "Pantalla hostcheckbuildings");
     }
 
     /**
      * Carga la pantalla de consulta de reservas de anfitriones.
      */
-    public static void loadHostCheckReserves() {
+    public static void cargaComprobarReservaAnfitrion() {
         cards.add(hostcheckreserves, "Pantalla hostcheckreserves");
-        hostcheckreserves.actualizar();
+        hostcheckreserves.update();
     }
 
     /**
-     * Carga la pantalla de consulta de los inmuebles
-     * @param inmueble 
+     * Carga la vista de un inmueble específico.
+     *
+     * @param inmueble El inmueble que se desea ver.
      */
-    public static void loadBuildingView(Inmueble inmueble) {
+    public static void cargaMirarInmueble(Inmueble inmueble) {
         cards.add(buildingview, "Pantalla buildingview");
         buildingview.setInmueble(inmueble);
         cardLayout.show(cards, "Pantalla buildingview");
     }
 
-    
     /**
-     * Carga la pantalla de consulta de los inmuebles
+     * Carga la vista de un inmueble.
      */
-    public static void loadBuildingView() {
+    public static void cargaMirarInmueble() {
         cards.add(buildingview, "Pantalla buildingview");
         cardLayout.show(cards, "Pantalla buildingview");
     }
 
-    
     /**
-     * Carga la pantalla principal de la aplicación
+     * Carga la pantalla principal de la aplicación.
      */
-    public static void loadMainScreen() {
+    public static void cargaPantallaPrincipal() {
         cards.add(mainscreen, "Pantalla mainscreen");
-        mainscreen.actualizar();
+        mainscreen.update();
         cardLayout.show(cards, "Pantalla mainscreen");
     }
 }

@@ -17,7 +17,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
 
     private ArrayList<Reserva> reservas = new ArrayList<>(); //Referencia al ArrayList de reservas de la clase JavaBNB
     private ListIterator<Reserva> li; //Iterador para recorrer el ArrayList en ambas direcciones
-    private Reserva objreserva; //Referencia a un objeto de tipo reserva del ArrayList
+    private Reserva objreserva; //Referencia a un objeto de types reserva del ArrayList
 
     public ComprobarReservaAnfitrion() {
         initComponents();
@@ -31,7 +31,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         consultarTodo();
     }
 
-    public void actualizar() {
+    public void update() {
         errorNoSig.setVisible(false);
         errorNoAnt.setVisible(false);
         consultarTodo();
@@ -56,7 +56,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                         if (reservasInmuebleActual.size() < 1) {
                             jButtonSig.setEnabled(false);
                             jButtonAnt.setEnabled(false);
-                            limpiarCampos();
+                            limpiezaTextos();
                             return;
                         } else {
                             jButtonSig.setEnabled(true);
@@ -71,7 +71,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
                         if (objreserva != null) {
                             presenta();
                         } else {
-                            limpiarCampos();
+                            limpiezaTextos();
                             errorNoSig.setVisible(true);
                         }
                     }
@@ -82,7 +82,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         }
     }
 
-    private void limpiarCampos() {
+    private void limpiezaTextos() {
         fechallegada.setText("");
         fechareserva.setText("");
         fechasalida.setText("");
@@ -344,7 +344,7 @@ public class ComprobarReservaAnfitrion extends javax.swing.JPanel {
         hcb.setInmuebleActual(null);
         System.out.println("Estas observando el inmueble: " + hcb.getInmuebleActual());
 
-        Aplicacion.loadMainScreen();
+        Aplicacion.cargaPantallaPrincipal();
     }//GEN-LAST:event_mainscrActionPerformed
 
     private void reciboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboActionPerformed

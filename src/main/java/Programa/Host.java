@@ -18,11 +18,11 @@ public class Host extends Cliente {
      * @param dni      el DNI del anfitrión
      * @param nombre   el nombre del anfitrión
      * @param correo   el correo electrónico del anfitrión
-     * @param clave    la clave de acceso del anfitrión
+     * @param passw    la passw de acceso del anfitrión
      * @param telefono el número de teléfono del anfitrión
      */
-    public Host(String dni, String nombre, String correo, String clave, String telefono) {
-        super(dni, nombre, correo, clave, telefono);
+    public Host(String dni, String nombre, String correo, String passw, String telefono) {
+        super(dni, nombre, correo, passw, telefono);
         this.fechaRegistro = LocalDate.now();
         this.superAnfitrion = false;
     }

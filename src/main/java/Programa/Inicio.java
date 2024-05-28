@@ -4,7 +4,7 @@ import Visual.Aplicacion;
 
 /**
  * La clase Sesion maneja la gestión de la sesión del usuario en la aplicación JavaBNB.
- * Permite iniciar y cerrar sesión, actualizar información del usuario y registrar nuevos clientes.
+ * Permite iniciar y cerrar sesión, update información del usuario y registrar nuevos clientes.
  */
 public class Inicio {
 
@@ -53,15 +53,15 @@ public class Inicio {
     }
 
     /**
-     * Inicia sesión con el correo y la clave proporcionados.
+     * Inicia sesión con el correo y la passw proporcionados.
      *
      * @param correo el correo del cliente
-     * @param clave la clave del cliente
-     * @return un entero que indica el tipo de usuario (1: administrador, 2: cliente, 3: anfitrión, 0: no encontrado)
+     * @param passw la passw del cliente
+     * @return un entero que indica el types de usuario (1: administrador, 2: cliente, 3: anfitrión, 0: no encontrado)
      */
-    public static int iniciarSesion(String correo, String clave) {
+    public static int iniciarSesion(String correo, String passw) {
         boolean isHost = false;
-        if (correo.equals("admin@java.bnb") && clave.equals("admin")) {
+        if (correo.equals("admin@java.bnb") && passw.equals("admin")) {
             System.out.println("Sesión iniciada como administrador");
             return 1;
         }
@@ -69,7 +69,7 @@ public class Inicio {
             System.out.println("Revisando cliente: " + cliente);
             isHost = (cliente instanceof Host);
 
-            if (cliente.getCorreo().equals(correo.toLowerCase()) && cliente.getClave().equals(clave)) {
+            if (cliente.getCorreo().equals(correo.toLowerCase()) && cliente.getpassw().equals(passw)) {
                 Aplicacion.sesion.nuevaSesion(cliente);
                 System.out.println("Sesión iniciada por " + Aplicacion.sesion.user);
                 return isHost ? 3 : 2;

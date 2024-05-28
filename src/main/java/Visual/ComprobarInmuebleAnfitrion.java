@@ -28,9 +28,9 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
 
     private ArrayList<Inmueble> buildings; // Referencia al ArrayList de inmuebles del anfitrión de la sesión
     private ListIterator<Inmueble> li; // Iterador para recorrer el ArrayList en ambas direcciones
-    private Inmueble objInm; // Referencia a un objeto de tipo inmueble del ArrayList
+    private Inmueble objInm; // Referencia a un objeto de types inmueble del ArrayList
     private Inmueble inmuebleActual;
-    private String fotografia = "";
+    private String foto = "";
 
     /**
      * Crea un nuevo panel para que el anfitrión revise sus inmuebles.
@@ -47,7 +47,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
     /**
      * Actualiza la vista de los inmuebles del anfitrión.
      */
-    public void actualizar() {
+    public void update() {
         errorNextLabel.setVisible(false);
         errorPreviousLabel.setVisible(false);
 
@@ -90,7 +90,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                     // Verificar si hay inmuebles asociados al anfitrión
                     if (buildings.isEmpty()) {
                         setButtonsEnabled(false);
-                        limpiarCampos();
+                        limpiezaTextos();
                         return;
                     } else {
                         setButtonsEnabled(true);
@@ -159,7 +159,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
      * @param inmueble El inmueble a mostrar.
      */
     private void presenta(Inmueble inmueble) {
-        typeLabel.setText(inmueble.getTipo());
+        typeLabel.setText(inmueble.gettypes());
         titleTextPanel.setText(inmueble.getTitulo());
         descriptionTextPanel.setText(inmueble.getDescripcion());
         streetTextField.setText(inmueble.getDireccion().getCalle());
@@ -181,7 +181,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
      * @return El archivo de imagen seleccionado, o null si no se selecciona
      * ningún archivo.
      */
-    public File openImage() {
+    public File abrirImagen() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Selecciona una imagen");
         fileChooser.setAcceptAllFileFilterUsed(false); // Deshabilitar la opción "Todos los archivos"
@@ -196,7 +196,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
         return null; // No se selecciona ningún archivo
     }
 
-    public String saveImage(File archivofoto) {
+    public String guardadoImagen(File archivofoto) {
         String directoriodestino = "./src/main/resources/fotosinmuebles"; // Directorio de destino fijo
         Path pathdestino = Paths.get(directoriodestino, archivofoto.getName());
 
@@ -223,16 +223,16 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
      * @param i El inmueble al que se le asignará la imagen.
      */
     public void changeImage(Inmueble i) {
-        File fotoFile = openImage();
+        File fotoFile = abrirImagen();
         if (fotoFile != null) {
-            i.setFotografia(saveImage(fotoFile));
+            i.setfoto(guardadoImagen(fotoFile));
         }
     }
 
     /**
      * Limpia todos los campos de texto en el formulario.
      */
-    private void limpiarCampos() {
+    private void limpiezaTextos() {
         typeLabel.setText("");
         titleTextPanel.setText("");
         descriptionTextPanel.setText("");
@@ -575,7 +575,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
     }//GEN-LAST:event_logoButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        Aplicacion.loadMainScreen();
+        Aplicacion.cargaPantallaPrincipal();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteBuildingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBuildingButtonActionPerformed
@@ -595,7 +595,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
                     presenta(objInm);
                 }
             } else {
-                limpiarCampos();
+                limpiezaTextos();
             }
         }
 
@@ -647,7 +647,7 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
             String numero = numberTextField.getText();
             String ciudad = cityTextField.getText();
             String cp = cpTextField.getText();
-            String tipo = typeLabel.getText();
+            String types = typeLabel.getText();
             double precio = Double.parseDouble(priceTextField.getText());
             int huespedes = Integer.parseInt(guestTextField.getText());
             int habitaciones = Integer.parseInt(roomTextField.getText());
@@ -759,14 +759,14 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
             } else {
             }
 
-            if (!tipo.equals("Casa") && !tipo.equals("Apartamento")) {
-                JOptionPane.showMessageDialog(this, "El tipo solo puede ser 'Casa' o 'Apartamento'.", "Tipo inválido", JOptionPane.WARNING_MESSAGE);
+            if (!types.equals("Casa") && !types.equals("Apartamento")) {
+                JOptionPane.showMessageDialog(this, "El types solo puede ser 'Casa' o 'Apartamento'.", "types inválido", JOptionPane.WARNING_MESSAGE);
                 valido = false;
             }
 
             if (valido) {
                 objInm.setTitulo(titulo);
-                objInm.setTipo(tipo);
+                objInm.settypes(types);
                 objInm.setDescripcion(descripcion);
                 objInm.getDireccion().setCalle(calle);
                 objInm.getDireccion().setCiudad(ciudad);
@@ -792,14 +792,14 @@ public class ComprobarInmuebleAnfitrion extends javax.swing.JPanel {
 
         System.out.println("Inmueble actual:" + objInm.toString());
 
-        Aplicacion.loadHostCheckReserves();
+        Aplicacion.cargaComprobarReservaAnfitrion();
     }//GEN-LAST:event_checkReservesButtonActionPerformed
 
     private void editfoto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editfoto1ActionPerformed
-        File f = openImage();
+        File f = abrirImagen();
         if (f != null) {
-            fotografia = saveImage(f);
-            objInm.setFotografia(fotografia);
+            foto = guardadoImagen(f);
+            objInm.setfoto(foto);
 
         } else {
             System.out.println("no existe la ruta");

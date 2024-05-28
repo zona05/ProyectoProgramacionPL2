@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * La clase Inmueble representa un inmueble disponible para alquiler en la
  * plataforma JavaBNB. Incluye detalles como el título, la dirección, los datos
- * del inmueble, el tipo, el precio por noche, los servicios, la calificación,
+ * del inmueble, el types, el precio por noche, los servicios, la calificación,
  * la fotografía, la descripción, las valoraciones y las reservas asociadas.
  */
 public class Inmueble implements Serializable {
@@ -15,11 +15,11 @@ public class Inmueble implements Serializable {
     private String titulo;
     private Direccion direccion;
     private InfoInmueble datosInmueble;
-    private String tipo; // Casa o apartamento
+    private String types; // Casa o apartamento
     private double precioNoche;
     private String servicios;
     private double calificacion;
-    private String fotografia;
+    private String foto;
     private String descripcion;
     private int valoraciones;
     private ArrayList<Reserva> reservas; // ArrayList para almacenar las reservas asociadas al inmueble
@@ -34,20 +34,20 @@ public class Inmueble implements Serializable {
      * @param direccion la dirección del inmueble
      * @param datosInmueble los datos del inmueble (capacidad, habitaciones,
      * etc.)
-     * @param tipo el tipo de inmueble (casa o apartamento)
+     * @param types el types de inmueble (casa o apartamento)
      * @param precioNoche el precio por noche del inmueble
-     * @param fotografia la fotografía del inmueble
+     * @param foto la fotografía del inmueble
      * @param servicios los servicios ofrecidos en el inmueble
      * @param anfitrion el anfitrión del inmueble
      */
-    public Inmueble(String titulo, String descripcion, Direccion direccion, InfoInmueble datosInmueble, String tipo, double precioNoche, String fotografia, String servicios, Host anfitrion) {
+    public Inmueble(String titulo, String descripcion, Direccion direccion, InfoInmueble datosInmueble, String types, double precioNoche, String foto, String servicios, Host anfitrion) {
         this.titulo = titulo;
         this.direccion = direccion;
         this.datosInmueble = datosInmueble;
-        this.tipo = tipo;
+        this.types = types;
         this.precioNoche = precioNoche;
         this.calificacion = 0;
-        this.fotografia = fotografia;
+        this.foto = foto;
         this.servicios = servicios;
         this.descripcion = descripcion;
         this.valoraciones = 0;
@@ -189,17 +189,17 @@ public class Inmueble implements Serializable {
      *
      * @return la fotografía del inmueble
      */
-    public String getFotografia() {
-        return fotografia;
+    public String getfoto() {
+        return foto;
     }
 
     /**
      * Establece la fotografía del inmueble.
      *
-     * @param fotografia la nueva fotografía del inmueble
+     * @param foto la nueva fotografía del inmueble
      */
-    public void setFotografia(String fotografia) {
-        this.fotografia = fotografia;
+    public void setfoto(String foto) {
+        this.foto = foto;
         MainBNB.guardarDatos();
     }
 
@@ -267,21 +267,21 @@ public class Inmueble implements Serializable {
     }
 
     /**
-     * Obtiene el tipo de inmueble (casa o apartamento).
+     * Obtiene el types de inmueble (casa o apartamento).
      *
-     * @return el tipo de inmueble
+     * @return el types de inmueble
      */
-    public String getTipo() {
-        return tipo;
+    public String gettypes() {
+        return types;
     }
 
     /**
-     * Establece el tipo de inmueble (casa o apartamento).
+     * Establece el types de inmueble (casa o apartamento).
      *
-     * @param tipo el nuevo tipo de inmueble
+     * @param types el nuevo types de inmueble
      */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void settypes(String types) {
+        this.types = types;
         MainBNB.guardarDatos();
     }
 
@@ -396,6 +396,6 @@ public class Inmueble implements Serializable {
      */
     @Override
     public String toString() {
-        return "Inmueble{" + ", titulo=" + titulo + ", direccion=" + direccion + ", datosInmueble=" + datosInmueble + ", tipo=" + tipo + ", precioNoche=" + precioNoche + ", servicios=" + servicios + ", calificacion=" + calificacion + ", fotografia=" + fotografia + ", descripcion=" + descripcion + '}';
+        return "Inmueble{" + ", titulo=" + titulo + ", direccion=" + direccion + ", datosInmueble=" + datosInmueble + ", types=" + types + ", precioNoche=" + precioNoche + ", servicios=" + servicios + ", calificacion=" + calificacion + ", foto=" + foto + ", descripcion=" + descripcion + '}';
     }
 }

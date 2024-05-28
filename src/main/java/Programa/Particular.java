@@ -19,11 +19,11 @@ public class Particular extends Cliente implements Serializable {
      * @param dni            el DNI del cliente
      * @param nombre         el nombre del cliente
      * @param correo         el correo electrónico del cliente
-     * @param clave          la clave del cliente
+     * @param passw          la passw del cliente
      * @param telefono       el teléfono del cliente
      */
-    public Particular(Credito tarjetaCredito, boolean vip, String dni, String nombre, String correo, String clave, String telefono) {
-        super(dni, nombre, correo, clave, telefono);
+    public Particular(Credito tarjetaCredito, boolean vip, String dni, String nombre, String correo, String passw, String telefono) {
+        super(dni, nombre, correo, passw, telefono);
         this.tarjetaCredito = tarjetaCredito;
         this.vip = vip;
     }

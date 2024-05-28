@@ -25,14 +25,17 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
     /**
      * Actualiza la información mostrada en el perfil del anfitrión.
      */
-    public void actualizar() {
+    public void update() {
+        // Verifica si el usuario actual está inicializado
         if (Inicio.user != null) {
+            // Establece los valores de los campos de texto con la información del usuario
             dniTextField.setText(Inicio.user.getDni());
             username.setText(Inicio.user.getNombre().toUpperCase());
             emailTextField.setText(Inicio.user.getCorreo());
-            passTextField.setText(Inicio.user.getClave());
+            passTextField.setText(Inicio.user.getpassw());
             tlfTextField.setText(Inicio.user.getTelefono());
 
+            // Verifica si el usuario es un super anfitrión y actualiza la etiqueta correspondiente
             if (((Host) Inicio.user).isSuperAnfitrion()) {
                 hostlabel.setText("Super anfitrión");
             } else {
@@ -70,6 +73,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         hostlabel = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         photoLabel1 = new javax.swing.JLabel();
+        perfilLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -188,6 +192,11 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
         photoLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         photoLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logos/logo.png"))); // NOI18N
 
+        perfilLabel.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 48)); // NOI18N
+        perfilLabel.setForeground(new java.awt.Color(255, 153, 102));
+        perfilLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        perfilLabel.setText("Perfil Anfitrión");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -195,7 +204,9 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
             .addComponent(uppermenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1054, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(98, 98, 98)
-                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(perfilLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(data, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,7 +218,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(uppermenu, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addComponent(username)
@@ -216,8 +227,10 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(photoLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(perfilLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101))))
         );
@@ -231,71 +244,71 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
     }//GEN-LAST:event_signOutButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        Aplicacion.loadMainScreen();
+        Aplicacion.cargaPantallaPrincipal();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void editUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserButtonActionPerformed
-        // Verificar el texto actual del botón
-        if (editUserButton.getText().equals("Editar datos")) {
-            // Si el botón está en modo "Editar datos"
-            // Establecer los campos de texto como editables
-            emailTextField.setEditable(true);
-            passTextField.setEditable(true);
-            tlfTextField.setEditable(true);
+        // Verifica el texto actual del botón
+if (editUserButton.getText().equals("Editar datos")) {
+    // Si el botón está en modo "Editar datos"
+    // Establece los campos de texto como editables
+    emailTextField.setEditable(true);
+    passTextField.setEditable(true);
+    tlfTextField.setEditable(true);
 
-            // Cambiar el texto del botón a "Aceptar"
-            editUserButton.setText("Aceptar");
-        } else {
-            // Si el botón está en modo "Aceptar"
-            // Establecer los campos de texto como no editables
-            emailTextField.setEditable(false);
-            passTextField.setEditable(false);
-            tlfTextField.setEditable(false);
+    // Cambia el texto del botón a "Aceptar"
+    editUserButton.setText("Aceptar");
+} else {
+    // Si el botón está en modo "Aceptar"
+    // Establece los campos de texto como no editables
+    emailTextField.setEditable(false);
+    passTextField.setEditable(false);
+    tlfTextField.setEditable(false);
 
-            // Cambiar el texto del botón a "Editar datos"
-            editUserButton.setText("Editar datos");
+    // Cambia el texto del botón a "Editar datos"
+    editUserButton.setText("Editar datos");
 
-            // Verificar la validez de los datos ingresados
-            String email = emailTextField.getText();
+    // Verifica la validez de los datos ingresados
+    String email = emailTextField.getText();
 
-            //no utilizar getText en la passwordField porque esta "deprecated"
-            char[] passwordCharArray = passTextField.getPassword();
-            String password = new String(passwordCharArray);
-            String telefono = tlfTextField.getText();
+    // No utilizar getText en la passwordField porque está "deprecated"
+    char[] passwCharArray = passTextField.getPassword();
+    String password = new String(passwCharArray);
+    String telefono = tlfTextField.getText();
 
-            boolean datosValidos = true;
+    boolean datosValidos = true;
 
-            // Verificar el correo electrónico
-            if (!Validate.validarEmail(email)) {
-                errorLabel1.setVisible(true);
-                emailTextField.setText("");
-                datosValidos = false;
-            } // Verificar la contraseña
-            else if (!Validate.validarContraseña(password)) {
-                errorLabel1.setVisible(true);
-                passTextField.setText("");
-                datosValidos = false;
-            } // Verificar el teléfono
-            else if (!Validate.validarTelefono(telefono)) {
-                errorLabel1.setVisible(true);
-                tlfTextField.setText("");
-                datosValidos = false;
+    // Verifica el correo electrónico
+    if (!Validate.validarEmail(email)) {
+        errorLabel1.setVisible(true);
+        emailTextField.setText("");
+        datosValidos = false;
+    } // Verifica la contraseña
+    else if (!Validate.validarContraseña(password)) {
+        errorLabel1.setVisible(true);
+        passTextField.setText("");
+        datosValidos = false;
+    } // Verifica el teléfono
+    else if (!Validate.validarTelefono(telefono)) {
+        errorLabel1.setVisible(true);
+        tlfTextField.setText("");
+        datosValidos = false;
+    } else {
+        errorLabel1.setVisible(false);
+    }
 
-            } else {
-                errorLabel1.setVisible(false);
-            }
+    // Si todos los datos son válidos, guardar los cambios
+    if (datosValidos) {
+        errorLabel1.setVisible(false);
+        Inicio.user.setCorreo(email);
+        Inicio.user.setTelefono(telefono);
+        Inicio.user.setpassw(password);
+        System.out.println(Inicio.user);
+    } else {
+        errorLabel1.setVisible(true);
+    }
+}
 
-            // Si todos los datos son válidos, guardar los cambios
-            if (datosValidos) {
-                errorLabel1.setVisible(false);
-                Inicio.user.setCorreo(email);
-                Inicio.user.setTelefono(telefono);
-                Inicio.user.setClave(password);
-                System.out.println(Inicio.user);
-            } else {
-                errorLabel1.setVisible(true);
-            }
-        }
     }//GEN-LAST:event_editUserButtonActionPerformed
 
     private void errorLabel1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_errorLabel1PropertyChange
@@ -316,6 +329,7 @@ public class PerfilAnfitrion extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passTextField;
+    private javax.swing.JLabel perfilLabel;
     private javax.swing.JLabel photoLabel1;
     private javax.swing.JLabel requirementsLabel;
     private javax.swing.JButton returnButton;

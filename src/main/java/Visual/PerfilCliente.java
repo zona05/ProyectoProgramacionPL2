@@ -29,7 +29,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         errorLabel1.setVisible(false);
         requirementsLabel.setVisible(false);
         emailTextField.setEditable(false);
-        clave.setEditable(false);
+        passw.setEditable(false);
         tlfTextField.setEditable(false);
         promocodeTextField.setEditable(false);
         CCTextField.setEditable(false);
@@ -43,18 +43,18 @@ public class PerfilCliente extends javax.swing.JPanel {
     /**
      * Actualiza la información mostrada en el perfil del cliente.
      */
-    public void actualizar() {
+    public void update() {
         if (Inicio.user != null) {
-            // Establecer los campos de texto con la información del usuario actual
+            // Establece los campos de texto con la información del usuario actual
             dniTextField.setText(Inicio.user.getDni());
             username.setText(Inicio.user.getNombre().toUpperCase());
             emailTextField.setText(Inicio.user.getCorreo());
-            clave.setText(Inicio.user.getClave());
+            passw.setText(Inicio.user.getpassw());
             tlfTextField.setText(Inicio.user.getTelefono());
             if (Inicio.esUsuarioVip()) {
                 promocodeTextField.setText("JAVABNB2024");
             } else {
-                promocodeTextField.setText("                    ");
+                promocodeTextField.setText("           ");
             }
 
             Credito tarjeta = ((Particular) Inicio.user).getTarjetaCredito();
@@ -69,6 +69,7 @@ public class PerfilCliente extends javax.swing.JPanel {
             }
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +86,7 @@ public class PerfilCliente extends javax.swing.JPanel {
         dniLabel = new javax.swing.JLabel();
         tlfLabel = new javax.swing.JLabel();
         passLabel = new javax.swing.JLabel();
-        clave = new javax.swing.JPasswordField();
+        passw = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         emailTextField = new javax.swing.JTextField();
         dniTextField = new javax.swing.JTextField();
@@ -142,9 +143,9 @@ public class PerfilCliente extends javax.swing.JPanel {
         passLabel.setText("Contraseña:");
         data.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 387, -1, -1));
 
-        clave.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
-        clave.setText("contraseña1");
-        data.add(clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 387, 143, -1));
+        passw.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        passw.setText("contraseña1");
+        data.add(passw, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 387, 143, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 153, 102));
         jButton1.setFont(new java.awt.Font("Noto Sans SemiBold", 0, 12)); // NOI18N
@@ -355,36 +356,40 @@ public class PerfilCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoneyButtonActionPerformed
-        // Verifica si el usuario actual es un Particular
+// Verifica si el usuario actual es un Particular
         if (Inicio.user instanceof Particular) {
+            // Convierte el usuario en un objeto de tipo Particular
             Particular particular = (Particular) Inicio.user;
+            // Obtiene la tarjeta de crédito asociada al Particular
             Credito tarjeta = particular.getTarjetaCredito();
             try {
                 // Verifica si el Particular tiene una tarjeta de crédito asociada
                 if (tarjeta != null) {
                     double saldoañadido;
-                    String notaIntroducida = JOptionPane.showInputDialog(this, "Introduzca la cantidad de dinero a añadir:");
+                    // Solicita al usuario que ingrese la cantidad de dinero que desea añadir
+                    String notaIntroducida = JOptionPane.showInputDialog(this, "Ingrese la cantidad de dinero que desea tener:");
                     saldoañadido = Double.parseDouble(notaIntroducida);
 
-                    // Incrementa el saldo de la tarjeta
+                    // Incrementa el saldo de la tarjeta con la cantidad ingresada
                     tarjeta.incrementarSaldo(saldoañadido);
-                    moneyTextField.setText(String.valueOf(tarjeta.getSaldo()));
                     // Actualiza la interfaz de usuario para mostrar el nuevo saldo (si tienes una etiqueta o campo de texto para el saldo)
+                    moneyTextField.setText(String.valueOf(tarjeta.getSaldo()));
 
-                    System.out.println("Saldo añadido. Nuevo saldo: " + tarjeta.getSaldo());
+                    System.out.println("Dinero añadido. Nuevo saldo: " + tarjeta.getSaldo());
                 } else {
-                    System.out.println("El usuario no tiene una tarjeta de crédito asociada.");
+                    System.out.println("Este usuario no tiene ninguna tarjeta asociada a su cuenta.");
                 }
 
             } catch (NumberFormatException nfe) {
-                System.out.println("Error del formato: " + nfe.getMessage());
+                System.out.println("Error de formato: " + nfe.getMessage());
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
 
             }
         } else {
-            System.out.println("El usuario actual no es un cliente particular.");
+            System.out.println("Este usuario no es un cliente particular");
         }
+
     }//GEN-LAST:event_addMoneyButtonActionPerformed
 
     private void cerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarsesionActionPerformed
@@ -393,7 +398,7 @@ public class PerfilCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_cerrarsesionActionPerformed
 
     private void mainscrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainscrActionPerformed
-        Aplicacion.loadMainScreen();
+        Aplicacion.cargaPantallaPrincipal();
     }//GEN-LAST:event_mainscrActionPerformed
 
     private void moneyTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moneyTextFieldActionPerformed
@@ -424,12 +429,13 @@ public class PerfilCliente extends javax.swing.JPanel {
         if (jButton1.getText().equals("Editar datos")) {
             // Si el botón está en modo "Editar datos", establece los campos de texto como editables
             emailTextField.setEditable(true);
-            clave.setEditable(true);
+            passw.setEditable(true);
             tlfTextField.setEditable(true);
             if (Inicio.esUsuarioVip()) {
-
+                // Si el usuario es VIP, el campo de texto del código promocional no se puede editar
                 promocodeTextField.setEditable(false);
             } else {
+                // Si el usuario no es VIP, el campo de texto del código promocional se puede editar
                 promocodeTextField.setEditable(true);
             }
             // Cambiar el texto del botón a "Aceptar"
@@ -437,15 +443,16 @@ public class PerfilCliente extends javax.swing.JPanel {
         } else {
             // Si el botón está en modo "Aceptar", establece los campos de texto como no editables
             emailTextField.setEditable(false);
-            clave.setEditable(false);
+            passw.setEditable(false);
             tlfTextField.setEditable(false);
             promocodeTextField.setEditable(false);
 
             jButton1.setText("Editar datos");
 
+            // Verificar la validez de los datos ingresados
             String email = emailTextField.getText();
-            char[] passwordCharArray = clave.getPassword();
-            String password = new String(passwordCharArray);
+            char[] passwCharArray = passw.getPassword();
+            String password = new String(passwCharArray);
             String telefono = tlfTextField.getText();
             String promocode = promocodeTextField.getText();
 
@@ -459,7 +466,7 @@ public class PerfilCliente extends javax.swing.JPanel {
             } // Verificar la contraseña
             else if (!Validate.validarContraseña(password)) {
                 errorLabel1.setVisible(true);
-                clave.setText("");
+                passw.setText("");
                 valido = false;
             } // Verificar el teléfono
             else if (!Validate.validarTelefono(telefono)) {
@@ -478,15 +485,15 @@ public class PerfilCliente extends javax.swing.JPanel {
             }
 
             if (valido) {
+                // Si todos los datos son válidos, actualiza la información del usuario
                 errorLabel1.setVisible(false);
-
                 Inicio.user.setCorreo(email);
                 Inicio.user.setTelefono(telefono);
-                Inicio.user.setClave(password);
+                Inicio.user.setpassw(password);
 
-                // Verificar y actualizar el estado VIP
+                // Verificar y actualizar el estado VIP del usuario si el código promocional es válido
                 if (Inicio.hacerVipSiPromocodeValido(promocode)) {
-                    System.out.println("El usuario ha sido actualizado a VIP.");
+                    System.out.println("Este usuario ahora es VIP.");
                 }
 
                 System.out.println(Inicio.user.toString());
@@ -503,7 +510,7 @@ public class PerfilCliente extends javax.swing.JPanel {
     private javax.swing.JLabel ParLabel;
     private javax.swing.JButton addMoneyButton;
     private javax.swing.JButton cerrarsesion;
-    private javax.swing.JPasswordField clave;
+    private javax.swing.JPasswordField passw;
     private javax.swing.JLabel cvvLabel;
     private javax.swing.JTextField cvvTextField;
     private javax.swing.JPanel data;

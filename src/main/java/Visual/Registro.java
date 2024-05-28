@@ -11,6 +11,10 @@ import Programa.Credito;
 import Programa.Validate;
 import java.time.LocalDate;
 
+/**
+ * Panel de registro de nuevos usuarios.
+ */
+
 public class Registro extends javax.swing.JPanel {
 
     /**
@@ -18,6 +22,7 @@ public class Registro extends javax.swing.JPanel {
      */
     public Registro() {
         initComponents();
+        // Oculta los mensajes de error y otros campos que no son necesarios inicialmente
         errorLabel.setVisible(false);
         errorLabel1.setVisible(false);
         errorLabel2.setVisible(false);
@@ -47,7 +52,11 @@ public class Registro extends javax.swing.JPanel {
         statementLabel.setVisible(false);
     }
 
-    public void resetText() {
+    /**
+     * Restablece los campos de texto del formulario.
+     */
+    public void reseteoTexto() {
+        // Restablece los campos de texto a su valor predeterminado
         userTextField1.setText("");
         DNITextField.setText("");
         emailTextField.setText("");
@@ -60,8 +69,9 @@ public class Registro extends javax.swing.JPanel {
         dayTextField.setText("");
         yearTextField.setText("");
         selectComboBox.setSelectedItem("Seleccione entre:");
-
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -557,89 +567,110 @@ public class Registro extends javax.swing.JPanel {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
 
-        //Inicializamos atributos
+        // Inicializa los atributos con los valores de los campos de entrada del formulario
         String nombre = userTextField1.getText();
         String dni = DNITextField.getText();
         String correo = emailTextField.getText();
-
-        char[] passwordCharArray = passwordTextField.getPassword();
-        String clave = new String(passwordCharArray);
+        char[] passwCharArray = passwordTextField.getPassword();
+        String passw = new String(passwCharArray);
         String telefono = tlfTextField.getText();
         String numtarjeta = CCTextField.getText();
         String cvv = cvvTextField.getText();
         String promocode = promocodeTextField.getText();
-        double saldo = 1000; //el saldo inicial de todos los clientes será de 1000
+        double saldo = 1000; // El saldo inicial de todos los clientes será de 1000
         boolean valido = true;
         userExiste.setVisible(false);
         int dia = -1;
         int mes = -1;
         int año = -1;
 
+// Verifica la validez del nombre
         if (!Validate.validarNombre(nombre)) {
             errorLabel4.setVisible(true);
             valido = false;
             promocodeTextField.setText("");
-        } else {errorLabel4.setVisible(false);}
+        } else {
+            errorLabel4.setVisible(false);
+        }
 
+// Verifica la validez del DNI
         if (!Validate.validarDNI(dni)) {
             errorLabel2.setVisible(true);
             valido = false;
             DNITextField.setText("");
-        } else { errorLabel2.setVisible(false);}
+        } else {
+            errorLabel2.setVisible(false);
+        }
 
+// Verifica la validez del correo electrónico
         if (!Validate.validarEmail(correo)) {
             errorLabel6.setVisible(true);
             valido = false;
             emailTextField.setText("");
-        } else {errorLabel6.setVisible(false);}
+        } else {
+            errorLabel6.setVisible(false);
+        }
 
+// Verifica la validez del número de teléfono
         if (!Validate.validarTelefono(telefono)) {
             errorLabel5.setVisible(true);
             valido = false;
             tlfTextField.setText("");
-        } else { errorLabel5.setVisible(false);}
+        } else {
+            errorLabel5.setVisible(false);
+        }
 
-        if (!Validate.validarContraseña(clave)) {
+// Verifica la validez de la contraseña
+        if (!Validate.validarContraseña(passw)) {
             errorLabel3.setVisible(true);
             requirementsLabel.setVisible(true);
             passwordTextField.setText("");
             valido = false;
-        } else {  errorLabel3.setVisible(false); }
+        } else {
+            errorLabel3.setVisible(false);
+        }
 
+// Obtiene la opción seleccionada en el ComboBox
         String selectedOption = (String) selectComboBox.getSelectedItem();
+// Comprueba si el usuario ya existe en la base de datos
         boolean usuarioExiste = Validate.comprobarExistenciaCliente(correo.toLowerCase(), dni, telefono);
 
         if (selectedOption.equals("Seleccione entre:")) {
             noselectLabel.setVisible(true);
             userExiste.setVisible(false);
-
         } else if (usuarioExiste) {
             userExiste.setVisible(true);
             noselectLabel.setVisible(false);
-
         } else if (selectedOption.equals("Anfitrion") && valido) {
+            // Registra un nuevo anfitrión si los datos son válidos y la opción seleccionada es "Anfitrion"
             noselectLabel.setVisible(false);
-            Host nuevoAnfitrion = new Host(dni, nombre, correo.toLowerCase(), clave, telefono);
+            Host nuevoAnfitrion = new Host(dni, nombre, correo.toLowerCase(), passw, telefono);
             Inicio.registrarCliente(nuevoAnfitrion);
-            resetText();
-            Aplicacion.loadMainScreen();
+            reseteoTexto();
+            Aplicacion.cargaPantallaPrincipal();
         } else if (selectedOption.equals("Anfitrion") && !valido) {
             noselectLabel.setVisible(true);
-
         } else if (selectedOption.equals("Particular")) {
+            // Comprueba si la opción seleccionada es "Particular"
             try {
+                // Convierte los campos de fecha en números enteros
                 if (!monthTextField.getText().isEmpty()) {
                     mes = Integer.parseInt(monthTextField.getText());
-                } else {System.err.println("El campo de día está vacío."); }
+                } else {
+                    System.err.println("El campo de día está vacío.");
+                }
 
                 if (!dayTextField.getText().isEmpty()) {
                     dia = Integer.parseInt(dayTextField.getText());
-                } else { System.err.println("El campo de mes está vacío.");}
+                } else {
+                    System.err.println("El campo de mes está vacío.");
+                }
 
                 if (!yearTextField.getText().isEmpty()) {
                     año = Integer.parseInt(yearTextField.getText());
-                } else {  System.err.println("El campo de año está vacío.");}
-
+                } else {
+                    System.err.println("El campo de año está vacío.");
+                }
             } catch (NumberFormatException e) {
                 System.err.println("Error al convertir el texto a número.");
                 dia = -1;
@@ -647,6 +678,7 @@ public class Registro extends javax.swing.JPanel {
                 año = -1;
             }
 
+            // Verifica la validez de la tarjeta de crédito
             if (!Validate.validarTarjeta(numtarjeta, dia, mes, año, cvv)) {
                 errorLabel1.setVisible(true);
                 valido = false;
@@ -655,10 +687,10 @@ public class Registro extends javax.swing.JPanel {
                 yearTextField.setText("");
                 cvvTextField.setText("");
             } else {
-
                 errorLabel1.setVisible(false);
             }
 
+            // Verifica la validez del código promocional
             if (!Validate.validarPromocode(promocode)) {
                 errorLabel8.setVisible(true);
                 promocodeTextField.setText("");
@@ -668,26 +700,30 @@ public class Registro extends javax.swing.JPanel {
             }
 
             if (valido) {
+                // Si todos los datos son válidos, registra un nuevo cliente particular
                 noselectLabel.setVisible(false);
                 boolean vip = Validate.validarVipPromocode(promocode);
                 LocalDate fechaCaducidad = LocalDate.of(año, mes, dia);
                 Credito tarjeta = new Credito(nombre, numtarjeta, dia, mes, año, fechaCaducidad, cvv, saldo);
-                Particular nuevoParticular = new Particular(tarjeta, vip, dni, nombre, correo.toLowerCase(), clave, telefono);
+                Particular nuevoParticular = new Particular(tarjeta, vip, dni, nombre, correo.toLowerCase(), passw, telefono);
                 Inicio.registrarCliente(nuevoParticular);
-                resetText();
-                Aplicacion.loadMainScreen();
+                reseteoTexto();
+                Aplicacion.cargaPantallaPrincipal();
                 return;
             }
             noselectLabel.setVisible(true);
-
         }
+
 
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void selectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectComboBoxActionPerformed
-        //Qué ocurre al elegir una opción u otra
+        // Obtiene la opción seleccionada en el ComboBox
         String selectedOption = (String) selectComboBox.getSelectedItem();
+
+// Verifica si la opción seleccionada es "Particular"
         if (selectedOption.equals("Particular")) {
+            // Si es "Particular", muestra los campos de entrada relevantes y las etiquetas asociadas
             monthTextField.setVisible(true);
             dayLabel.setVisible(true);
             dayTextField.setVisible(true);
@@ -697,15 +733,22 @@ public class Registro extends javax.swing.JPanel {
             cvvTextField.setVisible(true);
             cvvLabel.setVisible(true);
             promocodeTextField.setVisible(true);
+            promocodeLabel.setVisible(true);
 
             CCTextField.setVisible(true);
             CCLabel.setVisible(true);
+
+            // Muestra la etiqueta "Seleccione entre" para indicar que aún no se ha seleccionado ninguna opción
             noselectLabel.setVisible(true);
+
+            // Muestra una etiqueta informativa
             statementLabel.setVisible(true);
-            promocodeLabel.setVisible(true);
+
+            // Oculta la etiqueta de error "Seleccione entre" ya que ahora se ha seleccionado una opción
             noselectLabel.setVisible(false);
 
         } else {
+            // Si la opción seleccionada no es "Particular", oculta los campos de entrada y las etiquetas asociadas
             monthTextField.setVisible(false);
             dayLabel.setVisible(false);
             dayTextField.setVisible(false);
@@ -714,14 +757,16 @@ public class Registro extends javax.swing.JPanel {
             yearLabel.setVisible(false);
             cvvTextField.setVisible(false);
             cvvLabel.setVisible(false);
+            promocodeTextField.setVisible(false);
+            promocodeLabel.setVisible(false);
+
             CCTextField.setVisible(false);
             CCLabel.setVisible(false);
 
-            promocodeLabel.setVisible(false);
-            promocodeTextField.setVisible(false);
-
+            // Oculta la etiqueta "Seleccione entre" ya que no es necesario
             noselectLabel.setVisible(false);
 
+            // Oculta cualquier etiqueta de error que pueda estar visible
             errorLabel.setVisible(false);
             errorLabel1.setVisible(false);
             errorLabel2.setVisible(false);
@@ -729,14 +774,16 @@ public class Registro extends javax.swing.JPanel {
             errorLabel3.setVisible(false);
             errorLabel8.setVisible(false);
             errorLabel5.setVisible(false);
-            statementLabel.setVisible(false);
             errorLabel4.setVisible(false);
 
+            // Oculta la etiqueta informativa
+            statementLabel.setVisible(false);
         }
+
     }//GEN-LAST:event_selectComboBoxActionPerformed
 
     private void existaccLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_existaccLabelMouseClicked
-        resetText();
+        reseteoTexto();
         Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla login");
     }//GEN-LAST:event_existaccLabelMouseClicked
 

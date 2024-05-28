@@ -7,27 +7,28 @@ package Visual;
 import Programa.*;
 
 /**
- * Panel que permite al usuario iniciar sesión.
+ * Panel que proporciona la interfaz para que los usuarios inicien sesión.
  */
+
 public class Login extends javax.swing.JPanel {
 
     /**
-     * Crea un nuevo panel de inicio de sesión.
+     * Constructor para crear un nuevo panel de inicio de sesión.
      */
     public Login() {
         initComponents();
-        errorLabel.setVisible(false);
+        errorLabel.setVisible(false); // Inicialmente oculta el mensaje de error
     }
 
     /**
-     * Restablece los campos de texto del formulario. Este método se utiliza
-     * para limpiar los campos de texto cuando se cambia de pestaña o se vuelve
+     * Limpia los campos de texto del formulario. Este método se llama
+     * para vaciar los campos cuando se navega a otra pestaña o se regresa
      * a este panel.
      */
-    private void resetText() {
-        emailTextField.setText("");
-        passwordTextField.setText("");
-        errorLabel.setVisible(false);
+    private void reseteoTexto() {
+        emailTextField.setText(""); // Borra el texto del campo de correo electrónico
+        passwordTextField.setText(""); // Borra el texto del campo de contraseña
+        errorLabel.setVisible(false); // Oculta el mensaje de error
     }
 
     /**
@@ -206,39 +207,44 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_passwordTextFieldMousePressed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        errorLabel.setVisible(false);
-        //Inicializamos atributos
-        String correo = emailTextField.getText();
+        errorLabel.setVisible(false); // Oculta el mensaje de error inicialmente
 
-        //no utilizar getText en la passwordField porque esta "deprecated"
-        char[] passwordCharArray = passwordTextField.getPassword();
-        String clave = new String(passwordCharArray);
-        int tipo = Inicio.iniciarSesion(correo, clave);
-        resetText();
-        switch (tipo) {
+        // Inicializamos los atributos
+        String correo = emailTextField.getText(); // Obtiene el correo electrónico ingresado
+
+        // No utilizar getText en passwordField
+        char[] passwCharArray = passwordTextField.getPassword(); // Obtiene la contraseña como un array de caracteres
+        String passw = new String(passwCharArray); // Convierte el array de caracteres a String
+
+        // Llama al método de inicio de sesión y obtiene el tipo de usuario
+        int types = Inicio.iniciarSesion(correo, passw);
+        reseteoTexto(); // Limpia los campos de texto
+
+        // Dependiendo del tipo de usuario, realiza diferentes acciones
+        switch (types) {
             case 0:
-            errorLabel.setVisible(true);
-            break;
+                errorLabel.setVisible(true); // Muestra el mensaje de error si las credenciales son incorrectas
+                break;
             case 1:
-            System.out.println("Admin");
-            Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen");
-            break;
+                System.out.println("Admin");
+                Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla adminscreen"); // Muestra la pantalla de administrador
+                break;
             case 2:
-            System.out.println("Client");
-            Aplicacion.loadMainScreen();
-            break;
+                System.out.println("Client");
+                Aplicacion.cargaPantallaPrincipal(); // Muestra la pantalla principal para clientes
+                break;
             case 3:
-            System.out.println("Anfitrión");
-            Aplicacion.loadMainScreen();
-            break;
+                System.out.println("Anfitrión");
+                Aplicacion.cargaPantallaPrincipal(); // Muestra la pantalla principal para anfitriones
+                break;
             default:
-            break;
+                break;
         }
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLabelMouseClicked
-        resetText();
+        reseteoTexto();
         Aplicacion.cardLayout.show(Aplicacion.cards, "Pantalla register");
     }//GEN-LAST:event_registerLabelMouseClicked
 

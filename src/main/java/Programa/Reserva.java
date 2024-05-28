@@ -136,7 +136,7 @@ public class Reserva implements Serializable {
         salida.println("\n");
         salida.println("Dirección del inmueble: " + this.inmueble.getDireccion().toString());
         salida.println("\n");
-        salida.println("Tipo de inmueble: " + this.inmueble.getTipo());
+        salida.println("types de inmueble: " + this.inmueble.gettypes());
         salida.println("\n");
         salida.println("Título del inmueble: " + this.inmueble.getTitulo());
         salida.println("\n");

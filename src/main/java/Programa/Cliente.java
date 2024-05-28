@@ -8,14 +8,14 @@ public class Cliente implements Serializable {
     private String dni;
     private String nombre;
     private String correo;
-    private String clave;
+    private String passw;
     private String telefono;
     
-    public Cliente(String dni, String nombre, String correo, String clave, String telefono) {
+    public Cliente(String dni, String nombre, String correo, String passw, String telefono) {
         this.dni = dni;
         this.nombre = nombre;
         this.correo = correo;
-        this.clave = clave;
+        this.passw = passw;
         this.telefono = telefono;
     }
 
@@ -39,21 +39,21 @@ public class Cliente implements Serializable {
     }
 
     /**
-     * Get the value of clave
+     * Get the value of passw
      *
-     * @return the value of clave
+     * @return the value of passw
      */
-    public String getClave() {
-        return clave;
+    public String getpassw() {
+        return passw;
     }
 
     /**
-     * Set the value of clave
+     * Set the value of passw
      *
-     * @param clave new value of clave
+     * @param passw new value of passw
      */
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setpassw(String passw) {
+        this.passw = passw;
     }
 
     /**
@@ -114,7 +114,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "dni:" + dni + ", nombre:" + nombre + ", correo:" + correo + ", clave:" + clave + ", telefono:" + telefono;
+        return "dni:" + dni + ", nombre:" + nombre + ", correo:" + correo + ", passw:" + passw + ", telefono:" + telefono;
     }
 
 }

@@ -24,7 +24,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
 
     private ArrayList<Cliente> clientesaux; // Referencia al ArrayList de personas de la clase JavaBNB
     private ListIterator<Cliente> li; // Iterador para recorrer el ArrayList en ambas direcciones
-    private Cliente objcli; // Referencia a un objeto de tipo cliente del ArrayList
+    private Cliente objcli; // Referencia a un objeto de types cliente del ArrayList
 
     /**
      * Crea un nuevo formulario AdminConsultarUser.
@@ -44,7 +44,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
     /**
      * Actualiza la vista y los datos de los usuarios.
      */
-    public void actualizar() {
+    public void update() {
         errorNextLabel.setVisible(false);
         errorPreviousLabel.setVisible(false);
         consultarTodo();
@@ -98,16 +98,16 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
      * @param per el usuario cuyos detalles se van a mostrar
      */
     private void presenta(Cliente per) {
-        String tipo = per.getClass().getSimpleName();
+        String types = per.getClass().getSimpleName();
         dniTextField.setText(objcli.getDni());
         nameTextField.setText(objcli.getNombre());
         emailTextField.setText(objcli.getCorreo());
-        passTextField.setText(objcli.getClave());
+        passTextField.setText(objcli.getpassw());
         tlfTextField.setText(objcli.getTelefono());
-        if (tipo.equals("Anfitrion")) {
-            typeLabel.setText(tipo);
+        if (types.equals("Anfitrion")) {
+            typeLabel.setText(types);
         } else {
-            typeLabel.setText(tipo);
+            typeLabel.setText(types);
         }
     }
 
@@ -213,7 +213,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
         jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 182, -1, -1));
         jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 179, 208, -1));
 
-        passLabel.setText("Clave:");
+        passLabel.setText("passw:");
         jPanel2.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 222, -1, -1));
         jPanel2.add(passTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 219, 208, -1));
 
@@ -375,10 +375,10 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
                 // Guardar los datos actualizados
                 MainBNB.guardarDatos();
 
-                // Actualizar las vistas
-                Aplicacion.adminconsultarreservas.actualizar();
-                Aplicacion.admincheckbuildings.actualizar();
-                Aplicacion.adminconsultaruser.actualizar();
+                // update las vistas
+                Aplicacion.adminconsultarreservas.update();
+                Aplicacion.admincheckbuildings.update();
+                Aplicacion.adminconsultaruser.update();
             } catch (Exception e) {
                 System.out.println("Está vacío, no se puede eliminar más");
             }
@@ -437,7 +437,7 @@ public class ComprobarUsuarioAdmin extends javax.swing.JPanel {
             if (datosValidos) {
                 objcli.setCorreo(email);
                 objcli.setTelefono(telefono);
-                objcli.setClave(password);
+                objcli.setpassw(password);
 
                 editUserButton.setText("Editar datos");
 
